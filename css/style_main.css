@@ -1,0 +1,562 @@
+/* ==================================================
+   IDX
+================================================== */
+#ID_idx_sv, #ID_idx_rg
+{width: 980px; margin: 0 auto; padding: 100px 0; text-shadow: 0 1px 2px rgba(0,0,0,0.15); text-align: center}
+
+#ID_idx_sv h1, #ID_idx_rg h1 {font-size: 50px; font-weight: 300; color: #333;}
+#ID_idx_sv p, #ID_idx_rg p {font-size: 25px; font-weight: 300; color: #777}
+
+/* ==================================================
+   IDX (NEWS)
+================================================== */
+
+/* News 1 */
+#SC_idx_nw .BG5 {background: url('idx/news/A1.jpg');}
+
+#SC_idx_nw .NW1 hgroup div:nth-child(1) img
+{position: relative; left: 325px; top: 140px; width: 316px; height: 105px; background: url('idx/news/MD.png') no-repeat}
+
+#SC_idx_nw .NW1 hgroup div:nth-child(2)
+{position: relative; left: 385px; top: 210px}
+
+/* News 2 */
+#SC_idx_nw .NW2 h2 {width: 40%; padding-top: 50px; margin-left: 50px; text-shadow: 1px 1px 10px #555}
+#SC_idx_nw .NW2 span{display: inline-block; margin-bottom: 10px; padding: 5px; font-size: 50px; font-weight: 600; line-height: 40px; background: rgba(0,0,0,0.8);}
+#SC_idx_nw .NW2 span:nth-child(1) {color: #9CF}
+#SC_idx_nw .NW2 span:nth-child(2) {color: #9CC}
+#SC_idx_nw .NW2 span:nth-child(3) {color: #9EE}
+#SC_idx_nw .NW2 h2 div {margin-top: 100px}
+
+/* News 3 */
+#SC_idx_nw .BG2 {background: url('idx/news/img_N7.jpg');}
+
+#SC_idx_nw .NW3 hgroup {padding: 40px 0 0 40px}
+
+#SC_idx_nw .NW3 h2, #SC_idx_nw .NW3 h3, #SC_idx_nw .NW3 p {
+-webkit-transform: rotate(-5deg);
+   -moz-transform: rotate(-5deg);
+   	 -o-transform: rotate(-5deg);
+   	 	transform: rotate(-5deg);}
+
+#SC_idx_nw .NW3 h2 span, #SC_idx_nw .NW3 h3 span {font-size: 22px; font-weight: 300}
+#SC_idx_nw .NW3 p span {font-size: 30px; font-weight: 300; line-height: 35px; letter-spacing: 4px; color: #FFF}
+
+#SC_idx_nw .NW3 h2 {width: 44%; padding: 10px; background: rgba(0,0,0,0.1);}
+#SC_idx_nw .NW3 h2 span {color: #FFF}
+#SC_idx_nw .NW3 h2 span:nth-child(2) {margin: 0 5px; font-weight: 600}
+
+#SC_idx_nw .NW3 h3 {width: 36%; margin-left: 115px; padding: 10px; background: rgba(255,255,255,0.3);}
+#SC_idx_nw .NW3 h3 span {color: rgba(51,102,102,0.8);} 
+#SC_idx_nw .NW3 h3 span:nth-child(1) {margin-right: 5px; font-weight: 600}
+
+#SC_idx_nw .NW3 p {width: 56%; margin-top: 40px} 
+#SC_idx_nw .NW3 p span:nth-child(2) {margin-left: 10px; font-weight: 600}
+#SC_idx_nw .NW3 p span:nth-child(4) {margin-left: 40px}
+
+#SC_idx_nw .NW3 hgroup div img
+{position: relative; left: 120px; bottom: -30px; width: 228px; background: url('idx/news/PK1.png') no-repeat}
+
+/* News 4 */
+#SC_idx_nw .BG3 {background: url('idx/news/img_N4.jpg');}
+
+#SC_idx_nw .NW4 h2 {font-size: 50px; line-height: 55px; color: #FFF}
+#SC_idx_nw .NW4 p {margin-top: 20px; font-size: 23px; font-weight: 300; line-height: 35px; color: #F93}
+
+#SC_idx_nw .NW4 iframe {position: relative; top: 90px; right: 60px; float: right}
+#SC_idx_nw .NW4 hgroup {width: 40%; padding-top: 130px; margin-left: 50px}
+
+/* News 5 */
+#SC_idx_nw .BG4 {background: url('idx/news/img_N5.jpg');}
+#SC_idx_nw .NW5 hgroup {width: 500px; padding-top: 65px; margin-right: 100px}
+
+/* ==================================================
+   IDX (INFO)
+================================================== */
+#SC_idx_if {margin-top: 50px}
+#SC_idx_if a {display: block; position: relative}
+
+#SC_idx_if a:hover {
+-webkit-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.5);
+ -khtml-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.5);
+   -moz-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.5);
+    -ms-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.5);
+     -o-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.5);
+   		box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.5);}
+
+#SC_idx_if img {position: absolute; top: 0; right: 0}
+
+/*  INF1
+------------------------------------- */
+#BK_idx_if1 {width: 60%; border-right: solid 1px #E4E4E4; border-bottom: solid 1px #E4E4E4; float: left}
+#BK_idx_if1 a {height: 499px; padding: 50px; background: url('idx/info/A1.jpg') no-repeat 50% 100%}
+#BK_idx_if1 a:hover p span {color: #69C}
+#BK_idx_if1 a img {background: url('all/vig/rd_20.png'); width: 150px}
+
+/*  INF2
+------------------------------------- */
+#BK_idx_if2 {width: 40%; float: left}
+#BK_idx_if2 a {height: 250px; padding: 25px; border-bottom: solid 1px #E4E4E4}
+#BK_idx_if2 a:nth-child(1) {background: url('idx/info/B1.jpg') no-repeat 50% 100%}
+#BK_idx_if2 a:nth-child(2) {background: url('idx/info/B2.jpg') no-repeat 50% 100%}
+#BK_idx_if2 a:nth-child(1) img {background: url('all/vig/nw.png'); width: 100px}
+
+/* ==================================================
+   IDX (SERVICES)
+================================================== */
+#SC_idx_sv {width: 980px; margin: 0 auto}
+#SC_idx_sv > div {width: 310px; float: left}
+#SC_idx_sv > div:nth-child(2) {margin: 0 25px}
+#SC_idx_sv > div .FHb {margin-top: 25px}
+
+#SC_idx_sv .T_A4 img {width: 310px; height: 163px;
+
+-webkit-border-radius: 4px 4px 0 0;
+ -khtml-border-radius: 4px 4px 0 0;
+   -moz-border-radius: 4px 4px 0 0;
+    -ms-border-radius: 4px 4px 0 0;
+     -o-border-radius: 4px 4px 0 0;
+     	border-radius: 4px 4px 0 0}
+
+.ICOidx {position: relative; width: 70px; height: 70px; margin: -33px auto 0 auto; z-index: 10}
+
+/*  IMG
+------------------------------------- */
+#IDX_pic img {background: url('idx/svc/HDpic.jpg');}
+#IDX_pic .ICOidx {background: url('idx/svc/ICOpic.png');
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='idx/svc/ICOpic.png',sizingMethod='crop');}
+
+#IDX_for img {background: url('idx/svc/HDfor.jpg');}
+#IDX_for .ICOidx {background: url('idx/svc/ICOfor.png');
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='idx/svc/ICOfor.png',sizingMethod='crop');}
+
+#IDX_mov img {background: url('idx/svc/HDmov.jpg');}
+#IDX_mov .ICOidx {background: url('idx/svc/ICOpic.png');
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='idx/svc/ICOpic.png',sizingMethod='crop');}
+
+#IDX_des img {background: url('idx/svc/HDdes.jpg');}
+#IDX_des .ICOidx {background: url('idx/svc/ICOdes.png');
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='idx/svc/ICOdes.png',sizingMethod='crop');}
+
+#IDX_web img {background: url('idx/svc/HDweb.jpg');}
+#IDX_web .ICOidx {background: url('idx/svc/ICOweb.png');
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='idx/svc/ICOweb.png',sizingMethod='crop');}
+
+#IDX_ret .ICOidx {background: url('idx/svc/ICOpic.png');
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='idx/svc/ICOpic.png',sizingMethod='crop');}
+
+#IDX_twi .ICOidx {background: url('idx/svc/ICOtwi.png');
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='idx/svc/ICOtwi.png',sizingMethod='crop');}
+
+/*  SVC
+------------------------------------- */
+
+/* Design */
+#IDX_des div:last-child div {padding: 15px; border-top: 1px solid #EEE}
+
+#IDX_des div:last-child div:hover {background: rgba(0,0,0,0.03);
+
+-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+ -khtml-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+   -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+    -ms-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+     -o-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+   		box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);}
+
+#IDX_des div:last-child div:hover h3 {color: #69C}
+
+/* Contact */
+#IDX_ctc h3 {padding: 25px; font-size: 18px}
+#IDX_ctc div {margin-left: 50px; padding-bottom: 20px; text-align: left}
+#IDX_ctc a {width: 110px; margin-bottom: 12px; float: left; opacity: 0.3}
+#IDX_ctc a:hover {opacity: 1.0}
+#IDX_ctc a img {width: 32px; height: 32px; margin: 0 5px 3px 0}
+#IDX_ctc a:nth-child(1) img {background: url('idx/svc/BTNmail.png');}
+#IDX_ctc a:nth-child(2) img {background: url('idx/svc/BTNtwi.png');}
+#IDX_ctc a:nth-child(3) img {background: url('idx/svc/BTNgplus.png');}
+#IDX_ctc a:nth-child(4) img {background: url('idx/svc/BTNfb.png');}
+
+/* twitter */
+#IDX_twi p:nth-child(1) {height: 192px; padding: 46px 25px; font-size: 18px; background: rgba(205,230,255,0.2);}
+
+/* ==================================================
+   IDX (REGISTRER)
+================================================== */
+#ID_idx_rg + section {width: 980px; margin: 0 auto}
+
+/*  Connection
+------------------------------------- */
+#SC_idx_rg .SHl form {padding: 0 25px 25px 25px}
+#SC_idx_rg .SHl div:nth-child(n+2) {margin-top: 20px}
+#SC_idx_rg .SHl a {font-size: 12px; color: #AAA}
+#SC_idx_rg .SHl a:hover {text-decoration: underline}
+
+/*  Registrer
+------------------------------------- */
+#SC_idx_rg .SHr {background: #FFF url('idx/reg/bg.png') no-repeat top right; padding: 25px 30px 0 25px}
+#SC_idx_rg .SHr h2 {margin: 0; text-align: left}
+#SC_idx_rg .SHr p {margin: 25px 0 0 0; color: #777; line-height: 25px; text-align: left}
+#SC_idx_rg .SHr form {margin: 75px 0 26px 0}
+#SC_idx_rg .SHr label {display: block; margin-bottom: 10px; color: #777}
+#SC_idx_rg .SHr input {width: 195px}
+#SC_idx_rg .SHr div {display: inline-block; vertical-align: bottom}
+#SC_idx_rg .SHr div:nth-child(-n+2) {margin: 0 25px 0 0}
+#SC_idx_rg .SHr div:last-child {margin: 0}
+
+/* ==================================================
+   ALL REGISTRER
+================================================== */
+#SC_reg form {padding: 0 150px}
+#SC_reg label {margin-right: 30px; color: #777}
+#SC_reg label input {margin-right: 8px}
+#SC_reg input {margin-bottom: 25px}
+
+#fname, #name, #regCITY, #regCP {width: 192px; float: left}
+#name, #regCP {float: right}
+#regTM + span {display: inline-block; margin-left: 20px}
+#regTM + span a {color: #69C}
+#regTM + span a:hover {text-decoration: underline}
+/* ==================================================
+   ALL CONNECTION
+================================================== */
+#SC_cnt .SHr form {padding: 0 50px}
+#SC_cnt .SHr input {width: 250px; margin: 0 25px; text-align: center}
+#SC_cnt .SHr p {width: 230px; margin: 20px auto; color: #DDD}
+/* ==================================================
+   ALL LOST PASS
+================================================== */
+#SC_lpw .SHr form {padding: 0 150px}
+#SC_lpw .SHr input {width: 350px; margin: 0 25px; text-align: center}
+#SC_lpw .SHr p {width: 190px; margin: 20px auto; color: #DDD}
+/* ==================================================
+   ALL INFO
+================================================== */
+#SC_inf article > div {padding: 50px}
+
+/* ==================================================
+   ACCOUNT
+================================================== */
+#SC_acc_nv .T_BK1 {padding: 50px 120px 0 120px; background: url('acc/IM_0.jpg') no-repeat}
+#SC_acc_nv ul {width: 642px; margin: 0 auto; text-shadow: 0 1px 2px rgba(0,0,0,0.15);}
+#SC_acc_nv ul li {float: left}
+#SC_acc_nv ul a {display: block; margin: 40px 0; padding: 10px 30px; font-size: 18px}
+#SC_acc_nv ul a:hover {color: #69C}
+
+/* ==================================================
+   RETOUCH
+================================================== */
+
+/*  RT
+------------------------------------- */
+#SC_ret_rt .T_LS3 a:nth-child(1) img
+{background: url('ret/idx/A1.jpg') no-repeat; width: 277px; height: 160px}
+#SC_ret_rt .T_LS3 a:nth-child(2) img
+{background: url('ret/idx/A2.jpg') no-repeat; width: 277px; height: 160px}
+#SC_ret_rt .T_LS3 a:nth-child(3) img
+{background: url('ret/idx/A3.jpg') no-repeat; width: 277px; height: 160px}
+#SC_ret_rt .T_LS3 a div
+{margin-bottom: 15px; border-bottom: solid 1px #E4E4E4; padding-bottom: 15px}
+#SC_ret_rt .T_LS3 p:before
+{content: url('all/ico/row_1.png'); margin-right: 8px; vertical-align: middle; opacity: 0.2}
+
+/*  PK
+------------------------------------- */
+#SC_ret_pk .LSt {padding: 15px 0}
+
+/*  TK
+------------------------------------- */
+#liteaccordion li img {width: 602px}
+#liteaccordion li:nth-child(1) img {background: url('ret/idx/tk/A.jpg');}
+#liteaccordion li:nth-child(2) img {background: url('ret/idx/tk/B.jpg');}
+#liteaccordion li:nth-child(3) img {background: url('ret/idx/tk/C.jpg');}
+#liteaccordion li:nth-child(4) img {background: url('ret/idx/tk/D.jpg');}
+#liteaccordion li:nth-child(5) img {background: url('ret/idx/tk/E.jpg');}
+#liteaccordion li:nth-child(6) img {background: url('ret/idx/tk/F.jpg');}
+#liteaccordion li:nth-child(7) img {background: url('ret/idx/tk/G.jpg');}
+#liteaccordion li:nth-child(8) img {background: url('ret/idx/tk/P.jpg');}
+
+/* ==================================================
+   RETOUCH - TIME
+================================================== */
+#SC_ret_tm .T_BK1 {background: url('ret/tm/A0.jpg') no-repeat}
+#SC_ret_tm .T_OTH img {width: 99px; height: 132px; margin-bottom: 20px}
+#ret_tm1 {background: url('ret/tm/A1.png');}
+#ret_tm2 {background: url('ret/tm/A2.png');}
+
+/* ==================================================
+   RETOUCH - STEP
+================================================== */
+#SC_ret_sp .T_BK1 {background: url('ret/sp/A0.jpg') no-repeat}
+#SC_ret_sp > div:nth-child(2) {padding: 50px}
+#SC_ret_sp article .F1 {height: 255px}
+#SC_ret_sp .SH + div {padding: 35px}
+
+/*  AC1
+------------------------------------- */
+#SC_ret_ac1 {padding: 15px 0}
+#SC_ret_ac1 div {padding: 50px}
+
+/*  AC2
+------------------------------------- */
+#SC_ret_ac2 article {background: url('all/ls/LSb.jpg') bottom no-repeat; padding: 30px}
+#SC_ret_ac2 article:last-child {background: none}
+#SC_ret_ac2 article div {float: left}
+
+#SC_ret_ac2 div:first-child img {width: 40px; height: 40px}
+#SC_ret_ac2 div:first-child img:first-child {background: url('ret/idx/N2r.jpg') 50% 50%}
+
+#SC_ret_ac2 select
+{width: 350px; margin: 8px 0 0 70px; border: solid 1px #CCC; text-shadow: 0 1px 2px rgba(0,0,0,0.15);}
+
+/*  AC3
+------------------------------------- */
+#SC_ret_ac3 .SH h3, #SC_ret_ac4 .SH h3 {padding: 10px 0; font-size: 16px; text-align: center}
+
+/* ==================================================
+   RETOUCH - PCK
+================================================== */
+#SC_ret_nv > div {padding: 15px}
+
+/*  IMG
+------------------------------------- */
+#pk-img1 {background-image: url('ret/idx/pk/P1.png');}
+#pk-img2 {background-image: url('ret/idx/pk/P2.png');}
+#pk-img3 {background-image: url('ret/idx/pk/P3.png');}
+#pk-img4 {background-image: url('ret/idx/pk/P4.png');}
+#pk-img5 {background-image: url('ret/idx/pk/P5.png');}
+#pk-img6 {background-image: url('ret/idx/pk/P6.png');}
+#pk-img7 {background-image: url('ret/idx/pk/P7.png');}
+#pk-img8 {background-image: url('ret/idx/pk/P8.png');}
+#pk-img9 {background-image: url('ret/idx/pk/P9.png');}
+
+/* ==================================================
+   PICTURE
+================================================== */
+
+/*  SV1
+------------------------------------- */
+#SC_pic_sv1 #slider-wrapper, #SC_pic1 #slider-wrapper {width: 1100px; height: 400px}
+#SC_pic2, #SC_pic2 nav {margin-top: 50px}
+#tab_pic1, #tab_pic2, #tab_pic3, #tab_pic4 {padding: 50px 100px}
+
+/*  SV2
+------------------------------------- */
+#SC_pic_sv2 a {display: block; position: relative}
+
+#SC_pic_sv2 a:hover {
+-webkit-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.2);
+ -khtml-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.2);
+   -moz-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.2);
+    -ms-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.2);
+     -o-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.2);
+   		box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.2);}
+
+#SC_pic_sv2 img {position: absolute; top: 0; right: 0}
+
+#BK_pic_A1 {width: 40%; float: left}
+#BK_pic_A1 a {height: 250px; padding: 25px; border-bottom: solid 1px #E4E4E4}
+#BK_pic_A1 a:nth-child(1) {background: url('pic/idx/B1.jpg') no-repeat 50% 100%}
+#BK_pic_A1 a:nth-child(2) {background: url('pic/idx/B2.jpg') no-repeat 50% 100%}
+#BK_pic_A1 a:nth-child(1) img {background: url('all/vig/nw.png'); width: 100px}
+
+#BK_pic_A2 {width: 60%; border-left: solid 1px #E4E4E4; border-bottom: solid 1px #E4E4E4; float: left}
+#BK_pic_A2 a {height: 499px; padding: 50px; background: url('pic/idx/B3.jpg') no-repeat 50% 100%}
+#BK_pic_A2 a:hover p span {color: #69C}
+#BK_pic_A2 a img {background: url('all/vig/rd_20.png'); width: 150px}
+
+/*  SV3
+------------------------------------- */
+#SC_pic_sv3 .T_LS3l a:nth-child(1) img
+{background: url('pic/idx/C1.jpg') no-repeat; width: 277px; height: 160px}
+#SC_pic_sv3 .T_LS3l a:nth-child(2) img
+{background: url('pic/idx/C2.jpg') no-repeat; width: 277px; height: 160px}
+#SC_pic_sv3 .T_LS3l a:nth-child(3) img
+{background: url('pic/idx/C3.jpg') no-repeat; width: 277px; height: 160px}
+#SC_pic_sv3 .T_LS3l a div
+{margin-bottom: 15px; border-bottom: solid 1px #E4E4E4; padding-bottom: 15px}
+#SC_pic_sv3 .T_LS3l p:before
+{content: url('all/ico/row_1.png'); margin-right: 8px; vertical-align: middle; opacity: 0.2}
+
+/*  DEVIS
+------------------------------------- */
+#SC_pic_dv {width: 980px; margin: 0 auto}
+#SC_pic_dv > div:nth-child(1) {background: url('pic/dev.jpg') no-repeat 100% 0%}
+#SC_pic_dv > div:last-child {padding: 0px 250px 50px 250px; text-align: center}
+#SC_pic_dv > div:last-child h2 {margin-bottom: 30px; font-size: 18px}
+#SC_pic_dv #firstname, #SC_pic_dv #lastname {width: 230px}
+
+/* ==================================================
+   DESIGN
+================================================== */
+
+/*  SV1
+------------------------------------- */
+#SC_des_sv1 .T_BK1r {background: url('des/idx/A0.jpg') 0% 100% no-repeat}
+
+#SC_des_sv1 .T_LS3 a:nth-child(1) img {background: url('des/idx/A1.jpg') no-repeat; width: 277px; height: 160px}
+#SC_des_sv1 .T_LS3 a:nth-child(2) img {background: url('des/idx/A2.jpg') no-repeat; width: 277px; height: 160px}
+#SC_des_sv1 .T_LS3 a:nth-child(3) img {background: url('des/idx/A3.jpg') no-repeat; width: 277px; height: 160px}
+#SC_des_sv1 .T_LS3 a div {margin-bottom: 15px; border-bottom: solid 1px #E4E4E4; padding-bottom: 15px}
+#SC_des_sv1 .T_LS3 a:hover h1 {color: #69C}
+
+#SC_des_sv1 .T_LS3 p:before
+{content: url('all/ico/row_1.png'); margin-right: 8px; vertical-align: middle; opacity: 0.2}
+
+/*  SV2
+------------------------------------- */
+#SC_des_sv2 {padding-top: 10px}
+
+#BK_des_if1 {width: 653px; border-right: solid 1px #E4E4E4; float: left}
+#BK_des_if1 a {display: block; height: 467px; padding: 50px; background: url('des/idx/B1.jpg') no-repeat 50% 100%}
+#BK_des_if1 a:hover p span {color: #69C}
+
+#BK_des_if2 {width: 327px; float: left}
+#BK_des_if2 a {display: block; padding: 25px}
+#BK_des_if2 a:nth-child(1) {border-bottom: solid 1px #E4E4E4}
+#BK_des_if2 a:nth-child(1) img {background: url('des/idx/B2.jpg') no-repeat; width: 277px; height: 95px}
+#BK_des_if2 a:nth-child(2) img {background: url('des/idx/B3.jpg') no-repeat; width: 277px; height: 95px}
+
+#BK_des_if1 a:hover, #BK_des_if2 a:hover {
+-webkit-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.2);
+ -khtml-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.2);
+   -moz-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.2);
+    -ms-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.2);
+     -o-box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.2);
+   		box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.2);}
+
+/*  SV3
+------------------------------------- */
+#SC_des_sv3 a {display: block; background: url('des/idx/C1.jpg') 0% 100% no-repeat}
+
+/*  SVA
+------------------------------------- */
+#SC_desA1 .T_BK1l {background: url('des/des_sv1/A1.jpg') 100% 20% no-repeat}
+#SC_desA2 a {display: block; background: url('des/des_sv1/A2.jpg') 0% 10% no-repeat}
+#SC_desA3 .T_BK1r {background: url('des/des_sv1/A3.jpg') 0% 100% no-repeat}
+
+/*  SVB
+------------------------------------- */
+#SC_desB1 .T_BK1r {background: url('des/des_sv2/B1.jpg') 5% 0% no-repeat}
+
+#SC_desB1 .LSt {display: block}
+#SC_desB1 .LSt:hover p:last-child {color: #39E}
+#SC_desB1 a:nth-child(1) > div {background: url('des/des_sv2/B2.png') 92% 100% no-repeat}
+#SC_desB1 a:nth-child(2) > div {background: url('des/des_sv2/B3.png') -10% 0% no-repeat}
+
+#SC_desB1 a:hover > div {
+-webkit-box-shadow: inset 0 0 20px 3px rgba(0,0,0,0.2);
+ -khtml-box-shadow: inset 0 0 20px 3px rgba(0,0,0,0.2);
+   -moz-box-shadow: inset 0 0 20px 3px rgba(0,0,0,0.2);
+    -ms-box-shadow: inset 0 0 20px 3px rgba(0,0,0,0.2);
+     -o-box-shadow: inset 0 0 20px 3px rgba(0,0,0,0.2);
+   		box-shadow: inset 0 0 20px 3px rgba(0,0,0,0.2);}
+
+/*  DEVIS
+------------------------------------- */
+#SC_des_dv > div:nth-child(1) {background: url('des/dev.jpg') no-repeat 2% 100%}
+#SC_des_dv > div:last-child {padding: 0px 250px 50px 250px; text-align: center}
+#SC_des_dv > div:last-child h2 {margin-bottom: 30px; font-size: 18px}
+#SC_des_dv #firstname, #SC_des_dv #lastname {width: 230px}
+#SC_des_dv #second_step input {width: 250px; padding: 0 10px; font-size: 20px}
+
+/* ==================================================
+   MOVIE
+================================================== */
+
+/*  SV
+------------------------------------- */
+#SC_mov_sv {background: url('mov/idx/A0.jpg') 100% 10% no-repeat}
+#SC_mov_sv ul {width: 440px; margin: 30px auto}
+#SC_mov_sv li {float: left}
+#SC_mov_sv li:nth-child(2) {margin-left: 40px}
+#SC_mov_sv a {width: 200px}
+
+/*  VD
+------------------------------------- */
+#SC_mov_vd {width: 980px; margin: 0 auto; padding-bottom: 50px}
+#SC_mov_vd .SH {width: 350px; float: left}
+
+#videoThumb {margin-bottom: 50px}
+#videoThumb div:nth-child(1) {float: left}
+#videoThumb div:nth-child(2) {float: right}
+
+#videoThumb article {padding: 0 70px}
+#videoThumb article:last-child {padding-bottom: 40px}
+#videoThumb div {margin: 40px 0 0 0; cursor: pointer}
+
+#videoThumb article:nth-child(1) div:nth-child(1) img {background: url('mov/vd/img1.jpg');}
+#videoThumb article:nth-child(1) div:nth-child(2) img {background: url('mov/vd/img2.jpg');}
+#videoThumb article:nth-child(2) div:nth-child(1) img {background: url('mov/vd/img3.jpg');}
+#videoThumb article:nth-child(2) div:nth-child(2) img {background: url('mov/vd/img4.jpg');}
+
+/*  FAMILY & EVENT
+------------------------------------- */
+#SC_mov_A1, #SC_mov_B1 {width: 980px; margin: 0 auto}
+#SC_mov_A2, #SC_mov_B2 {padding: 100px 0 50px 0}
+
+#SC_mov_A1 {background: url('mov/mov_A/A1.jpg') no-repeat 0% 100%}
+#SC_mov_B1 {background: url('mov/mov_B/B1.jpg') no-repeat 100% 100%}
+
+/*  DEVIS
+------------------------------------- */
+#SC_mov_dv {width: 980px; margin: 0 auto}
+#SC_mov_dv > div:nth-child(1) {background: url('mov/dev.jpg') no-repeat 100% 100%}
+#SC_mov_dv > div:last-child {padding: 0px 250px 50px 250px; text-align: center}
+#SC_mov_dv > div:last-child h2 {margin-bottom: 30px; font-size: 18px}
+#SC_mov_dv #firstname, #SC_mov_dv #lastname {width: 230px}
+
+/* ==================================================
+   FORMATION
+================================================== */
+
+/*  IF
+------------------------------------- */
+#SC_for_if {width: 980px; margin: 0 auto; background: url('for/idx/A0.jpg') 5% 0% no-repeat}
+
+/*  SV
+------------------------------------- */
+#SC_for_sv a {display: block}
+#SC_for_sv a:hover P:last-child {color: #39E}
+#SC_for_sv a:nth-child(1) > div {background: url('for/idx/A1.png') 90% 0% no-repeat}
+#SC_for_sv a:nth-child(2) > div {background: url('for/idx/A2.png') 10% 100% no-repeat}
+#SC_for_sv a:nth-child(3) > div {background: url('for/idx/A3.png') 90% 100% no-repeat}
+#SC_for_sv article h2:before {content: url('for/idx/ico.png') 20px 20px; margin-right: 10px}
+
+#SC_for_sv a:hover {
+-webkit-box-shadow: inset 0 0 20px 3px rgba(0,0,0,0.2);
+ -khtml-box-shadow: inset 0 0 20px 3px rgba(0,0,0,0.2);
+   -moz-box-shadow: inset 0 0 20px 3px rgba(0,0,0,0.2);
+    -ms-box-shadow: inset 0 0 20px 3px rgba(0,0,0,0.2);
+     -o-box-shadow: inset 0 0 20px 3px rgba(0,0,0,0.2);
+   		box-shadow: inset 0 0 20px 3px rgba(0,0,0,0.2);}
+   		
+/* ==================================================
+   FORMATION - A & B
+================================================== */
+
+/*  HOME
+------------------------------------- */
+#SC_for_A1 {background: url('for/for_A/A1.jpg') no-repeat 0% 100%}
+#SC_for_A2 {padding: 100px 0 50px 0}
+
+/*  WEB
+------------------------------------- */
+#SC_for_B1 img {background: url('for/for_B/B1.jpg'); width: 980px; height: 200px}
+
+#SC_for_B2 {width: 1100px; margin: 100px auto 0 auto}
+#SC_for_B2 article:nth-child(1) {width: 480px; float: left}
+#SC_for_B2 article:nth-child(2) {width: 480px; float: right}
+#SC_for_B2 ul {margin: 20px}
+#SC_for_B2 li a {display: block; padding: 10px; border-top: solid 1px #EEE; color: #AAA}
+#SC_for_B2 li a:hover {color: #333}
+#SC_for_B2 li:first-child a {border-top: 0}
+#SC_for_B2 li a span {font-size: 13px; opacity: 0.2; float: right}
+#SC_for_B2 li a:hover span {opacity: 1}
+
+/*  DEVIS
+------------------------------------- */
+#SC_for_dv {width: 980px; margin: 0 auto}
+#SC_for_dv > div:nth-child(1) {background: url('for/dev.jpg') no-repeat 100% 100%}
+#SC_for_dv > div:last-child {padding: 0px 250px 50px 250px; text-align: center}
+#SC_for_dv > div:last-child h2 {margin-bottom: 30px; font-size: 18px}
+#SC_for_dv #firstname, #SC_for_dv #lastname {width: 230px}
