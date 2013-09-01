@@ -120,6 +120,9 @@
 <script type="text/javascript" src="js/tabbed.layout.js"></script> <?php
 } ?>
 
+<?
+/*
+?>
 <!-- ALL (Form) -->
 <?php if($_REQUEST['page']=='picture' || 'formation'){ ?>
 <script type="text/javascript" src="js/jquery.inputfocus-0.9.min.js"></script> <?php
@@ -127,6 +130,9 @@
 <?php if($_REQUEST['page']=='picture' || 'formation'){ ?>
 <script type="text/javascript" src="js/jquery.main.js"></script> <?php
 } ?>
+?
+ */
+?>
 
 <!-- ALL (facebook like) -->
 <div id="fb-root"></div>

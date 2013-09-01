@@ -1,37 +1,37 @@
 <!-- BODY MAIN -->
 
 <body id="body_idx">
-<div id="body_div" class="R4b">
+    <div id="body_div" class="R4b">
 
-<!-- HEADER -->
+        <!-- HEADER -->
 
-<header id="header">
+        <header id="header">
 
-	<!-- MENU -->
+            <!-- MENU -->
 
-	<nav>
+            <nav>
 
-	<?php
-	include ("template/menu.php");
-	?>
+                <?php
+                include ("template/menu.php");
+                ?>
 
-	</nav>
+            </nav>
 
-	<nav id="tit_idx" class="tit_A">
+            <nav id="tit_idx" class="tit_A">
 
-		<h1>mdcreatis<span>.com</span></h1>
-		<ul>
-			<li><a href="#SC_idx_nw">Actualité</a></li>
-			<li><a href="#ID_idx_sv">Nos services</a></li>
-			<li><a href="#ID_idx_rg">Connexion</a></li>
-			<li><a href="#ID_idx_rg">Rejoindre MDcreatis</a></li>
-		</ul>
+                <h1>mdcreatis<span>.com</span></h1>
+                <ul>
+                    <li><a href="#SC_idx_nw">Actualité</a></li>
+                    <li><a href="#ID_idx_sv">Nos services</a></li>
+                    <li><a href="#ID_idx_rg">Connexion</a></li>
+                    <li><a href="#ID_idx_rg">Rejoindre MDcreatis</a></li>
+                </ul>
 
-	</nav>
+            </nav>
 
-</header>
+        </header>
 
-<!-- CONTENT -->
+        <!-- CONTENT -->
 
-<div>
+        <div>
 
