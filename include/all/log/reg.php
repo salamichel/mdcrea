@@ -3,17 +3,17 @@ include ("template/hd/log/H_reg.php");
 ?>
 
 <?
-if (isset($_POST)) {
+if (isset($_POST) && !empty($_POST) && !empty($_POST["src"])) {
 
     $k = RandomString();
 
     $insertData = array("fname" => $_POST["fname"],
         "name" => $_POST["name"],
-        "pwd" => md5($_POST["regPW"]),
-        "email" => $_POST["regID"],
+        "pwd" => md5($_POST["cnx_pass"]),
+        "email" => $_POST["cnx_id"],
         "date_inscription" => date("Y-m-d"),
         "cle_securite" => $k,
-        "ip_inscription" => "12345678",
+        "ip_inscription" => $_SERVER["REMOTE_ADDR"],
         "is_actif" => 0,
     );
 
@@ -35,7 +35,7 @@ if (isset($_POST)) {
         //Set who the message is to be sent from
         $mail->SetFrom($smtp_from, $smtp_from_name);
         //Set who the message is to be sent to
-        $mail->AddAddress($_POST["regID"], $_POST["name"] . " " . $_POST["fname"]);
+        $mail->AddAddress($_POST["cnx_id"], $_POST["name"] . " " . $_POST["fname"]);
         //Set the subject line
         $mail->Subject = 'Sujet ICI';
 
@@ -50,9 +50,7 @@ if (isset($_POST)) {
         //Send the message, check for errors
         if (!$mail->Send()) {
             echo "Mailer Error: " . $mail->ErrorInfo;
-        } else {
-            echo "Message sent!";
-        }
+        } 
     }
 } else {
     ?>
@@ -73,19 +71,19 @@ if (isset($_POST)) {
 
                 <h2>Veuillez saisir les informations suivantes.</h2>
                 <form action="index.php?page=registrer" method="post">
-
+                    <input type="hidden" name="src" value="register">
                     <div class="CLR">
                         <input type="text"	name="fname" id="fname" placeholder="Prénom" required="required">
                         <input type="text"	name="name" id="name" placeholder="Nom" required="required">
                     </div>
                     <div>
-                        <input type="email"	name="regID" id="regID" placeholder="Adresse Email" required="required">
-                        <input type="password" name="regPW" id="regPW" placeholder="Mot de passe" required="required">
+                        <input type="email"	name="cnx_id" id="regID" placeholder="Adresse Email" required="required" value="<?= @$_POST["cnx_id"] ?>">
+                        <input type="password" name="cnx_pass" id="regPW" placeholder="Mot de passe" required="required" value="<?= @$_POST["cnx_pass"] ?>">
                     </div>
                     <div>
                         <input type="checkbox" value="yes" name="regTM" id="regTM"  required="required">
                         <span>
-                            J'accepte les <a target="_blank" href="index.php?page=conditions">Conditions générales</a> 						MDcreatis.com
+                            J'accepte les <a target="_blank" href="index.php?page=conditions">Conditions générales</a> MDcreatis.com
                         </span>
                     </div>
                     <div>

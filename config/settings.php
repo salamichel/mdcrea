@@ -17,4 +17,5 @@ $smtp_debug = 0;
 
 //mails
 $mail_confirmation = "template/mails/welcome.html";
+$mail_lpw= "template/mails/lpw.html";
 ?>

@@ -23,7 +23,14 @@
                 <ul>
                     <li><a href="#SC_idx_nw">Actualité</a></li>
                     <li><a href="#ID_idx_sv">Nos services</a></li>
-                    <li><a href="#ID_idx_rg">Connexion</a></li>
+
+                    <? if (empty($_SESSION["user"]["is_actif"])) { ?>
+                        <li><a href="#ID_idx_rg">Connexion</a></li>
+                    <? } else { ?>
+                        <?= ucfirst($_SESSION["user"]["name"]) ?>
+                        <li><a href="index.php?page=logout">déconnexion</a></li>
+                    <? } ?>
+
                     <li><a href="#ID_idx_rg">Rejoindre MDcreatis</a></li>
                 </ul>
 
