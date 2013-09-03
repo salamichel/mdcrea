@@ -16,9 +16,15 @@ if (isset($_POST) && !empty($_POST)) {
                 ->where('email', $_POST["cnx_id"])
                 ->where('pwd', md5($_POST["cnx_pass"]))
                 ->get('comptes');
+        
+        $adresse = $db
+                ->where('compte_id', $user[0]["compte_id"])
+                ->where('is_actif', 1)
+                ->get('adresses');
 
         if (count($user) == 1) {
             $_SESSION["user"] = $user[0];
+            $_SESSION["adresse"] = $adresse;
             //echo "OK";
         } else {
             echo "KO";
