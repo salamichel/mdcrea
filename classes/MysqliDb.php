@@ -29,7 +29,7 @@ class MysqliDb
      *
      * @var string
      */
-    protected $_query;
+    public $_query;
     /**
      * An array that holds where conditions 'fieldname' => 'value'
      *

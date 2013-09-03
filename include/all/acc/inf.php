@@ -2,59 +2,70 @@
 include ("template/hd/acc/H_acc.php");
 
 $user = $_SESSION["user"];
-$adresse = $_SESSION["adresse"][0];
-
+$adresse = @$_SESSION["adresse"][0];
+$formCorrect = true;
+$msg = "";
 
 if (isset($_POST) && (!empty($_POST))) {
 
+    echo $_POST["cpwd"];
+    echo $_POST["pwd"];
 
-    $userFields = array("genre" => $_POST["genre"],
-        "fname" => $_POST["fname"],
-        "name" => $_POST["name"],
-        "pwd" => md5($_POST["pwd"]),
-    );
-
-    $adresseFields = array("ville" => $_POST["ville"],
-        "adresse1" => $_POST["adresse1"],
-        "adresse2" => $_POST["adresse2"],
-        "cp" => $_POST["cp"],
-        "compte_id" => $user["compte_id"],
-        "is_actif" => 1,
-    );
-
-    //update comptes
-    $r = $db->where("compte_id", $user["compte_id"])
-            ->update("comptes", $userFields);
-
-    if ($r) {
-        $user = $db->where("compte_id", $user["compte_id"])
-                ->get("comptes");
-        $user = $user[0];
-        $_SESSION["user"] = $user;
+    if ($_POST["cpwd"] != $_POST["pwd"]) {
+        $msg = "Mot de passe incorrect";
+        $formCorrect = false;
     }
 
-    //Update adresses
-    $r = $db->where("adresse_id", $adresse["adresse_id"])
-            ->where("compte_id", $user["compte_id"])
-            ->where("is_actif", 1)
-            ->update("adresses", $adresseFields);
+
+    if ($formCorrect) {
+        $userFields = array("genre" => $_POST["genre"],
+            "fname" => $_POST["fname"],
+            "name" => $_POST["name"],
+            "pwd" => md5($_POST["pwd"]),
+        );
+
+        $adresseFields = array("ville" => $_POST["ville"],
+            "adresse1" => $_POST["adresse1"],
+            "adresse2" => $_POST["adresse2"],
+            "cp" => $_POST["cp"],
+            "compte_id" => $user["compte_id"],
+            "is_actif" => 1,
+        );
+
+        //update comptes
+        $r = $db->where("compte_id", $user["compte_id"])
+                ->update("comptes", $userFields);
+
+        if ($r) {
+            $user = $db->where("compte_id", $user["compte_id"])
+                    ->get("comptes");
+            $user = $user[0];
+            $_SESSION["user"] = $user;
+        }
+
+        //Update adresses
+        $r = $db->where("adresse_id", $adresse["adresse_id"])
+                ->where("compte_id", $user["compte_id"])
+                ->where("is_actif", 1)
+                ->update("adresses", $adresseFields);
 
 
 
-    if (!$r) {
+        if (!$r) {
+
+            $adresse = $db->where("compte_id", $user["compte_id"])
+                    ->get("adresses");
+
+            if (count($adresse) == 0)
+                $r = $db->insert("adresses", $adresseFields);
+        }
+
 
         $adresse = $db->where("compte_id", $user["compte_id"])
                 ->get("adresses");
-
-        if (count($adresse) == 0)
-            $r = $db->insert("adresses", $adresseFields);
+        $adresse = $adresse[0];
+        $_SESSION["adresse"][0] = $adresse;
     }
-
-
-    $adresse = $db->where("compte_id", $user["compte_id"])
-            ->get("adresses");
-    $adresse = $adresse[0];
-    $_SESSION["adresse"][0] = $adresse;
 }
 ?>
 
@@ -89,6 +100,13 @@ if (isset($_POST) && (!empty($_POST))) {
             <article class="SHr">
 
                 <h2>Veuillez saisir vos informations correctes.</h2>
+                <?
+                if (!$formCorrect) {
+                    ?>
+                    <div> <?= $msg ?></div> 
+                    <?
+                }
+                ?>
                 <form action="index.php?page=inf" method="post">
 
                     <div class="CLR">

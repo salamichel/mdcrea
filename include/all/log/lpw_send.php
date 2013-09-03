@@ -13,9 +13,7 @@ if (isset($_POST)) {
 
 
     if (count($user) == 1) {
-
-        print_r($user);
-
+        
         //Create a new PHPMailer instance
         $mail = new PHPMailer();
         //Tell PHPMailer to use SMTP
@@ -57,9 +55,6 @@ if (isset($_POST)) {
             }
         }
         ?>
-
-
-
 
         <!-- LOSTPASS -->
 

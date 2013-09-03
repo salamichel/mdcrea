@@ -6,68 +6,58 @@ include ("template/hd/acc/H_acc.php");
 
 <section id="SC_acc_nv" class="FD R4 M20">
 
-	<div class="T_BK1 R4t">
-		<h3>Espace Personnel<span>Mes Commandes</span></h3>
-	</div>
+    <div class="T_BK1 R4t">
+        <h3>Espace Personnel<span>Mes Commandes</span></h3>
+    </div>
 
-<?php
-include ("template/ot/NAV_acc.php");
-?>
+    <?php
+    include ("template/ot/NAV_acc.php");
 
-<!-- CM2 -->
+    $commande_id = $_GET["id"];
+    $order = new MDOrder($db);
+    $order->setOrderId($commande_id);
+    $o = $order->getOrderSummary();
+    $r = $order->getOrderDetail();
+    
+    ?>
 
-<section id="SC_acc_cm2" class="F1 R4 M20">
+    <!-- CM2 -->
 
-	<div class="SH">
-		<h3 class="BK0 R4t">MF-F23091985</h3>	
-	</div>
+    <section id="SC_acc_cm2" class="F1 R4 M20">
 
-	<!-- COMMAND -->
+        <div class="SH">
+            <h3 class="BK0 R4t">MF-<?= $o["reference"]?></h3>	
+        </div>
 
-	<div class="T_CMD2">
+        <!-- COMMAND -->
 
-			<article>
-				<div></div>
-				<div>Technique</div>
-				<div>Option</div>
-				<div>Points</div>
-				<div>Prix TTC</div>
-			</article>
+        <div class="T_CMD2">
 
-			<a>
-				<div><img src="css/all/ico.gif"></div>
-				<div>Ouverture DIAPHRAGME</div>
-				<div>Personnalisée</div>
-				<div>23 MD</div>
-				<div>3.49 €</div>
-			</a>
-			<a>
-				<div><img src="css/all/ico.gif"></div>
-				<div>Gommage IMPERFECTIONS</div>
-				<div>Yeux Personnalisés</div>
-				<div>23 MD</div>
-				<div>149.99 €</div>
-			</a>
-			<a>
-				<div><img src="css/all/ico.gif"></div>
-				<div>Modification ENVIRONNEMENTALE</div>
-				<div>Modification (Secondaire)</div>
-				<div>23 MD</div>
-				<div>1.99 €</div>
-			</a>
+            <article>
+                <div></div>
+                <div>Technique</div>
+                <div>Option</div>
+                <div>Points</div>
+                <div>Prix TTC</div>
+            </article>
+            <?
+            foreach ($r as $detail) {
+                ?>            
+                <a>
+                    <div><img src="css/all/ico.gif"></div>
+                    <div><?= $detail["produit_id"] ?>Ouverture DIAPHRAGME</div>
+                    <div>Personnalisée</div>
+                    <div> MD</div>
+                    <div><?= $detail["total_ht_item"] ?> €</div>
+                </a>
+                <?
+            }
+            ?>
 
-			<article class="LSt">
-				<div></div>
-				<div></div>
-				<div>PRIX TOTAL TTC</div>
-				<div>69 MD</div>
-				<div>155.47 €</div>
-			</article>
+        </div>
 
-	</div>
+    </section>
 
-</section>
-
-<?php
-include ("template/ft/F_wht.php");
-?>
+    <?php
+    include ("template/ft/F_wht.php");
+    ?>

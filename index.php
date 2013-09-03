@@ -4,6 +4,7 @@ include ("template/head.php");
 include ("config/settings.php");
 require_once('classes/MysqliDb.php');
 require_once('classes/phpmailer.php');
+require_once('classes/class.mdorder.php');
 require_once("scripts/functions.php");
 
 //connexion base de données
