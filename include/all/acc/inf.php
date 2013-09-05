@@ -8,14 +8,10 @@ $msg = "";
 
 if (isset($_POST) && (!empty($_POST))) {
 
-    echo $_POST["cpwd"];
-    echo $_POST["pwd"];
-
     if ($_POST["cpwd"] != $_POST["pwd"]) {
         $msg = "Mot de passe incorrect";
         $formCorrect = false;
     }
-
 
     if ($formCorrect) {
         $userFields = array("genre" => $_POST["genre"],
@@ -48,8 +44,6 @@ if (isset($_POST) && (!empty($_POST))) {
                 ->where("compte_id", $user["compte_id"])
                 ->where("is_actif", 1)
                 ->update("adresses", $adresseFields);
-
-
 
         if (!$r) {
 

@@ -45,8 +45,8 @@ include ("template/hd/acc/H_acc.php");
                 ?>            
                 <a>
                     <div><img src="css/all/ico.gif"></div>
-                    <div><?= $detail["produit_id"] ?>Ouverture DIAPHRAGME</div>
-                    <div>Personnalisée</div>
+                    <div><?= $detail["produit_id"] ?></div>
+                    <div></div>
                     <div> MD</div>
                     <div><?= $detail["total_ht_item"] ?> €</div>
                 </a>

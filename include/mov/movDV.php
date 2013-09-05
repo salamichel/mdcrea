@@ -19,15 +19,52 @@ include ("template/hd/nav/H2_mov.php");
 
 		<form action="#" method="post">
 
+			<h2>Demande effectuée par [Nom Membre]</h2>
+
 			<!-- #first_step -->
 			<div id="first_step">
 
-				<h2>Informations personnelles</h2>
+				<h3>Veuillez compléter le contenu de votre Pack</h3>
 				<div class="form CLR">
-					<input type="text" name="firstname" id="firstname" value="Prénom" />
-					<input type="text" name="lastname" id="lastname" value="Nom" />
-					<input type="text" name="email" id="email" value="Adresse Email" />
-					<input type="text" name="phone" id="phone" value="Téléphone" />
+
+					<div class="CLR">
+						<label for="time">Durée de la Séance :</label>
+						<select id="time" name="time">
+							<option>30 min</option>
+							<option>1 h</option>
+							<option>1 heure 30</option>
+							<option>2 heures</option>
+							<option>2 heures 30</option>
+							<option>3 heures</option>
+							<option>3 heures 30</option>
+							<option>4 heures</option>
+						</select>
+					</div>
+
+					<div class="CLR">
+						<label for="time">Durée du film :</label>
+						<select id="time" name="time">
+							<option>1 min</option>
+							<option>2 min</option>
+							<option>3 min</option>
+							<option>4 min</option>
+							<option>5 min</option>
+							<option>6 / 8 min</option>
+							<option>8 / 10 min</option>
+							<option>+10 min</option>
+						</select>
+					</div>
+
+					<div class="CLR">
+						<label for="picture">Nombre de Musiques :</label>
+						<input type="number" name="picture" id="picture" value="Prénom" />
+					</div>
+
+					<div class="CLR">
+                    	<label for="retouch">Nombre de Phrases :</label>
+                    	<input type="number" name="retouch" id="retouch" value="Prénom" />
+					</div>
+
 				</div>
 
 				<button id="submit_first" type="submit" class="BT2 BLUE1 R5" name="submit_first">Suivant</button>
@@ -37,29 +74,42 @@ include ("template/hd/nav/H2_mov.php");
 			<!-- #second_step -->
 			<div id="second_step" class="CLR">
 
-				<h2>Informations pour traiter votre commande.</h2>
+				<h3>Veuillez indiquer le Lieu de la Séance.</h3>
 				<div class="form CLR">
 
 					<div class="CLR">
-						<label for="time">Durée de la séance :</label>
-						<select id="time" name="time">
-							<option>30 min</option>
-							<option>1 h</option>
-							<option>1 heure 30</option>
-							<option>2 heures</option>
-							<option>2 heures 30 minutes</option>
-							<option>3 heures</option>
+						<label for="location">Type de demande :</label>
+						<select id="location" name="location">
+							<option>Particulier</option>
+							<option>Entreprise</option>
+							<option>Evénement</option>
+							<option>Reportage</option>
 						</select>
 					</div>
 
 					<div class="CLR">
-						<label for="picture">Nombre de Photos :</label>
-						<input type="number" name="picture" id="picture" value="Prénom" />
+						<label for="location">Endroit de la séance :</label>
+						<select id="location" name="location">
+							<option>Studio</option>
+							<option>Extérieur</option>
+							<option>Intérieur</option>
+							<option>Domicile</option>
+							<option>Autre</option>
+						</select>
 					</div>
 
 					<div class="CLR">
-                    	<label for="retouch">Nombre de Retouches :</label>
-                    	<input type="number" name="retouch" id="retouch" value="Prénom" />
+						<label for="namecity">Lieu de la séance :</label>
+						<input type="text" name="namecity" id="namecity" placeholder="Nom de la ville" />
+					</div>
+
+					<div class="CLR">
+						<label for="namelocation">Nom de l'endroit :</label>
+						<input type="text" name="namelocation" id="namelocation" placeholder="Nom du lieu" />
+					</div>
+
+					<div class="CLR">
+						<textarea name="comshoot" placeholder="Votre commentaire…" cols=55 rows=10></textarea>
 					</div>
 
 				</div>
@@ -71,54 +121,35 @@ include ("template/hd/nav/H2_mov.php");
 			<!-- #third_step -->
 			<div id="third_step">
 
-				<h2>Informations pour traiter votre commande.</h2>
+				<h3>Veuillez Sélectionner vos Options.</h3>
 				<div class="form CLR">
 
 					<div class="CLR">
-						<label for="namecity">Lieu de la séance :</label>
-						<input type="text" name="namecity" id="namecity" value="Ville" />
+						<input type="checkbox" name="namecity" id="namecity" value="Ville" />
+						<label for="namecity">DVD du Film</label>
 					</div>
-
 					<div class="CLR">
-						<label for="location">Endroit de la séance :</label>
-						<select id="location" name="location">
-							<option>Studio</option>
-							<option>Extérieur</option>
-							<option>Domicile</option>
-						</select>
+						<input type="checkbox" name="namecity" id="namecity" value="Ville" />
+						<label for="namecity">DVD de la Séance<span>4.99 €</span></label>
 					</div>
-
 					<div class="CLR">
-						<label for="namelocation">Nom de l'endroit :</label>
-						<input type="text" name="namelocation" id="namelocation" value="Nom" />
-					</div>
-
-					<div class="CLR">
-						<textarea name="comshoot" placeholder="Votre commentaire…" cols=55 rows=10></textarea>
+						<input type="checkbox" name="namecity" id="namecity" value="Ville" />
+						<label for="namecity">DVD Supplémentaire<span>4.99 €</span></label>
 					</div>
 
 				</div>
 
-				<button id="submit_first" type="submit" class="BT2 BLUE1 R5" name="submit_first">Suivant</button>
+				<button id="submit_third" type="submit" class="BT2 BLUE1 R5" name="submit_third">Suivant</button>
 
 			</div>
-			
+
 			<!-- #fourth_step -->
 			<div id="fourth_step">
 
-				<div class="form CLR">
-					<table>
-						<tr><td>Username</td><td></td></tr>
-						<tr><td>Password</td><td></td></tr>
-						<tr><td>Email</td><td></td></tr>
-						<tr><td>Name</td><td></td></tr>
-						<tr><td>Age</td><td></td></tr>
-						<tr><td>Gender</td><td></td></tr>
-						<tr><td>Country</td><td></td></tr>
-					</table>
-				</div>
+				<h3>Votre demande personnalisée a bien été envoyée.</h3>
 
-				<input class="send submit" type="submit" name="submit_fourth" id="submit_fourth" value="SEND" />            
+
+				<button id="submit_fourth" type="submit" class="BT2 BLUE1 R5" name="submit_fourth">Terminer</button>
 
 			</div>
 

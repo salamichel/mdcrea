@@ -149,17 +149,52 @@ input[type=checkbox]:checked::after {content: url('all/check.png'); position: ab
 #firstname {float: left}
 #lastname {float: right}
 
-#first_step h2, #second_step h2, #third_step h2 {margin-top: 50px}
-#first_step input, #second_step .form div, #third_step .form div {margin-bottom: 25px}
+#SC_pic_dv > div:last-child, #SC_des_dv > div:last-child, #SC_mov_dv > div:last-child, #SC_for_dv > div:last-child {padding: 0px 250px 50px 250px; text-align: center}
 
-#second_step label, #third_step label {display: inline-block; float: left}
-#second_step input, #second_step select, #third_step input, #third_step select
-{display: inline-block; height: 25px; float: right}
+#SC_pic_dv form h2, #SC_des_dv form h2, #SC_mov_dv form h2, #SC_for_dv form h2
+{margin: 50px 0 10px 0; font-size: 20px}
 
-#second_step label {line-height: 30px}
-#second_step input {width: 100px; height: 35px; padding: 0 10px; font-size: 20px}
+#SC_pic_dv select, #SC_des_dv select, #SC_mov_dv select, #SC_for_dv select
+{border: solid 1px rgba(0,0,0,0.1); height: 30px}
 
-#third_step input {width: 250px}
-#third_step textarea {resize: vertical}
+#first_step h3, #second_step h3, #third_step h3 {margin-bottom: 50px; font-weight: 300}
+#first_step .form div, #second_step .form div, #third_step .form div {margin-bottom: 25px}
+
+#first_step textarea,
+#second_step textarea,
+#third_step textarea
+{padding: 10px; resize: vertical}
+
+#first_step textarea,
+#second_step input,
+#second_step textarea,
+#third_step textarea
+{width: 96%; margin: 10px 10px 10px 0; float: right}
+
+#first_step label, #second_step label, #third_step label {display: inline-block; float: left}
+
+#first_step input, #first_step select, #second_step input, #second_step select {float: right}
+
+#first_step label, #second_step label {line-height: 30px}
+#first_step input {width: 100px; height: 30px; padding: 0 10px; font-size: 20px}
+
+#third_step label {width: 90%; text-align: left; float: left}
+#third_step label span {color: #69C; float: right}
+#third_step input {margin: 0 10px; float: left}
 
 #second_step, #third_step, #fourth_step {display: none}
+
+
+#file_design {width: auto; margin: 0 auto}
+#file_design input {width: 51%; margin: 0 auto; padding: 10px; font-size: 11px; float: none}
+
+
+
+
+
+
+
+
+
+
+

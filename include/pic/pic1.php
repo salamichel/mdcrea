@@ -28,9 +28,9 @@ include ("template/hd/nav/H2_pic.php");
 
 	<nav class="NAV_3"> 
 		<ul class="tabs CLR">
-			<li><a href="#tab_pic1" class="R5t">Pack Découverte</a></li>
-			<li><a href="#tab_pic2" class="R5t">Pack Premium</a></li>
-			<li><a href="#tab_pic3" class="R5t">Pack Premium +</a></li>
+			<li><a href="#tab_pic1" class="R5t">OPEN Studio</a></li>
+			<li><a href="#tab_pic2" class="R5t">PREMIUM Studio</a></li>
+			<li><a href="#tab_pic3" class="R5t">PREMIUM+ Studio</a></li>
 		</ul>
 	</nav>
 
@@ -41,14 +41,15 @@ include ("template/hd/nav/H2_pic.php");
 
 			<article>
 
-				<h1>Pack Découverte</h1>
+				<h1>OPEN Studio</h1>
 				<div class="CLR">
 					<img class="R4" src="css/all/ico.gif">
 					<div>
 						<h4>Dorian Delfour</h3>
 						<h5>MDCREATIS</h4>
 					</div> 
-				</div>	
+				</div>
+				<div id="pk-picA1"></div>
 				<p>Partez à la découverte de la photographie en pleine nature grâce à ce pack Découverte.</p>
 				<br><p>• La durée du shooting correspond au temps total pris par le photographe entre le début des premières prises de vue et le dernier cliché capturé.</p>
 				<br><p>• Le nombre de photos comprises dans les packs vous indique la quantité de clichés retravaillés (retouché) par le photographe.</p>
@@ -103,14 +104,15 @@ include ("template/hd/nav/H2_pic.php");
 
 			<article>
 
-				<h1>Pack Premium</h1>
+				<h1>PREMIUM Studio</h1>
 				<div class="CLR">
 					<img class="R4" src="css/all/ico.gif">
 					<div>
 						<h4>Dorian Delfour</h3>
 						<h5>MDCREATIS</h4>
-					</div> 
-				</div>	
+					</div>
+				</div>
+				<div id="pk-picA2"></div>
 				<p>Partez à la découverte de la photographie en pleine nature grâce à ce pack Découverte.</p>
 				<br><p>• La durée du shooting correspond au temps total pris par le photographe entre le début des premières prises de vue et le dernier cliché capturé.</p>
 				<br><p>• Le nombre de photos comprises dans les packs vous indique la quantité de clichés retravaillés (retouché) par le photographe.</p>
@@ -165,14 +167,15 @@ include ("template/hd/nav/H2_pic.php");
 
 			<article>
 
-				<h1>Pack Premium +</h1>
+				<h1>PREMIUM+ Studio</h1>
 				<div class="CLR">
 					<img class="R4" src="css/all/ico.gif">
 					<div>
 						<h4>Dorian Delfour</h3>
 						<h5>MDCREATIS</h4>
-					</div> 
-				</div>	
+					</div>
+				</div>
+				<div id="pk-picA3"></div>
 				<p>Partez à la découverte de la photographie en pleine nature grâce à ce pack Découverte.</p>
 				<br><p>• La durée du shooting correspond au temps total pris par le photographe entre le début des premières prises de vue et le dernier cliché capturé.</p>
 				<br><p>• Le nombre de photos comprises dans les packs vous indique la quantité de clichés retravaillés (retouché) par le photographe.</p>

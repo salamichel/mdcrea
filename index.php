@@ -5,16 +5,15 @@ include ("config/settings.php");
 require_once('classes/MysqliDb.php');
 require_once('classes/phpmailer.php');
 require_once('classes/class.mdorder.php');
+require_once('classes/class.mdcreatis.php');
 require_once("scripts/functions.php");
 
 //connexion base de données
 $db = new Mysqlidb($bdd_host, $bdd_user, $bdd_pwd, $bdd_name);
 
-
 if (isset($_POST) && !empty($_POST)) {
     if (!empty($_POST["src"]) && $_POST["src"]=="connection") {
-        $user = $db
-                ->where('email', $_POST["cnx_id"])
+        $user = $db->where('email', $_POST["cnx_id"])
                 ->where('pwd', md5($_POST["cnx_pass"]))
                 ->get('comptes');
         
@@ -313,6 +312,9 @@ if (isset($_GET) && !empty($_GET['page'])) {
             break;
         case "contact":
             include("include/all/inf/cot.php");
+            break;
+        case "order_step2":
+            include("template/forms/step2.php");
             break;
         case "logout":
             unset($_SESSION);

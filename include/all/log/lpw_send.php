@@ -16,16 +16,6 @@ if (isset($_POST)) {
         
         //Create a new PHPMailer instance
         $mail = new PHPMailer();
-        //Tell PHPMailer to use SMTP
-        $mail->IsSMTP();
-
-        $mail->SMTPDebug = $smtp_debug;
-        //Ask for HTML-friendly debug output
-        $mail->Debugoutput = 'html';
-        //Set the hostname of the mail server
-        $mail->Host = $smtp_host;
-        //Set the SMTP port number - likely to be 25, 465 or 587
-        $mail->Port = $smtp_port;
         //Set who the message is to be sent from
         $mail->SetFrom($smtp_from, $smtp_from_name);
         //Set who the message is to be sent to
@@ -44,7 +34,7 @@ if (isset($_POST)) {
         if ($results) {
             $mail_body = file_get_contents($mail_lpw);
 
-            $mail_body = str_replace("{link}", "http://" . $_SERVER["HTTP_HOST"] . "/index.php?page=registrer_finished&key=" . $k, $mail_body);
+            $mail_body = str_replace("{link}", "http://" . $_SERVER["HTTP_HOST"]  . $mdfolder . "index.php?page=registrer_finished&key=" . $k, $mail_body);
             $mail_body = str_replace("{new_pwd}", $new_pwd, $mail_body);
 
             //Read an HTML message body from an external file, convert referenced images to embedded, convert HTML into a basic plain-text alternative body

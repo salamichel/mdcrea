@@ -5,9 +5,10 @@ $updateData = array(
     'is_actif' => '1',
     'date_activation' => date("Y-m-d h:i:s")
 );
+
+
 $db->where('cle_securite', $_GET["key"]);
 $results = $db->update('comptes', $updateData);
-
 
 $user = $db
         ->where('cle_securite', $_GET["key"])
