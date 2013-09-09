@@ -1,4 +1,5 @@
 <?PHP
+
 //
 // Cart Class (juillet 2005)
 // Nordine Ghachi
@@ -7,60 +8,74 @@
 //
 class Panier {
 
-  private $panier = array();
+    private $panier = array();
 
-	// constructeur
-	function __construct(){ // constructeur
-		@session_start();
-		if (!isset($_SESSION['cart'])) $_SESSION['cart']=array();
-		$this->panier =& $_SESSION['cart'];
-	}
+    // constructeur
+    function __construct() { // constructeur
+        @session_start();
+        if (!isset($_SESSION['cart']))
+            $_SESSION['cart'] = array();
+        $this->panier = & $_SESSION['cart'];
+    }
 
-	// ajouter un article $refproduit
-	public function addItem($refproduit="",$nb=1){
-		@$this->panier[$refproduit]['quantity'] += $nb;
-		if ($nb <= 0) unset ($this->panier[$refproduit]);
-	}
-	
-	// supprimer un article $refproduit
-	public function removeItem($refproduit="",$nb=1){
-		@$this->panier[$refproduit]['quantity'] -= $nb;
-		if ($nb <= 0) unset ($this->panier[$refproduit]);
-	}
-	
-		// choisir la quantité d'article $refproduit
-	public function setQuantity($refproduit="",$toSet=""){
-		@$this->panier[$refproduit]['quantity'] = $toSet ;
-		if ($toSet <= 0) unset ($this->panier[$refproduit]);
-	}
-	
-	// afficher la quantité de produits dans le panier
-	// paramètre : $refproduit : permet d'afficher la quantité pour le produit de cette référence
-	// si le paramètre est vide, on affiche la quantité totale de produit
-	public function showQuantity($refproduit=""){
-		if ($refproduit) {
-			return $this->panier[$refproduit]['quantity'];
-		}else{
-			$total = 0;
-			foreach($this->panier as $ref => $data) {
-				$total += $data['quantity'];
-			}
-		}
-			return $total;
-	}
-	
-	// afficher la liste des articles (et accessoirement, leur quantité)
-	
-	public function showCart(){
-			$list = array();
-			$i = 0;
-			foreach($this->panier as $ref => $data) {
-				$list['ref'][$i] = $ref;
-				$list['qte'][$i] = $data['quantity'];
-				$i++;
-			}
-			return $list;
-	}
-	
-} // fin de la classe
+    // ajouter un article $refproduit
+    public function addItem($refproduit = "", $nb = 1, $prix = 0) {
+        @$this->panier[$refproduit]['quantity'] += $nb;
+        @$this->panier[$refproduit]['prix'] += $prix;
+        if ($nb <= 0)
+            unset($this->panier[$refproduit]);
+    }
+
+    // supprimer un article $refproduit
+    public function removeItem($refproduit = "", $nb = 1) {
+        @$this->panier[$refproduit]['quantity'] -= $nb;
+        if ($nb <= 0)
+            unset($this->panier[$refproduit]);
+    }
+
+    // choisir la quantitï¿½ d'article $refproduit
+    public function setQuantity($refproduit = "", $toSet = "") {
+        @$this->panier[$refproduit]['quantity'] = $toSet;
+        if ($toSet <= 0)
+            unset($this->panier[$refproduit]);
+    }
+
+    // afficher la quantitï¿½ de produits dans le panier
+    // paramï¿½tre : $refproduit : permet d'afficher la quantitï¿½ pour le produit de cette rï¿½fï¿½rence
+    // si le paramï¿½tre est vide, on affiche la quantitï¿½ totale de produit
+    public function showQuantity($refproduit = "") {
+        if ($refproduit) {
+            return $this->panier[$refproduit]['quantity'];
+        } else {
+            $total = 0;
+            foreach ($this->panier as $ref => $data) {
+                $total += $data['quantity'];
+            }
+        }
+        return $total;
+    }
+
+    // afficher la liste des articles (et accessoirement, leur quantitï¿½)
+
+    public function showCart() {
+        $list = array();
+        $i = 0;
+        foreach ($this->panier as $ref => $data) {
+            $list[$i]["id"] = $ref;
+            $list[$i]["qte"] = $data['quantity'];
+            $list[$i]["prix"] = $data['prix'];
+            $i++;
+        }
+        return $list;
+    }
+
+    public function flush() {
+
+        $this->panier = array();
+        unset($_SESSION['cart']);
+    }
+
+}
+
+// fin de la classe
 ?>

@@ -1,22 +1,26 @@
 <?php
+
 session_start();
 include ("template/head.php");
 include ("config/settings.php");
 require_once('classes/MysqliDb.php');
 require_once('classes/phpmailer.php');
-require_once('classes/class.mdorder.php');
-require_once('classes/class.mdcreatis.php');
+require_once('classes/panier.php');
+require_once('classes/class.MDOrder.php');
+require_once('classes/class.MDCreatis.php');
+require_once('classes/class.MDProduct.php');
+require_once('classes/class.MDPack.php');
 require_once("scripts/functions.php");
 
 //connexion base de données
 $db = new Mysqlidb($bdd_host, $bdd_user, $bdd_pwd, $bdd_name);
 
 if (isset($_POST) && !empty($_POST)) {
-    if (!empty($_POST["src"]) && $_POST["src"]=="connection") {
+    if (!empty($_POST["src"]) && $_POST["src"] == "connection") {
         $user = $db->where('email', $_POST["cnx_id"])
                 ->where('pwd', md5($_POST["cnx_pass"]))
                 ->get('comptes');
-        
+
         $adresse = $db
                 ->where('compte_id', $user[0]["compte_id"])
                 ->where('is_actif', 1)
@@ -316,6 +320,16 @@ if (isset($_GET) && !empty($_GET['page'])) {
         case "order_step2":
             include("template/forms/step2.php");
             break;
+        case "order_step3":
+            include("template/forms/step3.php");
+            break;
+        case "order_step4":
+
+            if (!empty($_SESSION["order_id"])) {
+                include("template/forms/step4.php");
+                break;
+            }
+
         case "logout":
             unset($_SESSION);
             session_destroy();

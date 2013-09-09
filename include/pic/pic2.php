@@ -6,8 +6,7 @@ $md_page->setPagePath("include/pic/pic2.php");
 
 $openOutdoor= $md_page->getSubPage("OPEN Outdoor");
 $openPremium = $md_page->getSubPage("PREMIUM Outdoor");
-
-
+$openPremiumPlus = $md_page->getSubPage("PREMIUM+ Outdoor");
 
 ?>
 
@@ -39,7 +38,7 @@ $openPremium = $md_page->getSubPage("PREMIUM Outdoor");
         <ul class="tabs CLR">
             <li><a href="#tab_pic1" class="R5t"><?= $openOutdoor["nom"] ?></a></li>
             <li><a href="#tab_pic2" class="R5t"><?= $openPremium["nom"] ?></a></li>
-            <li><a href="#tab_pic3" class="R5t">PREMIUM+ Outdoor</a></li>
+            <li><a href="#tab_pic3" class="R5t"><?= $openPremiumPlus["nom"] ?></a></li>
         </ul>
     </nav>
 
@@ -203,12 +202,16 @@ $openPremium = $md_page->getSubPage("PREMIUM Outdoor");
 
                     <div>
                         <span>le pack au prix total de</span>
-                        <span>39</span>
+                        <span><?= $openPremiumPlus["prix"] ?></span>
                         <div>
-                            <sup>,99€</sup>
+                            <sup>,<?= $openPremiumPlus["decimal"] ?>€</sup>
                             <sub>TTC</sub>
                         </div>
-                        <a class="BT2 BLUE2 R5" href="#">Faire une Demande</a>
+                        <form name = "cart" action="index.php?page=order_step2" method="post">
+                            <input type="hidden" name="item_id" value ="<?= $openPremiumPlus["produit_id"] ?>">
+                            <button type="submit" > Faire une Demande </button>
+                            <a class="BT2 BLUE2 R5" href="#">Faire une Demande</a>
+                        </form>                        
                     </div>
 
                 </article>
