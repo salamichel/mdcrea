@@ -19,12 +19,12 @@ if (isset($_POST) && !empty($_POST)) {
     if (!empty($_POST["src"]) && $_POST["src"] == "connection") {
         $user = $db->where('email', $_POST["cnx_id"])
                 ->where('pwd', md5($_POST["cnx_pass"]))
-                ->get('comptes');
+                ->get('md_comptes');
 
         $adresse = $db
                 ->where('compte_id', $user[0]["compte_id"])
                 ->where('is_actif', 1)
-                ->get('adresses');
+                ->get('md_adresses');
 
         if (count($user) == 1) {
             $_SESSION["user"] = $user[0];
@@ -329,6 +329,10 @@ if (isset($_GET) && !empty($_GET['page'])) {
                 include("template/forms/step4.php");
                 break;
             }
+        case "send_devis":
+
+            include("template/forms/send_devis.php");
+            break;
 
         case "logout":
             unset($_SESSION);

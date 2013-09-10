@@ -26,6 +26,7 @@ class MDOrder {
         $this->nb_total_items = 0;
         $this->point_fidelite = 0;
         $this->total_ht = 0;
+        $this->compte_id = 0;
         $this->db = &$db;
         $this->setReference();
         $this->setUser($_SESSION["user"]["compte_id"]);
@@ -57,7 +58,7 @@ class MDOrder {
             "date_modification" => $this->date_modification);
 
         $this->commande_id = $this->db->where("commande_id", $this->commande_id)
-                ->update("commandes", $updateOrderFields);
+                ->update("md_commandes", $updateOrderFields);
 
         // i
     }
@@ -109,7 +110,7 @@ class MDOrder {
 
         if (empty($this->commande_id)) {
 
-            $this->commande_id = $this->db->insert("commandes", $insOrderFields);
+            $this->commande_id = $this->db->insert("md_commandes", $insOrderFields);
 
             $_SESSION["order_id"] = $this->commande_id;
 
@@ -121,7 +122,7 @@ class MDOrder {
                     "nb_item" => $produit["nb_item"],
                     "total_ht_item" => $produit["nb_item"] * $produit["prix_ht"],
                 );
-                $this->db->insert("commande_detail", $insOrderDetailFields);
+                $this->db->insert("md_commande_detail", $insOrderDetailFields);
             }
 
             foreach ($this->packs as $pack) {
@@ -132,7 +133,7 @@ class MDOrder {
                     "nb_item" => $pack["nb_item"],
                     "total_ht_item" => $pack["nb_item"] * $pack["prix_ht"]);
 
-                $this->db->insert("commande_detail", $insOrderDetailFields);
+                $this->db->insert("md_commande_detail", $insOrderDetailFields);
             }
 
             return($this->commande_id);
@@ -141,15 +142,22 @@ class MDOrder {
     }
 
     public function getOrderDetail() {
-        $r = $this->db->where("commande_id", $this->commande_id)
-                ->get("commande_detail");
-
+        
+        $r = $this->db->rawQuery("SELECT * FROM md_commandes a, md_commande_detail b, md_produits c
+            WHERE a.commande_id = b.commande_id 
+            and b.produit_id = c.produit_id 
+            and a.commande_id = ?
+            ", 
+                array($this->commande_id)
+                );                    
+            
+        
         return($r);
     }
 
     public function getOrderSummary() {
         $r = $this->db->where("commande_id", $this->commande_id)
-                ->get("commandes");
+                ->get("md_commandes");
 
         return($r[0]);
     }
@@ -175,4 +183,5 @@ class MDOrder {
     }
 
 }
+
 ?>

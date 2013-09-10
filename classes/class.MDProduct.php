@@ -24,7 +24,7 @@ class MDProduct {
             return;
 
         $r = $this->db->where("produit_id", $this->id)
-                ->get("produits");
+                ->get("md_produits");
 
         $this->name = $r[0]["nom"];
     }
@@ -35,7 +35,7 @@ class MDProduct {
 
         $params = array($this->id);
 
-        $resutls = $this->db->rawQuery("SELECT * FROM produit_tkt a, techniques o WHERE a.technique_id = o.technique_id and produit_id = ? ", $params);
+        $resutls = $this->db->rawQuery("SELECT * FROM md_produit_tkt a, md_techniques o WHERE a.technique_id = o.technique_id and produit_id = ? ", $params);
 
         foreach ($resutls as $item) {
             array_push($this->techniques, $item);
@@ -44,7 +44,7 @@ class MDProduct {
 
     function getProductInfo() {
         $r = $this->db->where('produit_id', $this->id)
-                ->get("produits");
+                ->get("md_produits");
 
         list($whole, $decimal) = explode('.', $r[0]["prix_ht"]);
         $this->prix = $whole;

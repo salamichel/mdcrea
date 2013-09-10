@@ -8,11 +8,11 @@ $updateData = array(
 
 
 $db->where('cle_securite', $_GET["key"]);
-$results = $db->update('comptes', $updateData);
+$results = $db->update('md_comptes', $updateData);
 
 $user = $db
         ->where('cle_securite', $_GET["key"])
-        ->get('comptes');
+        ->get('md_comptes');
 
 if (count($user) == 1) {
     $_SESSION["user"] = $user[0];

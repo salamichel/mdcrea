@@ -11,23 +11,53 @@ $mail->AddAddress($_SESSION["user"]["email"], $_SESSION["user"]["name"] . " " . 
 $mail->Subject = 'Sujet ICI';
 //Read an HTML message body from an external file, convert referenced images to embedded, convert HTML into a basic plain-text alternative body
 
-$mail_body = file_get_contents($mail_order_conf);
 
 $cart = new Panier();
+$cart->addItem(1, 1, 0);
+
 $order = new MDOrder($db);
 
-$orderSummary = $order->getOrderSummary();
-
-$items = $order->getOrderDetail();
-
-$items_list = "";
+$items = $cart->showCart();
 
 if (!empty($items)) {
-    foreach ($items as $item) {
-
-        $items_list .= 'ref=' . $item["produit_id"] . 'qte=' . $item["nb_item"] . 'prix=' . $item["total_ht_item"];
-    } // End of foreach loop!
+    foreach ($items as $i => $item) {
+        $order->addProduits(array("produit_id" => $item["id"], "nb_item" => $item["qte"], "prix_ht" => $item["prix"]));
+        
+    }
 }
+
+
+$id = $order->saveOrder();
+
+//print_r($order);
+        
+$order->validate();
+
+// commande
+
+$contactInfo = array("type" => $_POST["location"],
+    "endroit" => $_POST["place"],
+    "lieu" => $_POST["namecity"],
+    "prestation" => "Film",
+    "nom_lieu" => $_POST["namelocation"],
+    "commentaire" => $_POST["comshoot"],
+    "duree_seance" => $_POST["duree_seance"],
+    "duree_film" => $_POST["duree_film"],
+    "nb_musiques" => $_POST["nb_musiques"],
+    "nb_phrases" => $_POST["nb_phrases"],
+    "compte_id" => $_SESSION["user"]["compte_id"],
+    "commande_id" => $_SESSION["order_id"]
+);
+
+$c = $db->insert("md_contact", $contactInfo);
+
+
+
+
+
+
+
+$mail_body = file_get_contents($mail_order_conf);
 
 // ajout des options 
 if (!empty($_POST["options"])) {
@@ -40,7 +70,7 @@ if (!empty($_POST["options"])) {
 }
 
 
-$mail_body = str_replace("{items}", $items_list, $mail_body);
+//$mail_body = str_replace("{items}", $items_list, $mail_body);
 //$mail_body = str_replace("{user_information}", $user, $mail_body);
 //$mail_body = str_replace("{user_adresse}", $, $mail_body);
 
@@ -53,6 +83,8 @@ if (!$mail->Send()) {
     $order->flush();
     $cart->flush();
 }
+
+
 ?>
 
 <div class="M980">

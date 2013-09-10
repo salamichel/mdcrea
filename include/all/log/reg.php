@@ -19,7 +19,7 @@ if (isset($_POST) && !empty($_POST) && !empty($_POST["src"])) {
         "is_actif" => 0,
     );
 
-    if ($db->insert('comptes', $insertData)) {
+    if ($db->insert('md_comptes', $insertData)) {
         include("include/all/log/reg_conf.php");
 
         //Create a new PHPMailer instance

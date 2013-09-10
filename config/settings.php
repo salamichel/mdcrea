@@ -3,7 +3,7 @@
 $bdd_host = "localhost";
 $bdd_user = "root";
 $bdd_pwd = "";
-$bdd_name = "mdcreatis";
+$bdd_name = "mdcreatis2";
 
 $smtp_from = "stephane.alamichel@gmail.com";
 $smtp_from_name = "Stéphane Alamichel";

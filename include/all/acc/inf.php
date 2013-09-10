@@ -30,11 +30,11 @@ if (isset($_POST) && (!empty($_POST))) {
 
         //update comptes
         $r = $db->where("compte_id", $user["compte_id"])
-                ->update("comptes", $userFields);
+                ->update("md_comptes", $userFields);
 
         if ($r) {
             $user = $db->where("compte_id", $user["compte_id"])
-                    ->get("comptes");
+                    ->get("md_comptes");
             $user = $user[0];
             $_SESSION["user"] = $user;
         }
@@ -43,20 +43,20 @@ if (isset($_POST) && (!empty($_POST))) {
         $r = $db->where("adresse_id", $adresse["adresse_id"])
                 ->where("compte_id", $user["compte_id"])
                 ->where("is_actif", 1)
-                ->update("adresses", $adresseFields);
+                ->update("md_adresses", $adresseFields);
 
         if (!$r) {
 
             $adresse = $db->where("compte_id", $user["compte_id"])
-                    ->get("adresses");
+                    ->get("md_adresses");
 
             if (count($adresse) == 0)
-                $r = $db->insert("adresses", $adresseFields);
+                $r = $db->insert("md_adresses", $adresseFields);
         }
 
 
         $adresse = $db->where("compte_id", $user["compte_id"])
-                ->get("adresses");
+                ->get("md_adresses");
         $adresse = $adresse[0];
         $_SESSION["adresse"][0] = $adresse;
     }

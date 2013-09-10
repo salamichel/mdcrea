@@ -27,7 +27,7 @@ class MDPack {
 
         $params = array($this->id);
 
-        $resutls = $this->db->rawQuery("SELECT * FROM pack_options a, options o WHERE a.option_id = o.option_id and pack_id = ? ", $params);
+        $resutls = $this->db->rawQuery("SELECT * FROM md_pack_options a, md_options o WHERE a.option_id = o.option_id and pack_id = ? ", $params);
 
         foreach ($resutls as $item) {
             array_push($this->options, $item);
@@ -40,7 +40,7 @@ class MDPack {
 
         $params = array($this->id);
 
-        $resutls = $this->db->rawQuery("SELECT * FROM pack_produits a, produits o WHERE a.produit_id = o.produit_id and pack_id = ? ", $params);
+        $resutls = $this->db->rawQuery("SELECT * FROM md_pack_produits a, md_produits o WHERE a.produit_id = o.produit_id and pack_id = ? ", $params);
 
         foreach ($resutls as $item) {
             array_push($this->produits, $item);
@@ -52,7 +52,7 @@ class MDPack {
             return;
 
         $r = $this->db->where("pack_id", $this->id)
-                ->get("packs");
+                ->get("md_packs");
 
         $this->name = $r[0]["nom"];
     }

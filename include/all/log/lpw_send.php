@@ -6,7 +6,7 @@ include ("template/hd/log/H_lpw.php");
 if (isset($_POST)) {
 
     $user = $db->where('email', $_POST["lpw_id"])
-            ->get('comptes');
+            ->get('md_comptes');
 
     $k = RandomString();
     $new_pwd = RandomString();
@@ -29,7 +29,7 @@ if (isset($_POST)) {
         );
 
         $results = $db->where('compte_id', $user[0]["compte_id"])
-                ->update('comptes', $updateData);
+                ->update('md_comptes', $updateData);
 
         if ($results) {
             $mail_body = file_get_contents($mail_lpw);

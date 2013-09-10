@@ -19,7 +19,7 @@ class mdcreatis {
 
     function getPageInfo() {
         $r = $this->db->where('chemin', $this->path)
-                ->get("produits");
+                ->get("md_produits");
 
         $this->pagesInfo = $r;
         return($r);

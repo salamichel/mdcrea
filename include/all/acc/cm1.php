@@ -39,10 +39,8 @@ $user = $_SESSION["user"];
             </article>
 
             <?
-            $r = $db->where("compte_id", $user["compte_id"])
-                    ->where("status_id", 1)
-                    ->get("commandes");
-
+            $r = $db->rawQuery("SELECT * FROM md_commandes a, md_status b WHERE a.status_id = b.status_id and a.compte_id = ? and a.status_id = ? ", array($user["compte_id"],"1"));                    
+            
             foreach ($r as $commande) {
                 ?>
 
@@ -50,7 +48,7 @@ $user = $_SESSION["user"];
                     <div><?= $commande["reference"] ?></div>
                     <div>Retouche</div>
                     <div><?= $commande["date_ajout"] ?></div>
-                    <div><?= $commande["status_id"] ?></div>
+                    <div><?= $commande["label"] ?></div>
                     <div><?= $commande["point_fidelite"] ?></div>
                     <div><?= $commande["total_ht"] ?> €</div>
                     <div>voir</div>
@@ -84,60 +82,25 @@ $user = $_SESSION["user"];
                 <div></div>
             </article>
 
-            <a href="#">
-                <div>MF-F23091985</div>
-                <div>Retouche</div>
-                <div>20-01-2012</div>
-                <div>En Attente</div>
-                <div>23 MD</div>
-                <div>3.49€</div>
-                <div>voir</div>
-            </a>
-            <a href="#">
-                <div>MF-F23091985</div>
-                <div>Design</div>
-                <div>18-01-2012</div>
-                <div>En Cours</div>
-                <div>23 MD</div>
-                <div>149.99€</div>
-                <div>voir</div>
-            </a>
-            <a href="#">
-                <div>MF-F23091985</div>
-                <div>Retouche</div>
-                <div>18-01-2012</div>
-                <div>En Cours</div>
-                <div>23 MD</div>
-                <div>1.99€</div>
-                <div>voir</div>
-            </a>
-            <a href="#">
-                <div>MF-F23091985</div>
-                <div>Retouche</div>
-                <div>20-01-2012</div>
-                <div>En Attente</div>
-                <div>23 MD</div>
-                <div>3.49€</div>
-                <div>voir</div>
-            </a>
-            <a href="#">
-                <div>MF-F23091985</div>
-                <div>Design</div>
-                <div>18-01-2012</div>
-                <div>En Cours</div>
-                <div>23 MD</div>
-                <div>149.99€</div>
-                <div>voir</div>
-            </a>
-            <a href="#">
-                <div>MF-F23091985</div>
-                <div>Retouche</div>
-                <div>18-01-2012</div>
-                <div>En Cours</div>
-                <div>23 MD</div>
-                <div>1.99€</div>
-                <div>voir</div>
-            </a>
+           <?
+            
+            $r = $db->rawQuery("SELECT * FROM md_commandes a, md_status b WHERE a.status_id = b.status_id and a.compte_id = ? and a.status_id > ? ", array($user["compte_id"],"1"));                    
+                    
+            foreach ($r as $commande) {
+                ?>
+
+                <a href="index.php?page=cm2&id=<?= $commande["commande_id"] ?>">
+                    <div><?= $commande["reference"] ?></div>
+                    <div>Retouche</div>
+                    <div><?= $commande["date_ajout"] ?></div>
+                    <div><?= $commande["label"] ?></div>
+                    <div><?= $commande["point_fidelite"] ?></div>
+                    <div><?= $commande["total_ht"] ?> €</div>
+                    <div>voir</div>
+                </a>
+                <?
+            }
+            ?>
 
         </div>
 

@@ -35,7 +35,7 @@ include ("template/hd/acc/H_acc.php");
 
             <article>
                 <div></div>
-                <div>Technique</div>
+                <div>Designation</div>
                 <div>Option</div>
                 <div>Points</div>
                 <div>Prix TTC</div>
@@ -45,7 +45,7 @@ include ("template/hd/acc/H_acc.php");
                 ?>            
                 <a>
                     <div><img src="css/all/ico.gif"></div>
-                    <div><?= $detail["produit_id"] ?></div>
+                    <div><?= $detail["nom"]  ?></div>
                     <div></div>
                     <div> MD</div>
                     <div><?= $detail["total_ht_item"] ?> €</div>
