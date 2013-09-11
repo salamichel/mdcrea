@@ -12,22 +12,36 @@ $mail->AddAddress($_SESSION["user"]["email"], $_SESSION["user"]["name"] . " " . 
 $mail->Subject = 'Sujet ICI';
 //Read an HTML message body from an external file, convert referenced images to embedded, convert HTML into a basic plain-text alternative body
 
-$mail_body = file_get_contents($mail_order_conf);
-
 $cart = new Panier();
-$items = $cart->showCart();
+
+$cart->addItem(3, 1, 0); //picture // nb // prix
+
+$contactInfo = array("type" => $_POST["location"],
+    "endroit" => $_POST["place"],
+    "lieu" => $_POST["namecity"],
+    "prestation" => "Photo",
+    "nom_lieu" => $_POST["namelocation"],
+    "commentaire" => $_POST["comshoot"],
+    "nb_photos" => $_POST["nb_photos"],
+    "nb_retouches" => $_POST["nb_retouches"],
+    "compte_id" => $_SESSION["user"]["compte_id"]
+);
+$cart->addContact($contactInfo);
 
 $order = new MDOrder($db);
-$items_list = "";
+
+$items = $cart->showCart();
+
+$items_list = '';
 
 if (!empty($items)) {
     foreach ($items as $i => $item) {
         $order->addProduits(array("produit_id" => $item["id"], "nb_item" => $item["qte"], "prix_ht" => $item["prix"]));
-
         $items_list .= 'ref=' . $item["id"] . 'qte=' . $item["qte"] . 'prix=' . $item["prix"];
     }
 }
 
+// ajout des options 
 if (!empty($_POST["options"])) {
     foreach ($_POST["options"]as $option) {
         $opt = $db->where("option_id", $option)
@@ -42,6 +56,8 @@ $order->addContact($cart->getContact());
 $id = $order->saveOrder();
 
 $order->validate();
+
+$mail_body = file_get_contents($mail_order_conf);
 
 
 $mail_body = str_replace("{items}", $items_list, $mail_body);
@@ -60,11 +76,13 @@ if (!$mail->Send()) {
 ?>
 
 <section id="SC_pic_dv">
+
     <div id="fourth_step s">
         <h3>Votre demande personnalisée a bien été envoyée.</h3>
         <button id="submit_fourth" type="submit" class="BT2 BLUE1 R5" name="submit_fourth">Terminer</button>
     </div>
 </section>
+
 <?php
 
 include ("js/inc/sld2.js");

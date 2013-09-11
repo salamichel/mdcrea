@@ -324,16 +324,14 @@ if (isset($_GET) && !empty($_GET['page'])) {
             include("template/forms/step3.php");
             break;
         case "order_step4":
-
-            if (!empty($_SESSION["order_id"])) {
-                include("template/forms/step4.php");
-                break;
-            }
-        case "send_devis":
-
-            include("template/forms/send_devis.php");
+            include("template/forms/step4.php");
             break;
-
+        case "send_movie_devis":
+            include("template/forms/send_movie_devis.php");
+            break;
+        case "send_picture_devis":
+            include("template/forms/send_picture_devis.php");
+            break;
         case "logout":
             unset($_SESSION);
             session_destroy();

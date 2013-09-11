@@ -10,9 +10,11 @@ class MDOrder {
     private $commande_id;
     private $nb_total_items;
     private $produits;
+    private $options;
     private $packs;
     private $total_ht;
     private $point_fidelite;
+    private $contact;
     private $db;
 
     public function __construct($db) {
@@ -21,8 +23,10 @@ class MDOrder {
 
         $this->date_ajout = date("Y-m-d h:i:s");
         $this->status_id = 0;
+        $this->options = array();
         $this->produits = array();
         $this->packs = array();
+        $this->contact = array();
         $this->nb_total_items = 0;
         $this->point_fidelite = 0;
         $this->total_ht = 0;
@@ -73,6 +77,11 @@ class MDOrder {
         $this->total_ht += $produit["nb_item"] * $produit["prix_ht"];
     }
 
+    public function addOptions($option) {
+        array_push($this->options, $option);
+        $this->total_ht += $option["prix_ht"];
+    }
+
     public function delProduits($key) {
         //array_slice($this->produits, $key);
         unset($this->produits[$key]);
@@ -114,6 +123,7 @@ class MDOrder {
 
             $_SESSION["order_id"] = $this->commande_id;
 
+            // Les produits
             foreach ($this->produits as $produit) {
 
                 $insOrderDetailFields = array(
@@ -125,6 +135,21 @@ class MDOrder {
                 $this->db->insert("md_commande_detail", $insOrderDetailFields);
             }
 
+            // Les options
+            if (!empty($this->options)) {
+                foreach ($this->options as $option) {
+
+                    $insOrderOptionsFields = array(
+                        "commande_id" => $this->commande_id,
+                        "option_id" => $option["option_id"],
+                        "total_ht_option" => $option["prix_ht"]
+                    );
+
+                    $this->db->insert("md_commande_options", $insOrderOptionsFields);
+                }
+            }
+
+            // Les packs
             foreach ($this->packs as $pack) {
                 $insOrderDetailFields = array(
                     "commande_id" => $this->commande_id,
@@ -136,22 +161,43 @@ class MDOrder {
                 $this->db->insert("md_commande_detail", $insOrderDetailFields);
             }
 
+            // Ajout contact 
+
+            if (!empty($this->contact)) {
+
+                $this->contact["commande_id"] = $this->commande_id;             
+
+                $this->db->insert("md_commande_contact", $this->contact);
+            }
+
             return($this->commande_id);
         }
         return(0);
     }
 
     public function getOrderDetail() {
-        
+
         $r = $this->db->rawQuery("SELECT * FROM md_commandes a, md_commande_detail b, md_produits c
             WHERE a.commande_id = b.commande_id 
             and b.produit_id = c.produit_id 
             and a.commande_id = ?
-            ", 
-                array($this->commande_id)
-                );                    
-            
-        
+            ", array($this->commande_id)
+        );
+
+
+        return($r);
+    }
+
+    public function getOrderOptions() {
+
+        $r = $this->db->rawQuery("SELECT c.titre, b.total_ht_option FROM md_commandes a, md_commande_options b, md_options c
+            WHERE a.commande_id = b.commande_id 
+            and b.option_id = c.option_id 
+            and a.commande_id = ?
+            ", array($this->commande_id)
+        );
+
+
         return($r);
     }
 
@@ -168,6 +214,10 @@ class MDOrder {
 
     public function validate() {
         $this->setStatus(1);
+    }
+
+    public function addContact($contact) {
+        $this->contact = $contact;
     }
 
     public function flush() {

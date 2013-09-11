@@ -1,27 +1,7 @@
 <?php
 include ("template/hd/nav/H2_pic.php");
 
-$order = new MDOrder($db);
 $cart = new Panier();
-$items = $cart->showCart();
-
-if (!empty($items)) {
-    foreach ($items as $i => $item) {
-        $order->addProduits(array("produit_id" => $item["id"], "nb_item" => $item["qte"], "prix_ht" => $item["prix"]));
-    }
-}
-
-//print_r($order);
-$id = $order->saveOrder();
-
-$r = $order->getOrderSummary();
-//print_r($r);
-
-$r = $order->getOrderDetail();
-//print_r($r);
-
-$order->validate();
-
 
 if (isset($_POST) && !empty($_POST)) {
 
@@ -30,28 +10,32 @@ if (isset($_POST) && !empty($_POST)) {
         "lieu" => $_POST["namecity"],
         "nom_lieu" => $_POST["namelocation"],
         "commentaire" => $_POST["comshoot"],
-        "compte_id" => $_SESSION["user"]["compte_id"],
-        "commande_id" => $_SESSION["order_id"]
+        "compte_id" => $_SESSION["user"]["compte_id"]
     );
 
-    $c = $db->insert("md_contact", $contactInfo);
+    $cart->addContact($contactInfo);
+
+    //$c = $db->insert("md_contact", $contactInfo);
 }
 ?>
 
-<div class="M980">
-    <div id = "third_steps ">
+<section id="SC_pic_dv">
+    <div id = "third_step">
 
         <h3>Veuillez Sélectionner vos Options.</h3>
         <form action="index.php?page=order_step4" method="post">
             <div class = "form CLR">
+
                 <?
                 $options = $db->get("md_options");
+                $i = 0;
 
                 foreach ($options as $option) {
+                    $i++;
                     ?>
                     <div class = "CLR">
-                        <input type = "checkbox" name = "options[]" id = "namecity" value = "<?= $option["option_id"] ?>" />
-                        <label for = "namecity"><?= $option["titre"] ?><span> <?= $option["prix_ht"] ?> €</span></label>
+                        <input type = "checkbox" name = "options[]" id = "option<?= $i ?>" value = "<?= $option["option_id"] ?>" />
+                        <label for = "option<?= $i ?>"><?= $option["titre"] ?><span> <?= $option["prix_ht"] ?> €</span></label>
                     </div>
                     <?
                 }
@@ -64,7 +48,8 @@ if (isset($_POST) && !empty($_POST)) {
         </form>
 
     </div>
-</div>
+
+</section>
 
 
 <?php

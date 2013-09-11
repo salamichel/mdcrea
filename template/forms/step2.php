@@ -1,4 +1,5 @@
 <?php
+
 include ("template/hd/nav/H2_pic.php");
 
 //panier
@@ -18,11 +19,10 @@ if (isset($_POST) && !empty($_POST["item_id"])) {
 
     $cart->addItem($id, $nb, $r[0]["prix_ht"]);
 }
-
 ?>
 
-<div class="M980">
-    <div id = "second_steps" class = "CLR">
+<section id="SC_pic_dv">
+    <div id = "second_step" class = "CLR">
 
         <h3>Veuillez indiquer le Lieu de la Séance.</h3>
         <form action="index.php?page=order_step3" method="post">
@@ -66,8 +66,9 @@ if (isset($_POST) && !empty($_POST["item_id"])) {
             <button id="submit_second" type="submit" class="BT2 BLUE1 R5" name="submit_second">Suivant</button>
         </form>
     </div>
-</div>
+</section>
 <?php
+
 include ("js/inc/sld2.js");
 include ("template/ft/F_blk.php");
 ?>

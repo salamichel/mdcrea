@@ -16,9 +16,9 @@ include ("template/hd/acc/H_acc.php");
     $commande_id = $_GET["id"];
     $order = new MDOrder($db);
     $order->setOrderId($commande_id);
-    $o = $order->getOrderSummary();
-    $r = $order->getOrderDetail();
-    
+    $s = $order->getOrderSummary();
+    $d = $order->getOrderDetail();
+    $o = $order->getOrderOptions();
     ?>
 
     <!-- CM2 -->
@@ -26,7 +26,7 @@ include ("template/hd/acc/H_acc.php");
     <section id="SC_acc_cm2" class="F1 R4 M20">
 
         <div class="SH">
-            <h3 class="BK0 R4t">MF-<?= $o["reference"]?></h3>	
+            <h3 class="BK0 R4t">MF-<?= $s["reference"] ?></h3>	
         </div>
 
         <!-- COMMAND -->
@@ -41,14 +41,25 @@ include ("template/hd/acc/H_acc.php");
                 <div>Prix TTC</div>
             </article>
             <?
-            foreach ($r as $detail) {
+            foreach ($d as $detail) {
                 ?>            
                 <a>
                     <div><img src="css/all/ico.gif"></div>
-                    <div><?= $detail["nom"]  ?></div>
-                    <div></div>
+                    <div><?= $detail["nb_item"] ?> x <?= $detail["nom"] ?></div>
+                    <div> 
+                        <?
+                        foreach ($o as $option) {
+                            
+                            //$opt_tot .= $option["total_ht_option"]                                    
+                            ?>
+                            <?= $option["titre"] ?> @ <?= $option["total_ht_option"] ?> €<br>
+                            <?
+                        }
+                        ?>
+
+                    </div>
                     <div> MD</div>
-                    <div><?= $detail["total_ht_item"] ?> €</div>
+                    <div><?= $detail["total_ht_item"]?> €</div>
                 </a>
                 <?
             }

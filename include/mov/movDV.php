@@ -17,7 +17,7 @@ include ("template/hd/nav/H2_mov.php");
 
     <div>
 
-        <form action="index.php?page=send_devis" method="post">
+        <form action="index.php?page=send_movie_devis" method="post">
             <input type="hidden" name="prestation" value ="movie">
 
             <h2>Demande effectuée par [Nom Membre]</h2>
@@ -120,14 +120,15 @@ include ("template/hd/nav/H2_mov.php");
                 <h3>Veuillez Sélectionner vos Options.</h3>
                 <div class="form CLR">
 
-                    <?                    
-                    $options = $db->rawQuery("SELECT * FROM md_produit_options a, md_options o WHERE a.option_id = o.option_id and produit_id = ? ", array("1"));                    
-                    
+                    <?
+                    $options = $db->rawQuery("SELECT * FROM md_produit_options a, md_options o WHERE a.option_id = o.option_id and produit_id = ? ", array("2"));
+                    $i = 0;
                     foreach ($options as $option) {
+                        $i++;
                         ?>
                         <div class = "CLR">
-                            <input type = "checkbox" name = "options[]" id = "namecity" value = "<?= $option["option_id"] ?>" />
-                            <label for = "namecity"><?= $option["titre"] ?><span> <?= $option["prix_ht"] ?> €</span></label>
+                            <input type = "checkbox" name = "options[]" id = "option<?= $i ?>" value = "<?= $option["option_id"] ?>" />
+                            <label for = "option<?= $i ?>"><?= $option["titre"] ?><span> <?= $option["prix_ht"] ?> €</span></label>
                         </div>
                         <?
                     }
@@ -140,9 +141,6 @@ include ("template/hd/nav/H2_mov.php");
 
             <!-- #fourth_step -->
             <div id="fourth_step">
-
-
-
                 <button id="submit_fourth" type="submit" class="BT2 BLUE1 R5" name="submit_fourth">Terminer</button>
 
             </div>

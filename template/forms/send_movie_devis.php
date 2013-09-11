@@ -1,4 +1,5 @@
 <?php
+
 include ("template/hd/nav/H2_pic.php");
 
 //Create a new PHPMailer instance
@@ -11,29 +12,8 @@ $mail->AddAddress($_SESSION["user"]["email"], $_SESSION["user"]["name"] . " " . 
 $mail->Subject = 'Sujet ICI';
 //Read an HTML message body from an external file, convert referenced images to embedded, convert HTML into a basic plain-text alternative body
 
-
 $cart = new Panier();
-$cart->addItem(1, 1, 0);
-
-$order = new MDOrder($db);
-
-$items = $cart->showCart();
-
-if (!empty($items)) {
-    foreach ($items as $i => $item) {
-        $order->addProduits(array("produit_id" => $item["id"], "nb_item" => $item["qte"], "prix_ht" => $item["prix"]));
-        
-    }
-}
-
-
-$id = $order->saveOrder();
-
-//print_r($order);
-        
-$order->validate();
-
-// commande
+$cart->addItem(2, 1, 0); //movie // nb // prix
 
 $contactInfo = array("type" => $_POST["location"],
     "endroit" => $_POST["place"],
@@ -45,32 +25,43 @@ $contactInfo = array("type" => $_POST["location"],
     "duree_film" => $_POST["duree_film"],
     "nb_musiques" => $_POST["nb_musiques"],
     "nb_phrases" => $_POST["nb_phrases"],
-    "compte_id" => $_SESSION["user"]["compte_id"],
-    "commande_id" => $_SESSION["order_id"]
+    "compte_id" => $_SESSION["user"]["compte_id"]
 );
 
-$c = $db->insert("md_contact", $contactInfo);
+$cart->addContact($contactInfo);
 
+$order = new MDOrder($db);
 
+$items = $cart->showCart();
 
+$items_list = '';
 
+if (!empty($items)) {
+    foreach ($items as $i => $item) {
+        $order->addProduits(array("produit_id" => $item["id"], "nb_item" => $item["qte"], "prix_ht" => $item["prix"]));
+        $items_list .= 'ref=' . $item["id"] . 'qte=' . $item["qte"] . 'prix=' . $item["prix"];
+    }
+}
 
+if (!empty($_POST["options"])) {
+    foreach ($_POST["options"]as $option) {
+        $opt = $db->where("option_id", $option)
+                ->get("md_options");
+
+        $order->addOptions(array("option_id" => $option, "prix_ht" => $opt[0]["prix_ht"]));
+    }
+}
+
+$order->addContact($cart->getContact());
+
+$id = $order->saveOrder();
+
+$order->validate();
 
 
 $mail_body = file_get_contents($mail_order_conf);
 
-// ajout des options 
-if (!empty($_POST["options"])) {
-    foreach ($_POST["options"]as $option) {
-        $opt = array("commande_id" => $_SESSION["order_id"],
-            "option_id" => $option
-        );
-        $db->insert("md_commande_options", $opt);
-    }
-}
-
-
-//$mail_body = str_replace("{items}", $items_list, $mail_body);
+$mail_body = str_replace("{items}", $items_list, $mail_body);
 //$mail_body = str_replace("{user_information}", $user, $mail_body);
 //$mail_body = str_replace("{user_adresse}", $, $mail_body);
 
@@ -83,19 +74,16 @@ if (!$mail->Send()) {
     $order->flush();
     $cart->flush();
 }
-
-
 ?>
-
-<div class="M980">
+<section id="SC_pic_dv">
 
     <div id="fourth_step s">
         <h3>Votre demande personnalisée a bien été envoyée.</h3>
         <button id="submit_fourth" type="submit" class="BT2 BLUE1 R5" name="submit_fourth">Terminer</button>
     </div>
-</div>
-
+</section>
 <?php
+
 include ("js/inc/sld2.js");
 include ("template/ft/F_blk.php");
 ?>

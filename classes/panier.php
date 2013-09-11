@@ -61,12 +61,22 @@ class Panier {
         $list = array();
         $i = 0;
         foreach ($this->panier as $ref => $data) {
-            $list[$i]["id"] = $ref;
-            $list[$i]["qte"] = $data['quantity'];
-            $list[$i]["prix"] = $data['prix'];
-            $i++;
+            if (!empty($ref)) {
+                $list[$i]["id"] = $ref;
+                $list[$i]["qte"] = $data['quantity'];
+                $list[$i]["prix"] = $data['prix'];
+                $i++;
+            }
         }
         return $list;
+    }
+
+    public function addContact($contact) {
+        $this->panier[0]["contact"] = $contact;
+    }
+
+    public function getContact() {
+        return($this->panier[0]["contact"]);
     }
 
     public function flush() {
