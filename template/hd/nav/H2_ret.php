@@ -25,6 +25,7 @@
 			<li><a href="index.php?page=pack_professionnel">Packs Retouche</a></li>
 			<li><a href="index.php?page=advice1">Nos Conseils</a></li>
 			<li><a href="index.php?page=retouch_sp1">Retoucher</a></li>
+			<?php include ("template/hd/nav/H3.php"); ?>
 		</ul>
 
 	</nav>

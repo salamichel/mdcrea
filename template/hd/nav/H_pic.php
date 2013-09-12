@@ -24,6 +24,7 @@
 			<li><a href="#SC_pic_sv2">Séance Studio</a></li>
 			<li><a href="#SC_pic_sv2">Shooting Extérieur</a></li>
 			<li><a href="#SC_pic_sv3">Evénements</a></li>
+			<?php include ("template/hd/nav/H3.php"); ?>
 		</ul>
 
 	</nav>

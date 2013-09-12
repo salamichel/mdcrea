@@ -3,5 +3,6 @@
 	<li><a href="index.php?page=covenant">Nos engagements</a></li>
 	<li><a href="index.php?page=condition">Conditions générales</a></li>
 	<li><a href="index.php?page=contact">Contact</a></li>
+	<?php include ("template/hd/nav/H3.php"); ?>
 </ul>
 

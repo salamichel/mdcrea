@@ -24,6 +24,7 @@
 			<li><a href="index.php?page=picture1">Séance Studio</a></li>
 			<li><a href="index.php?page=picture2">Shooting Extérieur</a></li>
 			<li><a href="index.php?page=picture3">Evénements</a></li>
+			<?php include ("template/hd/nav/H3.php"); ?>
 		</ul>
 
 	</nav>

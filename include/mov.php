@@ -23,7 +23,7 @@ include ("template/hd/nav/H_mov.php");
 
 	<div id="videoThumb" class="T_LS2 CLR">
 
-		<article class="CLR">
+		<article>
 
 			<div class="SH">
 			<figure onclick="loadVideo('gfaYRLFI0vs')" class="BKh T_MOV R4 CLR">

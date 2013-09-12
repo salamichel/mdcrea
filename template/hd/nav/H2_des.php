@@ -21,12 +21,12 @@
 		<h1>Design & Co</h1>
 		<ul>
 			<li><a href="index.php?page=design_sv1">Logotype</a></li>
-			<li><a href="index.php?page=design_sv1">Carte de visite</a></li>
+			<li><a href="index.php?page=design_sv1">Cartes</a></li>
 			<li><a href="index.php?page=design_sv2">Affiche</a></li>
 			<li><a href="index.php?page=design_sv2">Flyer</a></li>
 			<li><a href="index.php?page=design_sv2">Plaquette</a></li>
-			<li><a href="index.php?page=design_sv2">Carton d'invitation</a></li>
 			<li><a href="index.php?page=design_sv3">Web-desgin</a></li>
+			<?php include ("template/hd/nav/H3.php"); ?>
 		</ul>
 
 	</nav>

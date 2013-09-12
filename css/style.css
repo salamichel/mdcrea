@@ -1,7 +1,7 @@
 /* ==================================================
    BODY
 ================================================== */
-#body_idx, #body_des, #body_inf {background: url('patterns/txt_01.jpg');}
+#body_idx, #body_des, #body_inf {background: url('patterns/txt_00.jpg');}
 #body_ret {background: url('patterns/txt_02.jpg');}
 #body_pic {background: url('patterns/txt_03.jpg');}
 #body_mov, #body_for, #body_inf {background: url('patterns/txt_04.jpg');}
@@ -45,14 +45,13 @@
      -o-border-radius: 0 3px 3px 0;
      	border-radius: 0 3px 3px 0}
 
-#menu li:first-child img, #menu li:last-child img
-{width: 25px; height: 16px; margin-top: -2px; vertical-align: middle}
-
+#menu li:first-child img {width: 26px; height: 20px; margin-top: -3px; vertical-align: middle}
+#menu li:last-child img {width: 20px; height: 20px; margin-top: -2px; vertical-align: middle}
 #menu li:first-child img {background: url('all/nav/ico_1.png');}
 #menu li:last-child img {background: url('all/nav/ico_2.png');}
 
 #menu li {
-width: 174px;
+width: 145px;
 float: left;
 border-left: 1px solid rgba(0,0,0,0.2);
 border-right: 1px solid rgba(255,255,255,0.15);
@@ -88,7 +87,7 @@ rgba(0,0,0,0.2) 50%,
 rgba(0,0,0,0.1) 51%,
 rgba(255,255,255,0.3) 100%);}
 
-#menu a {display: block; font-size: 13px; font-weight: 300; line-height: 30px; color: #EEE; text-align: center}
+#menu a {display: block; font-size: 13px; font-weight: 300; line-height: 30px; color: #EEE; text-align: center; letter-spacing: 1px}
 #menu a:hover {background: rgba(255,255,255,0.15);}
 #menu a:active {
 -webkit-box-shadow: inset 0 0 3px 3px rgba(0,0,0,0.3);
@@ -112,9 +111,10 @@ rgba(255,255,255,0.3) 100%);}
 /* ==================================================
    HEADER (Shadow Bar & Title)
 ================================================== */
+
 #header nav:first-child {padding: 20px 0}
 
-header nav + nav {height: 45px; margin: 0; padding-left: 10px; border-bottom: solid 1px transparent;
+header nav + nav {height: 40px; margin: 0; padding-left: 10px; border-bottom: solid 1px transparent;
 
 -webkit-box-shadow: 0 6px 6px -4px rgba(255,255,255,1);
  -khtml-box-shadow: 0 6px 6px -4px rgba(255,255,255,1);
@@ -124,9 +124,11 @@ header nav + nav {height: 45px; margin: 0; padding-left: 10px; border-bottom: so
      	box-shadow: 0 6px 6px -4px rgba(255,255,255,1);}
 
 header nav + nav h1 {font-size: 25px; font-weight: 300; float: left}
-header nav + nav ul {margin-top: 12px; float: right}
+header nav + nav ul {float: right}
 header nav + nav li {margin-left: 10px; float: left}
-header nav + nav a {padding: 10px 15px; font-size: 13px; color: #888}
+header nav + nav a {display: inline-block; height: 38px; padding: 10px 15px; font-size: 13px; color: #888}
+header nav + nav li:last-child:before
+{content:url('all/nav/ico_3.png'); position: relative; left: 10px; top: 2px}
 
 /*  Shadow Bar (Black)
 ------------------------------------- */
@@ -153,6 +155,7 @@ header nav + nav a {padding: 10px 15px; font-size: 13px; color: #888}
 ------------------------------------- */
 #tit_idx h1 {letter-spacing: 2px; font-weight: 300}
 #tit_idx span {font-size: 16px; font-weight: 300; color: #AAA}
+#tit_idx img {background: url('all/nav/ico_3.png'); width: 24px; height: 20px; margin-bottom: 6px; border: solid 1px red}
 
 /*  PIC DES MOV FOR (Title)
 ------------------------------------- */

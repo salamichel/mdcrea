@@ -19,38 +19,19 @@ include ("template/hd/nav/H_des.php");
 
 		<form action="#" method="post">
 
-			<!-- #first_step -->
+			<h2>Demande effectuée par [Nom Membre]</h2>
+
+			<!-- FIRST -->
 			<div id="first_step">
 
-				<h2>Informations personnelles</h2>
+				<h3>Veuillez compléter le contenu de votre demande</h3>
 				<div class="form CLR">
-					<input type="text" name="firstname" id="firstname" value="Prénom" />
-					<input type="text" name="lastname" id="lastname" value="Nom" />
-					<input type="text" name="email" id="email" value="Adresse Email" />
-					<input type="text" name="phone" id="phone" value="Téléphone" />
-				</div>
-
-				<button id="submit_first" type="submit" class="BT2 BLUE1 R5" name="submit_first">Suivant</button>
-
-			</div>
-
-			<!-- #second_step -->
-			<div id="second_step">
-
-				<h2>Informations pour traiter votre commande.</h2>
-				<div class="form CLR">
-
-					<div class="CLR">
-						<label for="namecity">Lieu de la demande :</label>
-						<input type="text" name="namecity" id="namecity" value="Ville" />
-					</div>
 
 					<div class="CLR">
 						<label for="type">Type de prestation :</label>
 						<select id="type" name="type">
 							<option>Logotype</option>
 							<option>Carte de visite</option>
-							<option>Affiche</option>
 							<option>Affiche</option>
 							<option>Flyer</option>
 							<option>Plaquette</option>
@@ -62,16 +43,19 @@ include ("template/hd/nav/H_des.php");
 					<div class="CLR">
 						<label for="type">Budget :</label>
 						<select id="type" name="type">
-							<option>- 100€</option>
+							<option>30€ - 100€</option>
 							<option>100€ - 200€</option>
 							<option>200€ - 400€</option>
 							<option>400€ - 800€</option>
-							<option>+ 800€</option>
+							<option>800€ - 1500€</option>
+							<option>1500€ - 5000€</option>
+							<option>5000€ - 20000€</option>
+							<option>+ 20000€</option>
 						</select>
 					</div>
 
 					<div class="CLR">
-						<textarea name="comshoot" placeholder="Votre commentaire…" cols=55 rows=10></textarea>
+						<textarea name="comshoot" placeholder="Description de votre demande de devis…" cols=55 rows=10></textarea>
 					</div>
 
 				</div>
@@ -80,26 +64,76 @@ include ("template/hd/nav/H_des.php");
 
 			</div>
 
-		<!-- #third_step -->
-		<div id="third_step">
+			<!-- SECOND -->
+			<div id="second_step" class="CLR">
 
-			<div class="form CLR">
-				<table>
-					<tr><td>Username</td><td></td></tr>
-					<tr><td>Password</td><td></td></tr>
-					<tr><td>Email</td><td></td></tr>
-					<tr><td>Name</td><td></td></tr>
-					<tr><td>Age</td><td></td></tr>
-					<tr><td>Gender</td><td></td></tr>
-					<tr><td>Country</td><td></td></tr>
-				</table>
+				<h3>Veuillez compléter les informations suivantes.</h3>
+				<div class="form CLR">
+
+					<div class="CLR">
+						<label for="location">Type de demande :</label>
+						<select id="location" name="location">
+							<option>Particulier</option>
+							<option>Entreprise</option>
+							<option>Micro Entreprise</option>
+							<option>Association</option>
+							<option>Autre</option>
+						</select>
+					</div>
+
+					<div class="CLR">
+						<label for="location">Type de Projet :</label>
+						<select id="location" name="location">
+							<option>Demande d'informations</option>
+							<option>Demande pour établir un Budget</option>
+							<option>Projet concret, réalisation à moyen terme</option>
+							<option>Projet important, réalisation dans l'immédiat</option>
+						</select>
+					</div>
+
+					<div class="CLR">
+						<label for="namecity">Lieu de la demande :</label>
+						<input type="text" name="namecity" id="namecity" placeholder="Nom de la ville" />
+					</div>
+
+					<div class="CLR">
+						<label for="date">Échéances :</label>
+						<input type="date" name="date" id="date" />
+					</div>
+
+				</div>
+
+				<button id="submit_second" type="submit" class="BT2 BLUE1 R5" name="submit_second">Suivant</button>
+
 			</div>
 
-			<input class="send submit" type="submit" name="submit_fourth" id="submit_fourth" value="SEND" />            
+			<!-- THIRD -->
+			<div id="third_step">
 
-		</div>
+				<h3>Joindre un Cahier des Charges.</h3>
+				<div class="form CLR">
 
-	</form>
+					<div id="file_design" class="R4">
+						<input name="project[file]" type="file" data-validate="true">
+					</div>
+
+				</div>
+
+				<button id="submit_third" type="submit" class="BT2 BLUE1 R5" name="submit_third">Suivant</button>
+
+			</div>
+
+			<!-- FOURTH -->
+			<div id="fourth_step">
+
+				<h3>Votre demande personnalisée a bien été envoyée.</h3>
+
+
+				<button id="submit_fourth" type="submit" class="BT2 BLUE1 R5" name="submit_fourth">Terminer</button>
+
+			</div>
+
+		</form>
 
 	<div id="progress_text"></div>
 

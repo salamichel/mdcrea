@@ -23,6 +23,7 @@
 			<li><a href="index.php?page=cm1">Mes Commandes</a></li>
 			<li><a href="index.php?page=inf">Mes Informations</a></li>
 			<li><a href="index.php?page=pts">Mes Points fidélités</a></li>
+			<?php include ("template/hd/nav/H3.php"); ?>
 		</ul>
 
 	</nav>
