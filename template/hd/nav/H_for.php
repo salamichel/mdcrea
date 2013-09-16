@@ -24,6 +24,7 @@
 			<li><a href="#ID_for_dom">À Domicile</a></li>
 			<li><a href="#ID_for_ext">Sur Internet</a></li>
 			<li><a href="#ID_for_mov">Personnalisée</a></li>
+			<?php include ("template/hd/nav/H3.php"); ?>
 		</ul>
 
 	</nav>

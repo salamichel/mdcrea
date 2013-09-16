@@ -24,6 +24,7 @@
 			<li><a href="index.php?page=movie_family">Packs Famille</a></li>
 			<li><a href="index.php?page=movie_event">Packs Evénements</a></li>
 			<li><a href="#SC_mov_vd">Exemples Vidéo</a></li>
+			<?php include ("template/hd/nav/H3.php"); ?>
 		</ul>
 
 	</nav>

@@ -4,7 +4,7 @@ include ("template/hd/nav/H2_ret.php");
 
 <!-- PK -->
 
-<section id="SC_ret_pk" class="FD R5 M20">
+<section id="SC_ret_pk" class="F1 R5 M20">
 
 	<div id="SLD1">
 
@@ -63,73 +63,270 @@ include ("template/hd/nav/H2_ret.php");
 
 	</div>
 
-	<div class="T_2 CLR">
+	<!-- DESCRIPTION -->
+
+	<div id="ret_PK1" class="CLR">
 
 		<article>
-
-			<div>
-
-				<h1>Pack PROFESSIONNEL</h1>
-				<h2>La solution professionnelle complète réunie dans un pack. Donnez à vos photos une touche de professionnalisme et réinventez une façon de vous voir.</h2>
-				<p>Le Pack Professionnel regroupe un panel de retouche complet afin de mettre en valeur vos plus beaux clichés.</p>
-
-			</div>
-
-			<div class="HR"></div>
-
-			<div>
-				<h1>Le pack au prix total de :</h1>
-				<p>€ 11,59 TTC <span>au lieu de </span><span>23,41 €</span></p>
-				<a class="BT2 BLUE2 R5" href="#">Commander</a>
-			</div>
-
+			<h1>Pack <span>PROFESSIONNEL</span></h1>
+			<div id="pk-img1"></div>
+			<p class="time1">Commande traitée sous : 72h</p>
+			<p class="eco1"><span>27,99€ </span>Économisez <span>50%</span> soit <span>13,99€</span></p>
 		</article>
 
 		<aside>
-
-			<ul>
-				<li>
-					<div>- 25<span>%</span></div>
-					<p>Réduction<span>Pack</span></p>
-				</li>
-				<li>
-					<div>3.<span>86€</span></div>
-					<p>Economies<span>Réalisées</span></p>
-				</li>
-			</ul>
-
-		<ul>
-			<h3>Options de ce pack :</h3>
-			<li><a href="index.php?page=retouch_A2" class="FHb">
-				<h2>Ouverture DIAPHRAGME<span>Personnalisée</span></h2>
-			</a></li>
-			<li><a href="index.php?page=retouch_B1" class="FHb">
-				<h2>Correction COLORIMÉTRIE<span>Chromatique</span></h2>
-			</a></li>
-			<li><a href="index.php?page=retouch_C1" class="FHb">
-				<h2>Réglage LUMINOSITE</h2>
-			</a></li>
-			<li><a href="index.php?page=retouch_D3" class="FHb">
-				<h2>Gommage IMPERFECTIONS<span>Suppression Acné</span></h2>
-			</a></li>
-			<li><a href="index.php?page=retouch_D4" class="FHb">
-				<h2>Gommage IMPERFECTIONS<span>Lissage de Peau</span></h2>
-			</a></li>
-			<li><a href="index.php?page=retouch_D1" class="FHb">
-				<h2>Gommage IMPERFECTIONS<span>Yeux rouges</span></h2>
-			</a></li>
-			<li><a href="index.php?page=retouch_D5" class="FHb">
-				<h2>Gommage IMPERFECTIONS<span>Blanchiment des Dents</span></h2>
-			</a></li>
-			<li><a href="index.php?page=retouch_D6" class="FHb">
-				<h2>Gommage IMPERFECTIONS<span>Réduction du Bruit</span></h2>
-			</a></li>
-			<li><a href="index.php?page=retouch_D7" class="FHb">
-				<h2>Gommage IMPERFECTIONS<span>Réglage Netteté</span></h2>
-			</a></li>
-		</ul>
+			<h2>La solution professionnelle complète réunie dans un pack.</h2>
+			<p>Le Pack Professionnel regroupe un panel de retouche complet afin de mettre en valeur vos plus beaux clichés. Donnez à vos photos une touche de professionnalisme et réinventez une façon de vous voir.</p>
+			<div class="price1"><p>Le pack au prix de :</p>13<span><sup>€99</sup><sub>TTC</sub></span></div>
+			<a class="BT4 BLUE2 R5" href="#">Ajouter au Panier<span><img class="BTcad" src="css/all/ico.gif"></span></a>
 
 		</aside>
+
+	</div>
+
+	<div class="LSt">
+
+	<div id="ret_PK2">
+
+		<h1>Options incluses</h1>
+		<ul class="BK_tk1 CLR">
+
+			<li><a href="index.php?page=retouch_A2" class="FHb">
+
+				<section class="CLR">
+					<div>
+						<h2>Ouverture DIAPHRAGME<span>Personnalisé</span></h2>
+					</div>
+
+					<div>
+						<p class="price2">3<sup>€69</sup></p>
+					</div>
+				</section>
+
+				<section class="CLR">
+					<div class="BG_blue2">
+						40 <span>Points</span>
+					</div>
+
+					<div>
+						<p>Effacement de l'effet yeux rouges qui apparait au niveau de la pupille. Effacement de l'effet yeux rouges.</p>
+					</div>
+				</section>
+
+			</a></li>
+
+			<li><a href="index.php?page=retouch_B1" class="FHb">
+
+				<section class="CLR">
+					<div>
+						<h2>Correction COLORIMÉTRIE<span>Chromatique</span></h2>
+					</div>
+
+					<div>
+						<p class="price2">2<sup>€49</sup></p>
+					</div>
+				</section>
+
+				<section class="CLR">
+					<div class="BG_blue2">
+						25 <span>Points</span>
+					</div>
+
+					<div>
+						<p>Effacement de l'effet yeux rouges qui apparait au niveau de la pupille. Effacement de l'effet yeux rouges.</p>
+					</div>
+				</section>
+
+			</a></li>
+
+		</ul>
+
+		<ul class="BK_tk1 CLR">
+
+			<li><a href="index.php?page=retouch_C1" class="FHb">
+
+				<section class="CLR">
+					<div>
+						<h2>Réglage LUMINOSITÉ<span>Complet</span></h2>
+					</div>
+
+					<div>
+						<p class="price2">1<sup>€29</sup></p>
+					</div>
+				</section>
+
+				<section class="CLR">
+					<div class="BG_blue1">
+						15 <span>Points</span>
+					</div>
+
+					<div>
+						<p>Effacement de l'effet yeux rouges qui apparait au niveau de la pupille. Effacement de l'effet yeux rouges.</p>
+					</div>
+				</section>
+
+			</a></li>
+
+			<li><a href="index.php?page=retouch_D3" class="FHb">
+
+				<section class="CLR">
+					<div>
+						<h2>Gommage IMPERFECTIONS<span>Suppression Acné</span></h2>
+					</div>
+
+					<div>
+						<p class="price2">3<sup>€49</sup></p>
+					</div>
+				</section>
+
+				<section class="CLR">
+					<div class="BG_blue2">
+						35 <span>Points</span>
+					</div>
+
+					<div>
+						<p>Effacement de l'effet yeux rouges qui apparait au niveau de la pupille. Effacement de l'effet yeux rouges.</p>
+					</div>
+				</section>
+
+			</a></li>
+
+		</ul>
+
+		<ul class="BK_tk1 CLR">
+
+			<li><a href="index.php?page=retouch_D4" class="FHb">
+
+				<section class="CLR">
+					<div>
+						<h2>Gommage IMPERFECTIONS<span>Lissage de Peau</span></h2>
+					</div>
+
+					<div>
+						<p class="price2">2<sup>€49</sup></p>
+					</div>
+				</section>
+
+				<section class="CLR">
+					<div class="BG_blue2">
+						25 <span>Points</span>
+					</div>
+
+					<div>
+						<p>Effacement de l'effet yeux rouges qui apparait au niveau de la pupille. Effacement de l'effet yeux rouges.</p>
+					</div>
+				</section>
+
+			</a></li>
+
+			<li><a href="index.php?page=retouch_D6" class="FHb">
+
+				<section class="CLR">
+					<div>
+						<h2>Gommage IMPERFECTIONS<span>Réduction du Bruit</span></h2>
+					</div>
+
+					<div>
+						<p class="price2">1<sup>€99</sup></p>
+					</div>
+				</section>
+
+				<section class="CLR">
+					<div class="BG_blue1">
+						20 <span>Points</span>
+					</div>
+
+					<div>
+						<p>Effacement de l'effet yeux rouges qui apparait au niveau de la pupille. Effacement de l'effet yeux rouges.</p>
+					</div>
+				</section>
+
+			</a></li>
+
+		</ul>
+
+		<ul class="BK_tk1 CLR">
+
+			<li><a href="index.php?page=retouch_D7" class="FHb">
+
+				<section class="CLR">
+					<div>
+						<h2>Gommage IMPERFECTIONS<span>Réglage Netteté</span></h2>
+					</div>
+
+					<div>
+						<p class="price2">1<sup>€99</sup></p>
+					</div>
+				</section>
+
+				<section class="CLR">
+					<div class="BG_blue1">
+						20 <span>Points</span>
+					</div>
+
+					<div>
+						<p>Effacement de l'effet yeux rouges qui apparait au niveau de la pupille. Effacement de l'effet yeux rouges.</p>
+					</div>
+				</section>
+
+			</a></li>
+
+		</ul>
+
+		<h1>Options Offertes</h1>
+		<ul class="BK_tk1 CLR">
+
+			<li><a href="index.php?page=retouch_A2" class="FHb">
+
+				<section class="CLR">
+					<div>
+						<h2>Gommage IMPERFECTIONS<span>Yeux Rouges</span></h2>
+					</div>
+
+					<div>
+						<p class="price2">1<sup>€49</sup></p>
+					</div>
+				</section>
+
+				<section class="CLR">
+					<div class="BG_blue1">
+						15 <span>Points</span>
+					</div>
+
+					<div>
+						<p>Effacement de l'effet yeux rouges qui apparait au niveau de la pupille. Effacement de l'effet yeux rouges.</p>
+					</div>
+				</section>
+
+			</a></li>
+
+			<li><a href="index.php?page=retouch_B1" class="FHb">
+
+				<section class="CLR">
+					<div>
+						<h2>Gommage IMPERFECTIONS<span>Blanchiment des Dents</span></h2>
+					</div>
+
+					<div>
+						<p class="price2">2<sup>€49</sup></p>
+					</div>
+				</section>
+
+				<section class="CLR">
+					<div class="BG_blue2">
+						25 <span>Points</span>
+					</div>
+
+					<div>
+						<p>Effacement de l'effet yeux rouges qui apparait au niveau de la pupille. Effacement de l'effet yeux rouges.</p>
+					</div>
+				</section>
+
+			</a></li>
+
+		</ul>
+
+	</div>
 
 	</div>
 

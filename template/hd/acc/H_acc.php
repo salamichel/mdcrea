@@ -2,34 +2,34 @@
 
 <body id="body_idx">
 
-<!-- HEADER -->
+    <!-- HEADER -->
 
-<header id="header">
+    <header id="header">
 
-	<!-- MENU -->
+        <!-- MENU -->
 
-	<nav>
+        <nav>
 
-	<?php
-	include ("template/menu.php");
-	?>
+            <?php
+            include ("template/menu.php");
+            ?>
 
-	</nav>
+        </nav>
 
-	<nav class="tit_A">
+        <nav class="tit_A">
 
-		<h1>Mon Compte</h1>
-		<ul>
-			<li><a href="index.php?page=cm1">Mes Commandes</a></li>
-			<li><a href="index.php?page=inf">Mes Informations</a></li>
-			<li><a href="index.php?page=pts">Mes Points fidélités</a></li>
-		</ul>
+            <h1>Mon Compte</h1>
+            <ul>
+                <li><a href="index.php?page=cm1">Mes Commandes</a></li>
+                <li><a href="index.php?page=inf">Mes Informations</a></li>
+                <li><a href="index.php?page=pts">Mes Points fidélités</a></li>
+            </ul>
 
-	</nav>
+        </nav>
 
-</header>
+    </header>
 
-<!-- CONTENT -->
+    <!-- CONTENT -->
 
-<div class="M980">
+    <div class="M980">
 

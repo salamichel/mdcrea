@@ -24,6 +24,7 @@
 			<li><a href="index.php?page=formation_home">À Domicile</a></li>
 			<li><a href="index.php?page=formation_web">Sur Internet</a></li>
 			<li><a href="index.php?page=formation_devis">Personnalisée</a></li>
+			<?php include ("template/hd/nav/H3.php"); ?>
 		</ul>
 
 	</nav>
