@@ -56,6 +56,9 @@ if (isset($_GET) && !empty($_GET['page'])) {
         case "lostpass_send":
             include("include/all/log/lpw_send.php");
             break;
+        case "cad":
+            include("include/all/acc/cad.php");
+            break;
         case "cm1":
             include("include/all/acc/cm1.php");
             break;
