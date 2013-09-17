@@ -39,7 +39,6 @@ include ("template/hd/acc/H_acc.php");
                 <div>Designation</div>
                 <div>Option</div>
                 <div>Points</div>
-                <div>Fichiers</div>
                 <div>Prix TTC</div>
             </article>
             <?
@@ -61,18 +60,7 @@ include ("template/hd/acc/H_acc.php");
                         }
                         ?>
 
-                    </div>
-                    <div> 
-                        <?
-                        $f = $order->getOrderProduitFiles($detail["produit_id"]);
-                        foreach ($f as $file) {
-                            ?>
-                            <a href="<?= $dir_pics ?>/<?= $file['filename'] ?>"><?= $file["filename"] ?> </a>                            
-                            <?
-                        }
-                        ?>
-
-                    </div>
+                    </div>                    
                     <div> MD</div>
                     <div><?= round($detail["total_ht_item"] + $opt_tot, 2) ?> €</div>
                 </a>

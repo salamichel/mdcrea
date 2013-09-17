@@ -1,6 +1,15 @@
 <?php
 include ("template/hd/nav/H2_ret.php");
+$md_page = new mdcreatis($db);
+$md_page->setPagePath("include/ret/pk/pk3.php");
+$pack1 = $md_page->getSubPage("beauty_box");
 ?>
+
+<div style="background-color: #fff">
+    <h1>balise dynamique </h1>
+    nom : <?= $pack1["nom"] ?><br>
+    tarif : <?= $pack1["prix"] ?><span><sup>€<?= $pack1["decimal"] ?></sup>        
+</div>
 
 <!-- PK -->
 
