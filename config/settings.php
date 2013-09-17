@@ -22,6 +22,6 @@ $mail_order_conf= "template/mails/mail_order_conf.html";
 $mdfolder="/mdcreatis/";
 
 // set variables
-$dir_dest = (isset($_GET['dir']) ? $_GET['dir'] : 'test');
+$dir_dest = (isset($_GET['dir']) ? $_GET['dir'] : 'upload');
 $dir_pics = (isset($_GET['pics']) ? $_GET['pics'] : $dir_dest);
 ?>

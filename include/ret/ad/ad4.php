@@ -23,7 +23,7 @@ include ("template/hd/nav/H2_ret.php");
 de lumière. Il est nécessaire d’utiliser dans ces cas là un flash pour éclairer le sujet ou une vitesse d'obturation plus lente pour les appareils professionnels, couplés avec un ISO plus grand.
 Lors d’une retouche sur une photo à faible luminosité, l'augmentation de lumière réduit sensiblement la qualité globale de la photographie. Les détails perdus dans le noir ou les ombres sont difficilement récupérables.</p>
 			<p>Les photos trop sombres sont à proscrire. Elles se verront refusées ou n’obtiendront pas un résultat maximisées.</p>
-			<a class="BT2 BLACK R5" href="index.php?page=retouch_step1">Découvrir nos Techniques</a>
+			<a class="BT2 BLACK R5" href="index.php?page=retouch_sp1">Découvrir nos Techniques</a>
 
 		</article>
 

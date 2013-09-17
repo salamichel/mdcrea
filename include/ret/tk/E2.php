@@ -57,7 +57,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Personnalisation légère</h2>
 			<p>Un petit élément vient entacher une de vos photos, une grue au loin qui n'aurait pas du être là, un panneau mal placé ? Notre option de retouche légère vous permettra d'effacer de petits éléments disgracieux.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

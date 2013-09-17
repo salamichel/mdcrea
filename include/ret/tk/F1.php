@@ -73,7 +73,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Yeux</h2>
 			<p>La retouche des yeux fait partie de la modification physique du visage humain. Elle permet d'agrandir ou réduire la taille du regard, la longueur des cils, ainsi que les sourcils.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

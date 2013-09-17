@@ -73,7 +73,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Lissage de Peau</h2>
 			<p>Parfois le grain de peau qui peut être causé par un coup de soleil, des ports dilatés ne met pas en avant une photo de portrait. Nous atténuons ces effets en faisant un lissage de peau, qui permet d'adoucir le grain de votre visage et de le mettre en valeur tout en gardant un effet naturel.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

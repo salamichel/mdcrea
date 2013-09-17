@@ -49,7 +49,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Réduction du Bruit</h2>
 			<p>Nous corrigeons le Bruit de l'image se caractérisant par une multitude de petits points de couleurs ou neutre appelés grain, dispersés essentiellement dans les zones d'ombres d'une photo.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

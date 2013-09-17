@@ -11,7 +11,7 @@
 			<div class="G_415 T_415">
 				<h2>Découverte de Photoshop.</h2>
 				<p>Envie d'un souvenir, seul ou à plusieurs ? Profitez le temps d'une journée, demi-journée ou 					d'un évènement pour graver des souvenirs tout en images pour le plaisir ou développer votre 					book.</p>
-				<a class="BT1 BLUE2 R20" href="index.php?page=retouch_step1">Leçons Niveau 1</a>
+				<a class="BT1 BLUE2 R20" href="index.php?page=retouch_sp1">Leçons Niveau 1</a>
 			</div>
 
 		</article>
@@ -27,7 +27,7 @@
 			<div class="G_415 T_415">
 				<h2>Bases de la retouche photo.</h2>
 				<p>Envie d'un souvenir, seul ou à plusieurs ? Profitez le temps d'une journée, demi-journée ou 					d'un évènement pour graver des souvenirs tout en images pour le plaisir ou développer votre 					book.</p>
-				<a class="BT1 BLUE2 R20" href="index.php?page=retouch_step1">Leçons Niveau 2</a>
+				<a class="BT1 BLUE2 R20" href="index.php?page=retouch_sp1">Leçons Niveau 2</a>
 			</div>
 
 		</article>
@@ -47,7 +47,7 @@
 			<div class="G_415 T_415">
 				<h2>Découverte de Photoshop.</h2>
 				<p>Envie d'un souvenir, seul ou à plusieurs ? Profitez le temps d'une journée, demi-journée ou 					d'un évènement pour graver des souvenirs tout en images pour le plaisir ou développer votre 					book.</p>
-				<a class="BT1 BLUE2 R20" href="index.php?page=retouch_step1">Leçons Niveau 3</a>
+				<a class="BT1 BLUE2 R20" href="index.php?page=retouch_sp1">Leçons Niveau 3</a>
 			</div>
 
 		</article>
@@ -63,7 +63,7 @@
 			<div class="G_415 T_415">
 				<h2>Bases de la retouche photo.</h2>
 				<p>Envie d'un souvenir, seul ou à plusieurs ? Profitez le temps d'une journée, demi-journée ou 					d'un évènement pour graver des souvenirs tout en images pour le plaisir ou développer votre 					book.</p>
-				<a class="BT1 BLUE2 R20" href="index.php?page=retouch_step1">Leçons Niveau 4</a>
+				<a class="BT1 BLUE2 R20" href="index.php?page=retouch_sp1">Leçons Niveau 4</a>
 			</div>
 
 		</article>

@@ -73,7 +73,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Fesses</h2>
 			<p>La retouche des fesses fait partie de la modification physique de la partie basse du corps humain. Elle permet de raffermir le fessier ou d'en augmenter ses formes.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

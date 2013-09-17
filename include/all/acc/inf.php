@@ -128,7 +128,7 @@ if (isset($_POST) && (!empty($_POST))) {
                         <input type="text" name="cp" id="regCP" placeholder="Code Postal" value="<?= @$adresse["cp"] ?>">
                     </div>
                     <div>
-                        <input type="checkbox" value="yes" name="regTM" id="regTM">
+                        <input type="checkbox" value="yes" name="regTM" id="regTM" required="true">
                         <span>
                             J'accepte les <a target="_blank" href="#">Conditions générales</a> MDcreatis.com
                         </span>

@@ -25,7 +25,7 @@ if (!empty($_POST["item_id"])) {
             <input type="hidden" name="prestation" value ="movie">
             <input type="hidden" name="item_id" value ="<?= $id ?>">
 
-            <h2>Demande effectuée par [Nom Membre]</h2>
+            <h2>Demande effectuée par <?= $_SESSION["user"]["name"]?> <?= $_SESSION["user"]["fname"]?> </h2>
 
 
             <!-- #first_step -->

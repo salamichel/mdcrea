@@ -73,7 +73,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Suppression Acné</h2>
 			<p>Des imperfections au niveau de la peau, des boutons, des lésions entachent une photo de portrait ? Nous embellissons votre visage en gommant chaque imperfections faciales et tout en gardant une peau naturelle.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

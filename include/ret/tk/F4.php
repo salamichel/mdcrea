@@ -73,7 +73,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Poitrine</h2>
 			<p>La retouche de la poitrine fait partie de la modification physique de la partie haute du corps humain. Elle permet d'agrandir ou rétrécir la dimension de la poitrine ou des pectoraux, ainsi que corriger la forme.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

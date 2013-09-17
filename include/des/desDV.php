@@ -25,7 +25,7 @@ if (!empty($_POST["item_id"])) {
         <form action="index.php?page=cad" method="post" enctype="multipart/form-data">
 
             <input type="hidden" name="item_id" value ="<?= $id ?>">
-            <h2>Demande effectuée par [Nom Membre]</h2>
+            <h2>Demande effectuée par <?= $_SESSION["user"]["name"]?> <?= $_SESSION["user"]["fname"]?> </h2>
 
             <!-- FIRST -->
             <div id="first_step">
@@ -95,12 +95,12 @@ if (!empty($_POST["item_id"])) {
 
                     <div class="CLR">
                         <label for="namecity">Lieu de la demande :</label>
-                        <input type="text" name="namecity" id="namecity" placeholder="Nom de la ville" />
+                        <input type="text" name="namecity" id="namecity" placeholder="Nom de la ville" required="true"/>
                     </div>
 
                     <div class="CLR">
                         <label for="date">Échéances :</label>
-                        <input type="date" name="date_souhaite" id="date" />
+                        <input type="date" name="date_souhaite" id="date" required="true"/>
                     </div>
                 </div>
 
@@ -114,7 +114,7 @@ if (!empty($_POST["item_id"])) {
                 <div class="form CLR">
 
                     <div id="file_design" class="R4">
-                        <input name="project_file" type="file" data-validate="true">
+                        <input name="project_file" type="file" data-validate="true" required="true">
                     </div>
 
                 </div>

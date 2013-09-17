@@ -57,7 +57,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Chromatique</h2>
 			<p>La correction chromatique consiste à régler les problèmes de colorimétrie affectant une photo. Nous corrigeons les tons clairs et foncés de l'image, les teintes, les plages de couleurs ainsi que le contraste. Le rendu devient plus lisible, plus brillant; plus profond, enlevant le voile se déposant sur les photos durant la prise de vue.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R5" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R5" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R5" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

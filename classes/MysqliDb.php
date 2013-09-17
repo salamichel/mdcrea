@@ -393,6 +393,8 @@ class MysqliDb
         }
         // Bind parameters to statment
         if ($hasTableData || $hasConditional) {
+            //print_r($stmt);
+            //print_r($this->refValues($this->_bindParams));
             call_user_func_array(array($stmt, 'bind_param'), $this->refValues($this->_bindParams));
         }
 

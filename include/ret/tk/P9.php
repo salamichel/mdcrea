@@ -70,7 +70,7 @@ include ("template/hd/nav/H2_ret.php");
 			<div id="pk-img9"></div>
 			<p>Cette retouche concerne des restaurations photos plus importants qu'une restauration (primaire), prenant au minimum une charge de plusieurs heures de travail sur la photographie.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLACK R5" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLACK R5" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 			</ul>
 
 		</article>

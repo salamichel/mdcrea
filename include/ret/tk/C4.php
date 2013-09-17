@@ -70,7 +70,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Contre Jour</h2>
 			<p>Le contre jour, un problème récurrent lors d'une journée ensoleillée. On ne trouve pas forcément le bon point de prise de vue, parfois nous n'en avons même pas le choix ce qui donne un résultat sombre sur une partie que nous aurions aimé éclairée. Grâce à cette retouche, le problème de contre jour est corrigé.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

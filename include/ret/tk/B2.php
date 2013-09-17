@@ -57,7 +57,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Dé Saturation</h2>
 			<p>La dé saturation permet de passer la photographie en noir et blanc en lui enlevant toutes ses composantes de couleur. Elle apporte un charme d'antan à la prise de vue et une interprétation différente du sujet photographié.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R5" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R5" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R5" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

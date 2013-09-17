@@ -2,27 +2,76 @@
 include ("template/hd/log/H_lpw.php");
 ?>
 
-<!-- LOSTPASS -->
+<?
+if (isset($_POST)) {
 
-<section class="SH">
-<div id="SC_reg" class="BK0 R4 M20 CLR">
+    $user = $db->where('email', $_POST["lpw_id"])
+            ->get('md_comptes');
 
-	<article class="SHl">
+    $k = RandomString();
+    $new_pwd = RandomString();
 
-		<h2>Mot de passe envoyé</h2>
-		<p>Un e-mail vient de vous être envoyé contenant votre mot de passe.</p>
 
-	</article>
+    if (count($user) == 1) {
+        
+        //Create a new PHPMailer instance
+        $mail = new PHPMailer();
+        //Set who the message is to be sent from
+        $mail->SetFrom($smtp_from, $smtp_from_name);
+        //Set who the message is to be sent to
+        $mail->AddAddress($_POST["lpw_id"], $user[0]["name"] . " " . $user[0]["fname"]);
+        //Set the subject line
+        $mail->Subject = 'Sujet ICI';
 
-	<article class="SHr">
+        $updateData = array("is_actif" => 0,
+            "pwd" => md5($new_pwd),
+            "cle_securite" => $k
+        );
 
-		<h2>Votre demande de mot de passe est effectuée.</h2>
-		<p>Vous recevrez sur votre messagerie d'ici quelques minutes, les coordonnées de votre compte MDcreatis et votre mot de passe affilié.</p>
+        $results = $db->where('compte_id', $user[0]["compte_id"])
+                ->update('md_comptes', $updateData);
 
-	</article>
-	
-</div>
-</section>
+        if ($results) {
+            $mail_body = file_get_contents($mail_lpw);
+
+            $mail_body = str_replace("{link}", "http://" . $_SERVER["HTTP_HOST"]  . $mdfolder . "index.php?page=registrer_finished&key=" . $k, $mail_body);
+            $mail_body = str_replace("{new_pwd}", $new_pwd, $mail_body);
+
+            //Read an HTML message body from an external file, convert referenced images to embedded, convert HTML into a basic plain-text alternative body
+            $mail->MsgHTML($mail_body);
+
+            if (!$mail->Send()) {
+                echo "Mailer Error: " . $mail->ErrorInfo;
+            }
+        }
+        ?>
+
+        <!-- LOSTPASS -->
+
+        <section class="SH">
+            <div id="SC_reg" class="BK0 R4 M20 CLR">
+
+                <article class="SHl">
+
+                    <h2>Mot de passe envoyé</h2>
+                    <p>Un e-mail vient de vous être envoyé contenant votre mot de passe.</p>
+
+                </article>
+
+                <article class="SHr">
+
+                    <h2>Votre demande de mot de passe est effectuée.</h2>
+                    <p>Vous recevrez sur votre messagerie d'ici quelques minutes, les coordonnées de votre compte MDcreatis et votre mot de passe affilié.</p>
+
+                </article>
+
+            </div>
+        </section>
+
+        <?
+    }
+}
+?>
 
 <?php
 include ("template/ft/F_wht.php");

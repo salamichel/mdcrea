@@ -84,7 +84,9 @@ if (!$mail->Send()) {
 <section id="SC_pic_dv">
     <div id="fourth_step s">
         <h3>Votre demande personnalisée a bien été envoyée.</h3>
-        <button id="submit_fourth" type="submit" class="BT2 BLUE1 R5" name="submit_fourth">Terminer</button>
+        <form action="index.php" metho="post">
+            <button id="submit_fourth" type="submit" class="BT2 BLUE1 R5" name="submit_fourth">Terminer</button>
+        </form>
     </div>
 </section>
 

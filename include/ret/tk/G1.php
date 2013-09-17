@@ -68,7 +68,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Restauration légère</h2>
 			<p>Des petites pliures, des endroits légèrement déchirés, une perte de pixels lors de la numérisation de votre ancienne photo ? Cette option vous permettra de régler tout ces petits problèmes pour une meilleure lecture de votre photo.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

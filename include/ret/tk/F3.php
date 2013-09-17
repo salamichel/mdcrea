@@ -73,7 +73,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Bouche</h2>
 			<p>La retouche de la bouche fait partie de la modification physique du visage humain. Elle permet d'allonger ou réduire la longueur de la bouche, ainsi que d'augmenter ou réduire l'épaisseur des lèvres.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

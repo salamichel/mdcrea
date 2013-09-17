@@ -22,7 +22,7 @@ include ("template/hd/nav/H2_ret.php");
 			<p>Un éclairage trop important peut détruire une photo en " cramant " des éléments de l’image, c’est à dire que les parties sur-exposées à la lumières sont de couleurs unies. Les détails sont dès lors très difficilement récupérables lors de la retouche.
 En général, ce phénomène intervient lorsque la lumière naturelle du soleil est trop forte. Il est conseillé de ne pas photographier durant une plage horaire comprise entre 12h et 16h.</p>
 			<p>Les photos anormalement sur-exposées sont à proscrire pour une retouche. Elles se verront refusées ou n’obtiendront pas un résultat maximisées.</p>
-			<a class="BT2 BLACK R5" href="index.php?page=retouch_step1">Découvrir nos Techniques</a>
+			<a class="BT2 BLACK R5" href="index.php?page=retouch_sp1">Découvrir nos Techniques</a>
 
 		</article>
 

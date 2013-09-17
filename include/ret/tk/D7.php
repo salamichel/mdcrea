@@ -49,7 +49,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Réglage Netteté</h2>
 			<p>Nous effaçons au maximum le Flou résultant d’un manque de netteté sur une image, réduisant sensiblement les détails, ce qui peut être causé par plusieurs facteurs différents</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

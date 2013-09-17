@@ -71,7 +71,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Personnalisation (Secondaire)</h2>
 			<p>ette retouche concerne des corrections d'éléments environnementaux plus importantes qu'une retouche secondaire, prenant au minimum une charge de plusieurs heures de travail sur la photographie.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

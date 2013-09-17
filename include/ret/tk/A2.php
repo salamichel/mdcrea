@@ -73,7 +73,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Personnalisé</h2>
 			<p> Tout comme l’option « Portrait », cette option permet de créer un flou en arrière plan dans le but de mettre en valeur la personne ou l’objet en premier plan. Mais grâce à l’option personnalisée, vous pouvez intégrer un effet de flou dégradé là ou vous le souhaitez tout en gardant le naturel à la photo.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

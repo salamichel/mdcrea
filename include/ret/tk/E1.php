@@ -49,7 +49,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Retouche du Ciel</h2>
 			<p>Un ciel nuageux terni vos photos souvenirs de vacances, vous êtes tombés dans la mauvaise semaine ? Cette option de retouche permet de modifier la couleur du ciel tout en agissant sur la luminosité de l'environnement afin d'apporter des couleurs chaudes et naturelles à la composition.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

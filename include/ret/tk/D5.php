@@ -49,7 +49,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Blanchiment des Dents</h2>
 			<p>Il peut arriver que l'environnement influe sur la couleur des dents d'un sujet a cause d'une mauvaise luminosité. Cette option de retouche vous permet de reblanchir vos dents en gardant toute l'authenticité de votre sourire.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R4" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 

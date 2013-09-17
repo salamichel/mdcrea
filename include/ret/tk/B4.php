@@ -81,7 +81,7 @@ include ("template/hd/nav/H2_ret.php");
 			<h2>Dé Saturation Partielle</h2>
 			<p>La dé saturation partielle d’une photo est un procédé très simple qui vous permet de partir d’une photo couleur pour la transformer en photo noir et blanc avec un seul sujet ou objet qui reste en couleur. La dé saturation partielle vous offre de nombreux débouchés. A vous de personnaliser le sujet à colorer.</p>
 			<ul class="CLR">
-				<li><a class="BT2 BLUE2 R5" href="index.php?page=retouch_step1">RETOUCHER MAINTENANT</a></li>
+				<li><a class="BT2 BLUE2 R5" href="index.php?page=retouch_sp1">RETOUCHER MAINTENANT</a></li>
 				<li><a class="BT2 GREY R5" href="index.php?page=formation_devis">FORMATION VIDEO</a></li>
 			</ul>
 
