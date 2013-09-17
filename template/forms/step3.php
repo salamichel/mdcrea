@@ -23,13 +23,11 @@ if (isset($_POST) && !empty($_POST)) {
     <div id = "third_step">
 
         <h3>Veuillez Sélectionner vos Options.</h3>
-        <form action="index.php?page=order_step4" method="post">
+        <form action="index.php?page=cad" method="post">
             <div class = "form CLR">
-
                 <?
                 $options = $db->get("md_options");
                 $i = 0;
-
                 foreach ($options as $option) {
                     $i++;
                     ?>
@@ -40,11 +38,8 @@ if (isset($_POST) && !empty($_POST)) {
                     <?
                 }
                 ?>
-
-
             </div>
             <button id = "submit_third" type = "submit" class = "BT2 BLUE1 R5" name = "submit_third">Suivant</button>
-
         </form>
 
     </div>

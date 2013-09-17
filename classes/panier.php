@@ -13,8 +13,9 @@ class Panier {
     // constructeur
     function __construct() { // constructeur
         @session_start();
-        if (!isset($_SESSION['cart']))
+        if (!isset($_SESSION['cart'])) {
             $_SESSION['cart'] = array();
+        }
         $this->panier = & $_SESSION['cart'];
     }
 
@@ -24,6 +25,24 @@ class Panier {
         @$this->panier[$refproduit]['prix'] += $prix;
         if ($nb <= 0)
             unset($this->panier[$refproduit]);
+    }
+
+    // ajouter un article $refproduit
+    public function addItemOption($refproduit = "", $refoption = "", $nb = 1, $prix = 0) {
+        @$this->panier[$refproduit][$refoption]['quantity'] += $nb;
+        @$this->panier[$refproduit][$refoption]['prix'] += $prix;
+        if ($nb <= 0)
+            unset($this->panier[$refproduit][$refoption]);
+    }
+
+    // ajouter un article $refproduit
+    public function addItemContact($refproduit = "", $refcontact = "") {
+        @$this->panier[$refproduit]['contact'] = $refcontact;
+    }
+
+    // ajouter un article $refproduit
+    public function addItemFiles($refproduit = "", $reffiles = "") {
+        @$this->panier[$refproduit]['files'] = $reffiles;
     }
 
     // supprimer un article $refproduit
@@ -65,6 +84,27 @@ class Panier {
                 $list[$i]["id"] = $ref;
                 $list[$i]["qte"] = $data['quantity'];
                 $list[$i]["prix"] = $data['prix'];
+                foreach ($this->panier[$ref] as $oref => $option) {
+                    if (!empty($option['quantity']) && $option['quantity'] > 0) {
+                        $list[$i]["options"][] = array("o_id" => $oref, "o_qte" => $option['quantity'], "o_prix" => $option['prix']);
+                        //$list[$i]["options"][] = $option;
+                    }
+                }
+
+                //les contacts
+                if (!empty($this->panier[$ref]['contact'])) {
+                    foreach ($this->panier[$ref]['contact'] as $key => $contact) {
+                        if (!empty($contact))
+                            $list[$i]["contact"][$key] = $contact;
+                    }
+                }
+                // fichiers attachés
+                if (!empty($this->panier[$ref]['files'])) {
+                    foreach ($this->panier[$ref]['files'] as $key => $file) {
+                        if (!empty($file))
+                            $list[$i]["files"][$key] = $file;
+                    }
+                }
                 $i++;
             }
         }
@@ -72,11 +112,11 @@ class Panier {
     }
 
     public function addContact($contact) {
-        $this->panier[0]["contact"] = $contact;
+        array_push($this->panier["contact"], $contact);
     }
 
     public function getContact() {
-        return($this->panier[0]["contact"]);
+        return($this->panier["contact"]);
     }
 
     public function flush() {

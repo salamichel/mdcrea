@@ -1,131 +1,228 @@
 <?php
 include ("template/hd/acc/H_acc.php");
+
+$cart = new Panier();
+
+if (isset($_POST) && !empty($_POST)) {
+    // quantité
+    $nb = 1;
+    $id = $_POST["item_id"];
+    $_SESSION["pid"] = $id;
+
+    $r = $db->where("produit_id", $id)
+            ->get("md_produits");
+
+    if (!empty($_POST["nb"]))
+        $nb = $_POST["nb"];
+
+    $cart->addItem($id, $nb, $r[0]["prix_ht"]);
+
+    //partie contact
+    $contactInfo = array("type" => @$_POST["type_demande"],
+        "endroit" => @$_POST["place"],
+        "lieu" => @$_POST["namecity"],
+        "nom_lieu" => @$_POST["namelocation"],
+        "det_projet" => @$_POST["det_projet"],
+        "budget" => @$_POST["budget"],
+        "commentaire" => @$_POST["comshoot"],
+        "duree_seance" => @$_POST["duree_seance"],
+        "duree_film" => @$_POST["duree_film"],
+        "nb_musiques" => @$_POST["nb_musiques"],
+        "nb_phrases" => @$_POST["nb_phrases"],
+        "nb_photos" => @$_POST["nb_photos"],
+        "nb_retouches" => @$_POST["nb_retouches"],
+        "date_souhaite" => @$_POST["date_souhaite"],
+        "produit_id" => @$_POST["item_id"],
+        "compte_id" => $_SESSION["user"]["compte_id"]
+    );
+
+    //$cart->addContact($contactInfo);
+    $cart->addItemContact($_SESSION["pid"], $contactInfo);
+
+    // ajout des options
+    if (!empty($_POST["options"])) {
+        foreach ($_POST["options"]as $optId) {
+            $opts = $db->where("option_id", $optId)
+                    ->get("md_options");
+
+            $cart->addItemOption($_SESSION["pid"], $optId, 1, $opts[0]["prix_ht"]);
+        }
+    }
+
+    //ajout fichier
+    if (!empty($_FILES['project_file'])) {
+        $handle = new Upload($_FILES['project_file']);
+
+        if ($handle->uploaded) {
+
+            $handle->Process($dir_dest);
+
+            // we check if everything went OK
+            if ($handle->processed) {
+
+                $fileInfo = array("produit_id" => $_SESSION["pid"], "compte_id" => $_SESSION["user"]["compte_id"], "filename" => $handle->file_dst_name, "filesize" => round(filesize($handle->file_dst_pathname) / 256) / 4);
+                $cart->addItemFiles($_SESSION["pid"], $fileInfo);
+            } else {
+                // one error occured
+                echo '<p class="result">';
+                echo '  <b>File not uploaded to the wanted location</b><br />';
+                echo '  Error: ' . $handle->error . '';
+                echo '</p>';
+            }
+
+            // we delete the temporary files
+            $handle->Clean();
+        } else {
+            // if we're here, the upload file failed for some reasons
+            // i.e. the server didn't receive the file
+            echo '<p class="result">';
+            echo '  <b>File not uploaded on the server</b><br />';
+            echo '  Error: ' . $handle->error . '';
+            echo '</p>';
+        }
+    }
+}
+
+
+$items = $cart->showCart();
+//print_r($items);
 ?>
 
 <!-- ACC -->
 
 <section id="SC_acc_nv" class="FD R4 M20">
 
-	<div class="T_BK1 R4t">
-		<h3>Espace Personnel<span>Mes Commandes</span></h3>
-	</div>
+    <div class="T_BK1 R4t">
+        <h3>Espace Personnel<span>Mes Commandes</span></h3>
+    </div>
 
-<?php
-include ("template/ot/NAV_acc.php");
-?>
+    <?php
+    include ("template/ot/NAV_acc.php");
+    ?>
 
-<!-- CM1 -->
+    <!-- CM1 -->
 
-<section id="SC_acc_cad" class="F1 R4 M20">
+    <section id="SC_acc_cad" class="F1 R4 M20">
 
-	<div class="SH">
-		<h3 class="BK0 R4t">CONTENU DE MON PANIER</h3>	
-	</div>
+        <div class="SH">
+            <h3 class="BK0 R4t">CONTENU DE MON PANIER</h3>	
+        </div>
 
-	<div class="T_STP LSt CLR">
-	
-		<article>
+        <div class="T_STP LSt CLR">
 
-			<div class="F1 R4">
+            <article>
 
-				<div class="SH">
-					<h3 class="BK0 R4t">Commande</h3>	
-				</div>
+                <div class="F1 R4">
 
-				<div>
-					<h1>Vérification Commande</h1>
-					<p>Veuillez vérifier que votre commande est bien identique à votre demande.</p>
-				</div>
+                    <div class="SH">
+                        <h3 class="BK0 R4t">Commande</h3>	
+                    </div>
 
-			</div>
+                    <div>
+                        <h1>Vérification Commande</h1>
+                        <p>Veuillez vérifier que votre commande est bien identique à votre demande.</p>
+                    </div>
 
-		</article>
+                </div>
 
-		<article>
+            </article>
 
-			<div class="F1 R4">
-		
-				<div class="SH">
-					<h3 class="BK0 R4t">Paiement</h3>	
-				</div>
+            <article>
 
-				<div>
-					<h1>Paiement Différé</h1>
-					<p>Vous ne payez que lorsque votre commande est terminée. Nous vous mettrons en liaison directement avec MDcreatis pour le paiement.</p>
-				</div>
+                <div class="F1 R4">
 
-			</div>
+                    <div class="SH">
+                        <h3 class="BK0 R4t">Paiement</h3>	
+                    </div>
 
-		</article>
+                    <div>
+                        <h1>Paiement Différé</h1>
+                        <p>Vous ne payez que lorsque votre commande est terminée. Nous vous mettrons en liaison directement avec MDcreatis pour le paiement.</p>
+                    </div>
 
-		<article>
+                </div>
 
-			<div class="F1 R4">
-		
-				<div class="SH">
-					<h3 class="BK0 R4t">Valider</h3>	
-				</div>
+            </article>
 
-				<div>
-					<h1>Validation</h1>
-					<p>Appuyez sur le bouton pour passer votre commande.</p>
-					<form action="#" method="post">
-					<form>
-						<a href="index.php?page=retouch_sp4" class="BT1 BLUE1 R20">Envoyer ma Commande</a>
-					</form>
-				</div>
+            <article>
 
-			</div>
+                <div class="F1 R4">
 
-		</article>
+                    <div class="SH">
+                        <h3 class="BK0 R4t">Valider</h3>	
+                    </div>
 
-	</div>
-	<!-- COMMAND -->
+                    <div>
+                        <h1>Validation</h1>
+                        <p>Appuyez sur le bouton pour passer votre commande.</p>
+                        <form action="#" method="post">
+                            <form>
+                                <a href = "index.php?page=order_validate" class = "BT1 BLUE1 R20">Envoyer ma Commande</a>
+                            </form>
+                    </div>
 
-	<div class="T_CMD1">
+                </div>
 
-			<article>
-				<div>Référence</div>
-				<div>Prestation</div>
-				<div>Date</div>
-				<div>Statut</div>
-				<div>Points</div>
-				<div>Prix TTC</div>
-				<div></div>
-			</article>
+            </article>
 
-			<a href="#">
-				<div>MF-F23091985</div>
-				<div>Retouche</div>
-				<div>20-01-2012</div>
-				<div>En Attente</div>
-				<div>23 MD</div>
-				<div>3.49€</div>
-				<div>voir</div>
-			</a>
-			<a href="#">
-				<div>MF-F23091985</div>
-				<div>Design</div>
-				<div>18-01-2012</div>
-				<div>En Cours</div>
-				<div>23 MD</div>
-				<div>149.99€</div>
-				<div>voir</div>
-			</a>
-			<a href="#">
-				<div>MF-F23091985</div>
-				<div>Retouche</div>
-				<div>18-01-2012</div>
-				<div>En Cours</div>
-				<div>23 MD</div>
-				<div>1.99€</div>
-				<div>voir</div>
-			</a>
+        </div>
+        <!--COMMAND-->
 
-	</div>
+        <?
+        if (!empty($items)) {
+            ?>
+            <div class="T_CMD1">
 
-</section>
+                <article>
+                    <div>Désignation</div>
+                    <div>Prestation</div>
+                    <div>Options</div>
+                    <div>Prix TTC</div>
+                    <div></div>
+                </article>
 
-<?php
-include ("template/ft/F_wht.php");
-?>
+                <?
+                foreach ($items as $i => $item) {
+                    $pid = $item["id"];
+                    $produits = $db->where("produit_id", $pid)
+                            ->get("md_produits");
+                    ?>
+                    <a href="#">
+                        <div><?= $item["qte"] ?> x <?= $produits[0]["nom"] ?></div>
+                        <div><?= $produits[0]["prestation"] ?></div>
+                        <div>
+                            <?
+                            if (!empty($item["options"])) {
+                                foreach ($item["options"] as $option) {
+                                    $opt = $db->where("option_id", $option["o_id"])
+                                            ->get("md_options");
+                                    ?>
+                                    <?= $opt[0]["titre"] ?> <?= $option["o_prix"] ?> €<br>
+                                    <?
+                                }
+                            }
+                            ?>
+                        </div>
+                        <div>xx MD</div>
+                        <div><?= round($item["prix"] + @$option["o_prix"], 2) ?>€</div>
+                        <div>voir</div>
+                    </a>
+                    <?
+                }
+                ?>
+            </div>
+            <?
+        } else {
+            ?>
+            <div class="T_CMD1">panier est vide</div>
+
+            <?
+        }
+        ?>
+
+
+    </section>
+
+    <?php
+    include ("template/ft/F_wht.php");
+    ?>

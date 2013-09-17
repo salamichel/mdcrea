@@ -31,7 +31,7 @@ class mdcreatis {
 
 
         foreach ($this->pagesInfo as $page) {
-            if ($page["nom"] === $subpage) {                
+            if ($page["code"] === $subpage) {                
                 list($whole, $decimal) = explode('.', $page["prix_ht"]);
                 $page["prix"] = $whole;
                 $page["decimal"] = $decimal;

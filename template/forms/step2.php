@@ -10,6 +10,7 @@ if (isset($_POST) && !empty($_POST["item_id"])) {
     // quantité
     $nb = 1;
     $id = $_POST["item_id"];
+    $_SESSION["pid"] = $id;
 
     $r = $db->where("produit_id", $id)
             ->get("md_produits");

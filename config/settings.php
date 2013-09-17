@@ -20,4 +20,8 @@ $mail_confirmation = "template/mails/welcome.html";
 $mail_lpw= "template/mails/lpw.html";
 $mail_order_conf= "template/mails/mail_order_conf.html";
 $mdfolder="/mdcreatis/";
+
+// set variables
+$dir_dest = (isset($_GET['dir']) ? $_GET['dir'] : 'test');
+$dir_pics = (isset($_GET['pics']) ? $_GET['pics'] : $dir_dest);
 ?>

@@ -1,1 +1,6 @@
-<li><a href="index.php?page=cad">Mon Panier (2)</a></li>
+<?
+$cart = new Panier();
+$items = $cart->showCart();
+$p = count($items);
+?>
+<li><a href="index.php?page=cad">Mon Panier (<?= $p ?>)</a></li>

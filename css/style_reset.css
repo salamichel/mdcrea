@@ -182,7 +182,6 @@ input[type=checkbox]:checked::after {content: url('all/check.png'); position: ab
 #third_step label span {color: #69C; float: right}
 #third_step input {margin: 0 10px; float: left}
 
-#second_step, #third_step, #fourth_step {display: none}
 
 
 #file_design {width: auto; margin: 0 auto}
