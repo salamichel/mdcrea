@@ -96,14 +96,22 @@ $pack3 = $md_page->getSubPage("pack_reportage");
                         <li>Photos sur CD :<span>Sur demande</span></li>
                     </ul>
 
-                    <h3>Option du pack :</h3>
-                    <ul>
-                        <li>Photo supplémentaire :<span>4.99 €</span></li>
-                        <li>CD du shooting complet :<span>19.99 €</span></li>
-                        <li>DVD supplémentaire :<span>1.99 €</span></li>
-                        <li>Tirage photo 10 x 15 :<span>0.99 €</span></li>
-                        <li>Tirage photo 20 x 30 :<span>4.99 €</span></li>
-                    </ul>
+                    <?
+                    if (!empty($pack1["options"])) {
+                        ?>
+                        <h3>Option du pack :</h3>
+                        <ul>
+                            <?
+                            foreach ($pack1["options"] as $option) {
+                                ?>
+                                <li><?= $option["titre"] ?> :<span><?= $option["prix_ht"] ?> €</span></li>
+                                <?
+                            }
+                            ?>
+                        </ul>
+                        <?
+                    }
+                    ?>
 
                 </aside>
 
@@ -162,14 +170,22 @@ $pack3 = $md_page->getSubPage("pack_reportage");
                         <li>Photos sur CD :<span>Sur demande</span></li>
                     </ul>
 
-                    <h3>Option du pack :</h3>
-                    <ul>
-                        <li>Photo supplémentaire :<span>4.99 €</span></li>
-                        <li>CD du shooting complet :<span>19.99 €</span></li>
-                        <li>DVD supplémentaire :<span>1.99 €</span></li>
-                        <li>Tirage photo 10 x 15 :<span>0.99 €</span></li>
-                        <li>Tirage photo 20 x 30 :<span>4.99 €</span></li>
-                    </ul>
+                    <?
+                    if (!empty($pack2["options"])) {
+                        ?>
+                        <h3>Option du pack :</h3>
+                        <ul>
+                            <?
+                            foreach ($pack1["options"] as $option) {
+                                ?>
+                                <li><?= $option["titre"] ?> :<span><?= $option["prix_ht"] ?> €</span></li>
+                                <?
+                            }
+                            ?>
+                        </ul>
+                        <?
+                    }
+                    ?>
 
                 </aside>
 
@@ -228,14 +244,22 @@ $pack3 = $md_page->getSubPage("pack_reportage");
                         <li>Photos sur CD :<span>Sur demande</span></li>
                     </ul>
 
-                    <h3>Option du pack :</h3>
-                    <ul>
-                        <li>Photo supplémentaire :<span>4.99 €</span></li>
-                        <li>CD du shooting complet :<span>19.99 €</span></li>
-                        <li>DVD supplémentaire :<span>1.99 €</span></li>
-                        <li>Tirage photo 10 x 15 :<span>0.99 €</span></li>
-                        <li>Tirage photo 20 x 30 :<span>4.99 €</span></li>
-                    </ul>
+                    <?
+                    if (!empty($pack2["options"])) {
+                        ?>
+                        <h3>Option du pack :</h3>
+                        <ul>
+                            <?
+                            foreach ($pack1["options"] as $option) {
+                                ?>
+                                <li><?= $option["titre"] ?> :<span><?= $option["prix_ht"] ?> €</span></li>
+                                <?
+                            }
+                            ?>
+                        </ul>
+                        <?
+                    }
+                    ?>
 
                 </aside>
 

@@ -114,7 +114,7 @@ if (!empty($_POST["item_id"])) {
                 <div class="form CLR">
 
                     <div id="file_design" class="R4">
-                        <input name="project_file" type="file" data-validate="true" required="true">
+                        <input name="project_file" type="file" data-validate="true" >
                     </div>
 
                 </div>

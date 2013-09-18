@@ -141,7 +141,8 @@ class MDOrder {
                     "produit_id" => $produit["produit_id"],
                     "nb_item" => $produit["nb_item"],
                     "total_ht_item" => $produit["nb_item"] * $produit["prix_ht"],
-                );
+                );                
+                
                 $this->db->insert("md_commande_detail", $insOrderDetailFields);
             }
 

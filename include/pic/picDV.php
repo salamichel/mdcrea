@@ -47,12 +47,12 @@ if (!empty($_POST["item_id"])) {
 
                     <div class="CLR">
                         <label for="picture">Nombre de Photos :</label>
-                        <input type="number" name="nb_photos" id="picture" value="0" required="required" />
+                        <input type="number" name="nb_photos" id="picture" required="true" />
                     </div>
 
                     <div class="CLR">
                         <label for="retouch">Nombre de Photos Filtres :</label>
-                        <input type="number" name="nb_retouches" id="retouch" value="0" />
+                        <input type="number" name="nb_retouches" id="retouch" required="true"/>
                     </div>
                 </div>
             </div>
@@ -86,17 +86,17 @@ if (!empty($_POST["item_id"])) {
 
                     <div class="CLR">
                         <label for="namecity">Lieu de la séance :</label>
-                        <input type="text" name="namecity" id="namecity" placeholder="Nom de la ville" />
+                        <input type="text" name="namecity" id="namecity" placeholder="Nom de la ville" required="true"/>
                     </div>
 
                     <div class="CLR">
                         <label for="namelocation">Nom de l'endroit :</label>
-                        <input type="text" name="namelocation" id="namelocation" placeholder="Nom du lieu" />
+                        <input type="text" name="namelocation" id="namelocation" placeholder="Nom du lieu" required="true"/>
                     </div>
 
                     <div class="CLR">
                         <label for="date">Date Souhaitée :</label>
-                        <input type="date" name="date_souhaite" id="date" />
+                        <input type="date" name="date_souhaite" id="date" required="true"/>
                     </div>
 
                     <div class="CLR">
@@ -114,7 +114,7 @@ if (!empty($_POST["item_id"])) {
                 <div class="form CLR">
 
                     <?
-                    $options = $db->rawQuery("SELECT * FROM md_produit_options a, md_options o WHERE a.option_id = o.option_id and produit_id = ? ", array("3"));
+                    $options = $db->rawQuery("SELECT * FROM md_produit_options a, md_options o WHERE a.option_id = o.option_id and produit_id = ? order by prix_ht desc", array("3"));
                     $i = 0;
                     foreach ($options as $option) {
                         $i++;

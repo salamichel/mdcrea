@@ -72,14 +72,14 @@ if (isset($_POST) && !empty($_POST)) {
 
             // we delete the temporary files
             $handle->Clean();
-        } else {
-            // if we're here, the upload file failed for some reasons
-            // i.e. the server didn't receive the file
-            echo '<p class="result">';
-            echo '  <b>File not uploaded on the server</b><br />';
-            echo '  Error: ' . $handle->error . '';
-            echo '</p>';
-        }
+        } /* else {
+          // if we're here, the upload file failed for some reasons
+          // i.e. the server didn't receive the file
+          echo '<p class="result">';
+          echo '  <b>File not uploaded on the server</b><br />';
+          echo '  Error: ' . $handle->error . '';
+          echo '</p>';
+          } */
     }
 }
 
@@ -103,55 +103,38 @@ $items = $cart->showCart();
     <!-- CM1 -->
 
     <section id="SC_acc_cad" class="F1 R4 M20">
-
         <div class="SH">
             <h3 class="BK0 R4t">CONTENU DE MON PANIER</h3>	
         </div>
 
         <div class="T_STP LSt CLR">
-
             <article>
-
                 <div class="F1 R4">
-
                     <div class="SH">
                         <h3 class="BK0 R4t">Commande</h3>	
                     </div>
-
                     <div>
                         <h1>Vérification Commande</h1>
                         <p>Veuillez vérifier que votre commande est bien identique à votre demande.</p>
                     </div>
-
                 </div>
-
             </article>
-
             <article>
-
                 <div class="F1 R4">
-
                     <div class="SH">
                         <h3 class="BK0 R4t">Paiement</h3>	
                     </div>
-
                     <div>
                         <h1>Paiement Différé</h1>
                         <p>Vous ne payez que lorsque votre commande est terminée. Nous vous mettrons en liaison directement avec MDcreatis pour le paiement.</p>
                     </div>
-
                 </div>
-
             </article>
-
             <article>
-
                 <div class="F1 R4">
-
                     <div class="SH">
                         <h3 class="BK0 R4t">Valider</h3>	
                     </div>
-
                     <div>
                         <h1>Validation</h1>
                         <p>Appuyez sur le bouton pour passer votre commande.</p>
@@ -177,12 +160,14 @@ $items = $cart->showCart();
                     <div>Désignation</div>
                     <div>Prestation</div>
                     <div>Options</div>
+                    <div>Points</div>
                     <div>Prix TTC</div>
                     <div></div>
                 </article>
 
                 <?
                 foreach ($items as $i => $item) {
+                    $option = array();
                     $pid = $item["id"];
                     $produits = $db->where("produit_id", $pid)
                             ->get("md_produits");
@@ -200,6 +185,8 @@ $items = $cart->showCart();
                                     <?= $opt[0]["titre"] ?> <?= $option["o_prix"] ?> €<br>
                                     <?
                                 }
+                            } else {
+                                echo 'N/A';
                             }
                             ?>
                         </div>
@@ -215,14 +202,10 @@ $items = $cart->showCart();
         } else {
             ?>
             <div class="T_CMD1">panier est vide</div>
-
             <?
         }
         ?>
-
-
     </section>
-
     <?php
     include ("template/ft/F_wht.php");
     ?>

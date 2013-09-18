@@ -26,6 +26,7 @@ if (!empty($items)) {
 
         $items_list .= 'ref=' . $item["id"] . 'qte=' . $item["qte"] . 'prix=' . $item["prix"];
 
+        //pour chaque item on ajoute les options choisies
         if (!empty($item["options"])) {
             foreach ($item["options"] as $option) {
                 $opt = $db->where("option_id", $option["o_id"])
@@ -34,31 +35,19 @@ if (!empty($items)) {
                 $order->addOptions(array("produit_id" => $item["id"], "option_id" => $option["o_id"], "prix_ht" => $option["o_prix"]));
             }
         }
-
-        if (!empty($item["options"])) {
-            foreach ($item["options"] as $option) {
-                $opt = $db->where("option_id", $option["o_id"])
-                        ->get("md_options");
-
-                $order->addOptions(array("produit_id" => $item["id"], "option_id" => $option["o_id"], "prix_ht" => $option["o_prix"]));
-            }
-        }
-
-        // ajout des contacts
+        
+        // on ajoute les contacts
         if (!empty($item["contact"])) {
             $order->addContact($item["contact"]);
         }
 
 
-        // ajout des fichiers
+        // on ajoute les fichiers
         if (!empty($item["files"])) {
             $order->addFiles($item["files"]);
         }
     }
 }
-
-
-
 
 
 $id = $order->saveOrder();

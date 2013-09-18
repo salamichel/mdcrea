@@ -115,7 +115,7 @@ if (!empty($_POST["item_id"])) {
 
                     <div class="CLR">
                         <label for="date">Date Souhaitée :</label>
-                        <input type="date" name="date_souhaite" id="date" />
+                        <input type="date" name="date_souhaite" id="date" required="true" />
                     </div>
 
                     <div class="CLR">
@@ -131,7 +131,7 @@ if (!empty($_POST["item_id"])) {
                 <div class="form CLR">
 
                     <?
-                    $options = $db->rawQuery("SELECT * FROM md_produit_options a, md_options o WHERE a.option_id = o.option_id and produit_id = ? ", array("2"));
+                    $options = $db->rawQuery("SELECT * FROM md_produit_options a, md_options o WHERE a.option_id = o.option_id and produit_id = ? order by prix_ht desc", array("2"));
                     $i = 0;
                     foreach ($options as $option) {
                         $i++;

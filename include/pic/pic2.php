@@ -4,10 +4,9 @@ include ("template/hd/nav/H2_pic.php");
 $md_page = new mdcreatis($db);
 $md_page->setPagePath("include/pic/pic2.php");
 
-$openOutdoor= $md_page->getSubPage("open_outdoor");
-$openPremium = $md_page->getSubPage("prem_outdoor");
-$openPremiumPlus = $md_page->getSubPage("prem_outdoorplus");
-
+$pack1 = $md_page->getSubPage("open_outdoor");
+$pack2 = $md_page->getSubPage("prem_outdoor");
+$pack3 = $md_page->getSubPage("prem_outdoorplus");
 ?>
 
 <!-- PIC1 -->
@@ -36,9 +35,9 @@ $openPremiumPlus = $md_page->getSubPage("prem_outdoorplus");
 
     <nav class="NAV_3"> 
         <ul class="tabs CLR">
-            <li><a href="#tab_pic1" class="R5t"><?= $openOutdoor["nom"] ?></a></li>
-            <li><a href="#tab_pic2" class="R5t"><?= $openPremium["nom"] ?></a></li>
-            <li><a href="#tab_pic3" class="R5t"><?= $openPremiumPlus["nom"] ?></a></li>
+            <li><a href="#tab_pic1" class="R5t"><?= $pack1["nom"] ?></a></li>
+            <li><a href="#tab_pic2" class="R5t"><?= $pack2["nom"] ?></a></li>
+            <li><a href="#tab_pic3" class="R5t"><?= $pack3["nom"] ?></a></li>
         </ul>
     </nav>
 
@@ -67,13 +66,13 @@ $openPremiumPlus = $md_page->getSubPage("prem_outdoorplus");
 
                     <div>
                         <span>le pack au prix total de</span>
-                        <span><?= $openOutdoor["prix"] ?></span>
+                        <span><?= $pack1["prix"] ?></span>
                         <div>
-                            <sup>,<?= $openOutdoor["decimal"] ?>€</sup>
+                            <sup>,<?= $pack1["decimal"] ?>€</sup>
                             <sub>TTC</sub>
                         </div>
                         <form name = "cart" action="index.php?page=picture_devis" method="post">
-                            <input type="hidden" name="item_id" value ="<?= $openOutdoor["produit_id"] ?>">
+                            <input type="hidden" name="item_id" value ="<?= $pack1["produit_id"] ?>">
                             <button type="submit" > Faire une Demande </button>
                             <a class="BT2 BLUE2 R5" href="#">Faire une Demande</a>
                         </form>
@@ -99,14 +98,22 @@ $openPremiumPlus = $md_page->getSubPage("prem_outdoorplus");
                         <li>Photos sur CD :<span>Sur demande</span></li>
                     </ul>
 
-                    <h3>Option du pack :</h3>
-                    <ul>
-                        <li>Photo supplémentaire :<span>4.99 €</span></li>
-                        <li>CD du shooting complet :<span>19.99 €</span></li>
-                        <li>DVD supplémentaire :<span>1.99 €</span></li>
-                        <li>Tirage photo 10 x 15 :<span>0.99 €</span></li>
-                        <li>Tirage photo 20 x 30 :<span>4.99 €</span></li>
-                    </ul>
+                    <?
+                    if (!empty($pack1["options"])) {
+                        ?>
+                        <h3>Option du pack :</h3>
+                        <ul>
+                            <?
+                            foreach ($pack1["options"] as $option) {
+                                ?>
+                                <li><?= $option["titre"] ?> :<span><?= $option["prix_ht"] ?> €</span></li>
+                                <?
+                            }
+                            ?>
+                        </ul>
+                        <?
+                    }
+                    ?>
 
                 </aside>
 
@@ -134,17 +141,17 @@ $openPremiumPlus = $md_page->getSubPage("prem_outdoorplus");
 
                     <div>
                         <span>le pack au prix total de</span>
-                        <span><?= $openPremium["prix"] ?></span>
+                        <span><?= $pack2["prix"] ?></span>
                         <div>
-                            <sup>,<?= $openPremium["decimal"] ?>€</sup>
+                            <sup>,<?= $pack2["decimal"] ?>€</sup>
                             <sub>TTC</sub>
                         </div>
                         <form name = "cart" action="index.php?page=picture_devis" method="post">
-                            <input type="hidden" name="item_id" value ="<?= $openOutdoor["produit_id"] ?>">
+                            <input type="hidden" name="item_id" value ="<?= $pack1["produit_id"] ?>">
                             <button type="submit" > Faire une Demande </button>
                             <a class="BT2 BLUE2 R5" href="#">Faire une Demande</a>
                         </form>
-                        
+
                     </div>
 
                 </article>
@@ -167,14 +174,22 @@ $openPremiumPlus = $md_page->getSubPage("prem_outdoorplus");
                         <li>Photos sur CD :<span>Sur demande</span></li>
                     </ul>
 
-                    <h3>Option du pack :</h3>
-                    <ul>
-                        <li>Photo supplémentaire :<span>4.99 €</span></li>
-                        <li>CD du shooting complet :<span>19.99 €</span></li>
-                        <li>DVD supplémentaire :<span>1.99 €</span></li>
-                        <li>Tirage photo 10 x 15 :<span>0.99 €</span></li>
-                        <li>Tirage photo 20 x 30 :<span>4.99 €</span></li>
-                    </ul>
+                    <?
+                    if (!empty($pack2["options"])) {
+                        ?>
+                        <h3>Option du pack :</h3>
+                        <ul>
+                            <?
+                            foreach ($pack1["options"] as $option) {
+                                ?>
+                                <li><?= $option["titre"] ?> :<span><?= $option["prix_ht"] ?> €</span></li>
+                                <?
+                            }
+                            ?>
+                        </ul>
+                        <?
+                    }
+                    ?>
 
                 </aside>
 
@@ -202,13 +217,13 @@ $openPremiumPlus = $md_page->getSubPage("prem_outdoorplus");
 
                     <div>
                         <span>le pack au prix total de</span>
-                        <span><?= $openPremiumPlus["prix"] ?></span>
+                        <span><?= $pack3["prix"] ?></span>
                         <div>
-                            <sup>,<?= $openPremiumPlus["decimal"] ?>€</sup>
+                            <sup>,<?= $pack3["decimal"] ?>€</sup>
                             <sub>TTC</sub>
                         </div>
                         <form name = "cart" action="index.php?page=picture_devis" method="post">
-                            <input type="hidden" name="item_id" value ="<?= $openPremiumPlus["produit_id"] ?>">
+                            <input type="hidden" name="item_id" value ="<?= $pack3["produit_id"] ?>">
                             <button type="submit" > Faire une Demande </button>
                             <a class="BT2 BLUE2 R5" href="#">Faire une Demande</a>
                         </form>                        
@@ -234,14 +249,22 @@ $openPremiumPlus = $md_page->getSubPage("prem_outdoorplus");
                         <li>Photos sur CD :<span>Sur demande</span></li>
                     </ul>
 
-                    <h3>Option du pack :</h3>
-                    <ul>
-                        <li>Photo supplémentaire :<span>4.99 €</span></li>
-                        <li>CD du shooting complet :<span>19.99 €</span></li>
-                        <li>DVD supplémentaire :<span>1.99 €</span></li>
-                        <li>Tirage photo 10 x 15 :<span>0.99 €</span></li>
-                        <li>Tirage photo 20 x 30 :<span>4.99 €</span></li>
-                    </ul>
+                    <?
+                    if (!empty($pack3["options"])) {
+                        ?>
+                        <h3>Option du pack :</h3>
+                        <ul>
+                            <?
+                            foreach ($pack1["options"] as $option) {
+                                ?>
+                                <li><?= $option["titre"] ?> :<span><?= $option["prix_ht"] ?> €</span></li>
+                                <?
+                            }
+                            ?>
+                        </ul>
+                        <?
+                    }
+                    ?>
 
                 </aside>
 

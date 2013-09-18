@@ -6,6 +6,7 @@ class mdcreatis {
     public $path;
     public $filename;
     public $pagesInfo;
+    public $pagesOption;
     private $db;
 
     function __construct($db) {
@@ -31,14 +32,26 @@ class mdcreatis {
 
 
         foreach ($this->pagesInfo as $page) {
-            if ($page["code"] === $subpage) {                
+            if ($page["code"] === $subpage) {
                 list($whole, $decimal) = explode('.', $page["prix_ht"]);
                 $page["prix"] = $whole;
                 $page["decimal"] = $decimal;
+                $page["options"] = $this->getOptions($page["produit_id"]);
                 return($page);
             }
         }
     }
 
+    function getOptions($id) {
+        $o = $this->db->rawQuery("SELECT * 
+            FROM md_produit_options a, md_options o
+            WHERE a.option_id = o.option_id 
+            and produit_id = ? 
+            order by prix_ht desc", array($id));
+        
+        return($o);
+    }
+
 }
+
 ?>

@@ -84,7 +84,7 @@ $pack1 = $md_page->getSubPage("pack_pro");
             <div class="price1"><p>Le pack au prix de :</p><?= $pack1["prix"] ?><span><sup>€<?= $pack1["decimal"] ?></sup><sub>TTC</sub></span></div>
             <a class="BT4 BLUE2 R5" href="#">Ajouter au Panier<span><img class="BTcad" src="css/all/ico.gif"></span></a>
 
-            <form name = "cart" action="index.php?page=cad" method="post">
+            <form name = "cart" action="index.php?page=pack_step" method="post">
                 <input type="hidden" name="item_id" value ="<?= $pack1["produit_id"] ?>">
                 <button type="submit" > Faire une Demande </button>                
             </form>

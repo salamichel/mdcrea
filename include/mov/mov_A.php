@@ -92,11 +92,22 @@ $pack3 = $md_page->getSubPage("pack_premiumplus");
                         <li>Qualité :<span>720p HD</span></li>
                     </ul>
 
-                    <h3>Option du pack :</h3>
-                    <ul>
-                        <li>DVD supplémentaire :<span>4.99 €</span></li>
-                        <li>DVD comprenant les vidéos :<span>19.99 €</span></li>
-                    </ul>
+                    <?
+                    if (!empty($pack1["options"])) {
+                        ?>
+                        <h3>Option du pack :</h3>
+                        <ul>
+                            <?
+                            foreach ($pack1["options"] as $option) {
+                                ?>
+                                <li><?= $option["titre"] ?> :<span><?= $option["prix_ht"] ?> €</span></li>
+                                <?
+                            }
+                            ?>
+                        </ul>
+                        <?
+                    }
+                    ?>
 
                 </aside>
 
@@ -156,11 +167,22 @@ $pack3 = $md_page->getSubPage("pack_premiumplus");
                         <li>Qualité :<span>720p HD</span></li>
                     </ul>
 
-                    <h3>Option du pack :</h3>
-                    <ul>
-                        <li>DVD supplémentaire :<span>4.99 €</span></li>
-                        <li>DVD comprenant les vidéos :<span>19.99 €</span></li>
-                    </ul>
+                    <?
+                    if (!empty($pack2["options"])) {
+                        ?>
+                        <h3>Option du pack :</h3>
+                        <ul>
+                            <?
+                            foreach ($pack1["options"] as $option) {
+                                ?>
+                                <li><?= $option["titre"] ?> :<span><?= $option["prix_ht"] ?> €</span></li>
+                                <?
+                            }
+                            ?>
+                        </ul>
+                        <?
+                    }
+                    ?>
 
                 </aside>
 
@@ -220,11 +242,22 @@ $pack3 = $md_page->getSubPage("pack_premiumplus");
                         <li>Qualité :<span>720p HD</span></li>
                     </ul>
 
-                    <h3>Option du pack :</h3>
-                    <ul>
-                        <li>DVD supplémentaire :<span>4.99 €</span></li>
-                        <li>DVD comprenant les vidéos :<span>19.99 €</span></li>
-                    </ul>
+                    <?
+                    if (!empty($pack2["options"])) {
+                        ?>
+                        <h3>Option du pack :</h3>
+                        <ul>
+                            <?
+                            foreach ($pack1["options"] as $option) {
+                                ?>
+                                <li><?= $option["titre"] ?> :<span><?= $option["prix_ht"] ?> €</span></li>
+                                <?
+                            }
+                            ?>
+                        </ul>
+                        <?
+                    }
+                    ?>
 
                 </aside>
 

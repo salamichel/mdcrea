@@ -7,8 +7,8 @@ include ("template/hd/nav/H2_ret.php");
 <section id="SC_ret_sp" class="F1 R4 M20">
 
     <div class="T_BK1 R4t">
-        <h2>Etape n°1<span>Sélection de vos photos.</span></h2>
-        <p>Cette étape vous permet de sélectionner vos photos nécessitant une retouche. Une ou plusieurs images peuvent être envoyées.</p>
+        <h2>Pack Retouche<span>Sélection de votre photo.</span></h2>
+        <p>Sélectionnez la photo qui bénéficiera des retouches choisies dans votre Pack.</p>
     </div>
 
     <div class="T_STP LSt CLR">
@@ -42,22 +42,24 @@ include ("template/hd/nav/H2_ret.php");
                 <div>
                     <h1>Validation</h1>
                     <p>Appuyez sur le bouton pour passer à l'étape suivante.</p>
-                    <form action="#" method="post">
-                        <form>
-                            <a href="index.php?page=retouch_sp2" class="BT1 BLUE1 R20">Etape suivante</a>
-                        </form>
+                    <form action="index.php?page=cad" method="post">
+                        <input type="hidden" name="item_id" value="<?= @$_POST["item_id"] ?>">
+                        <a href="index.php?page=retouch_sp2" class="BT1 BLUE1 R20">Ajouter au Panier</a>
+                    </form>
                 </div>
+
             </div>
+
         </article>
+
     </div>
+
 </section>
 
 <!-- AC1 -->
-
 <?
 include("template/forms/dnd_forms.php")
 ?>
-
 
 <?php
 include ("template/ft/F_blk.php");
