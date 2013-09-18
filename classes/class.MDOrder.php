@@ -141,8 +141,8 @@ class MDOrder {
                     "produit_id" => $produit["produit_id"],
                     "nb_item" => $produit["nb_item"],
                     "total_ht_item" => $produit["nb_item"] * $produit["prix_ht"],
-                );                
-                
+                );
+
                 $this->db->insert("md_commande_detail", $insOrderDetailFields);
             }
 
@@ -181,9 +181,11 @@ class MDOrder {
             }
             // Ajout contact 
             if (!empty($this->files)) {
-                foreach ($this->files as $files) {
-                    $files["commande_id"] = $this->commande_id;
-                    $this->db->insert("md_commande_files", $files);
+                foreach ($this->files as $f) {
+                    foreach ($f as $files) {
+                        $files["commande_id"] = $this->commande_id;
+                        $this->db->insert("md_commande_files", $files);
+                    }
                 }
             }
 
@@ -257,6 +259,7 @@ class MDOrder {
         $this->point_fidelite = 0;
         $this->total_ht = 0;
         unset($_SESSION["order_id"]);
+        unset($_SESSION["pics"]);
     }
 
 }

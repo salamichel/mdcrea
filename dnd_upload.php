@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include('classes/class.upload.php');
 include ("config/settings.php");
@@ -15,6 +16,7 @@ if (isset($_FILES['file'])) {
     }
 
     // now we can loop through $files, and feed each element to the class
+    $i = 0;
     foreach ($files as $file) {
 
         // we instanciate the class for each element of $file
@@ -37,8 +39,8 @@ if (isset($_FILES['file'])) {
                 echo '  File: <a href="' . $dir_pics . '/' . $handle->file_dst_name . '">' . $handle->file_dst_name . '</a>';
                 echo '   (' . round(filesize($handle->file_dst_pathname) / 256) / 4 . 'KB)';
                 echo '</p>';
-                
-                $_SESSION["pics"][] .= $handle->file_dst_name; 
+
+                $_SESSION["pics"][] = array("filename" => $handle->file_dst_name, "filesize" => round(filesize($handle->file_dst_pathname) / 256) / 4);
             } else {
                 // one error occured
                 echo '<p class="result">';
@@ -54,6 +56,7 @@ if (isset($_FILES['file'])) {
             echo '  Error: ' . $handle->error . '';
             echo '</p>';
         }
+        $i++;
     }
 } else {
     echo '<div class="f">An error occurred</div>';

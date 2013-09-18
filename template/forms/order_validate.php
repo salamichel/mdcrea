@@ -70,13 +70,14 @@ if (!$mail->Send()) {
 }
 ?>
 
-<section id="SC_pic_dv">
-    <div id="fourth_step s">
-        <h3>Votre demande personnalisée a bien été envoyée.</h3>
-        <form action="index.php" metho="post">
-            <button id="submit_fourth" type="submit" class="BT2 BLUE1 R5" name="submit_fourth">Terminer</button>
-        </form>
+<section id="SC_ret_ac4" class="F1 R4 M100">
+    <div class="SH">
+        <h3 class="BK0 R4t">Titre</h3>	
     </div>
+    <div class="T_BK1">
+        <h3>Commande Terminée<p>Nous vous remercions d’avoir choisi mdcreatis.com.</p></h3>
+    </div>
+
 </section>
 
 <?

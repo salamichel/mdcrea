@@ -42,10 +42,13 @@ include ("template/hd/nav/H2_ret.php");
                 <div>
                     <h1>Validation</h1>
                     <p>Appuyez sur le bouton pour passer à l'étape suivante.</p>
-                    <form action="#" method="post">
-                        <form>
-                            <a href="index.php?page=retouch_sp2" class="BT1 BLUE1 R20">Etape suivante</a>
-                        </form>
+                    <form action="index.php?page=cad" method="post" id="frm">
+                        <input type="hidden" name="item_id" value="<?= $_POST["item_id"] ?>"/>
+                        <input type="hidden" name="options[]" value="<?= $_POST["option_id"] ?>"/>
+                        <input type="submit">
+                            
+                    </form>
+                    <a href="index.php?page=retouch_sp2" class="BT1 BLUE1 R20">Etape suivante</a>
                 </div>
             </div>
         </article>

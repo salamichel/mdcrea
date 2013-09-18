@@ -49,17 +49,13 @@ if (isset($_POST) && !empty($_POST)) {
         }
     }
 
-    //ajout fichier
+    //ajout fichier depuis formulaire
     if (!empty($_FILES['project_file'])) {
         $handle = new Upload($_FILES['project_file']);
-
         if ($handle->uploaded) {
-
             $handle->Process($dir_dest);
-
             // we check if everything went OK
             if ($handle->processed) {
-
                 $fileInfo = array("produit_id" => $_SESSION["pid"], "compte_id" => $_SESSION["user"]["compte_id"], "filename" => $handle->file_dst_name, "filesize" => round(filesize($handle->file_dst_pathname) / 256) / 4);
                 $cart->addItemFiles($_SESSION["pid"], $fileInfo);
             } else {
@@ -81,32 +77,37 @@ if (isset($_POST) && !empty($_POST)) {
           echo '</p>';
           } */
     }
+
+    //ajout des fichiers retouches
+    if (!empty($_SESSION["pics"])) {
+        foreach ($_SESSION["pics"] as $file) {
+            echo $file["filename"] . "<br>";
+            $fileInfo = array("produit_id" => $_SESSION["pid"], 
+                "compte_id" => $_SESSION["user"]["compte_id"],
+                "option_id" => $_POST["options"][0], 
+                "filename" => $file["filename"], 
+                "filesize" => $file["filesize"]);
+            $cart->addItemFiles($_SESSION["pid"], $fileInfo);
+        }
+    }
 }
 
-
 $items = $cart->showCart();
-//print_r($items);
+
 ?>
-
 <!-- ACC -->
-
 <section id="SC_acc_nv" class="FD R4 M20">
-
     <div class="T_BK1 R4t">
         <h3>Espace Personnel<span>Mes Commandes</span></h3>
     </div>
-
     <?php
     include ("template/ot/NAV_acc.php");
     ?>
-
     <!-- CM1 -->
-
     <section id="SC_acc_cad" class="F1 R4 M20">
         <div class="SH">
             <h3 class="BK0 R4t">CONTENU DE MON PANIER</h3>	
         </div>
-
         <div class="T_STP LSt CLR">
             <article>
                 <div class="F1 R4">
@@ -143,14 +144,10 @@ $items = $cart->showCart();
                                 <a href = "index.php?page=order_validate" class = "BT1 BLUE1 R20">Envoyer ma Commande</a>
                             </form>
                     </div>
-
                 </div>
-
             </article>
-
         </div>
         <!--COMMAND-->
-
         <?
         if (!empty($items)) {
             ?>

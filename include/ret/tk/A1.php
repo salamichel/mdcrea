@@ -9,11 +9,31 @@ $p = $md_page->getSubPage("retouch_A1");
 <div style="background-color: #fff">
     <h1>balise dynamique </h1>
     nom : <?= $p["nom"] ?><br>
-    tarif : <?= $p["prix"] ?><span><sup>€<?= $p["decimal"] ?></sup>        
-        <form name = "cart" action="index.php?page=retouch_sp1" method="post">
-            <input type="hidden" name="item_id" value ="<?= $p["produit_id"] ?>">
-            <button type="submit" > Faire une Demande </button>                
-        </form>
+    tarif : <?= $p["prix"] ?><span><sup>€<?= $p["decimal"] ?></sup> <br> 
+        les options : 
+        <ul><?
+            foreach ($p["options"] as $option) {
+                ?>
+                <li><?= $option["titre"] ?> :<span><?= $option["prix_ht"] ?> €</span></li>               
+                <?
+            }
+            ?>
+        </ul>
+
+        <?
+        foreach ($p["options"] as $option) {
+            ?>
+            <form name = "cart" action="index.php?page=retouch_sp1" method="post">
+                <input type="hidden" name="item_id" value ="<?= $p["produit_id"] ?>">
+                <input type="hidden" name="option_id" value ="<?= $option["option_id"] ?>">
+                <button type="submit" > Faire une Demande : <?= $option["titre"] ?></button>
+            </form>
+            <?
+        }
+        ?>
+
+
+
 </div>
 
 

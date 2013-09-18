@@ -20,9 +20,9 @@
 <link href="css/main.css" rel="stylesheet" type="text/css" />
 
 <style>
-#holder { border: 10px dashed #ccc; width: 300px; min-height: 300px; margin: 20px auto;}
+#holder { border: 10px dashed #ccc; width: 850px; min-height: 300px; margin: 20px auto;}
 #holder.hover { border: 10px dashed #0c0; }
-#holder img { display: block; margin: 10px auto; }
+#holder img {  margin: 10px auto; }
 #holder p { margin: 10px; font-size: 14px; }
 progress { width: 100%; }
 progress:after { content: '%'; }
@@ -41,6 +41,7 @@ progress:after { content: '%'; }
 <!-- jQuery -->
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/modernizr.custom.79639.js"></script>
+<script type="text/javascript" src="js/jquery.chained.js"></script>
 
 <!-- IDX NEWS -->
         <?php if (isset($_GET['page']) && $_GET['page'] == 'index' || 'retouch_svc1') { ?>

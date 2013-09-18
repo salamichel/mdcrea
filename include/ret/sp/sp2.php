@@ -1,7 +1,29 @@
 <?php
 include ("template/hd/nav/H2_ret.php");
+?>
 
-print_r($_SESSION["pics"]);
+<?
+$tkts = $db->rawQuery("SELECT distinct nom
+            FROM md_produits
+            WHERE   prestation = ?
+            order by nom", array("Technique Retouche"));
+$mainlist = "\"";
+$sublist = array();
+foreach ($tkts as $tkt) {
+    $mainlist .= $tkt["nom"] . "\",\"";
+    $sublist[$tkt["nom"]] = getTktOption($tkt["nom"]);
+}
+
+function getTktOption($tkt) {
+    global $db;
+    $opts = $db->rawQuery("SELECT titre, c.prix_ht 
+            FROM md_produits a, md_produit_options b, md_options c
+            WHERE a.produit_id = b.produit_id
+            and b.option_id = c.option_id 
+            and nom = ? 
+            order by c.prix_ht desc", array($tkt));
+    return($opts);
+}
 ?>
 
 <!-- STP -->
@@ -44,10 +66,9 @@ print_r($_SESSION["pics"]);
                 <div>
                     <h1>Validation</h1>
                     <p>Appuyez sur le bouton pour passer à l'étape suivante.</p>
-                    <form action="#" method="post">
-                        <form>
-                            <a href="index.php?page=retouch_sp3" class="BT1 BLUE1 R20">Etape suivante</a>
-                        </form>
+
+                    <a href="#" class="BT1 BLUE1 R20" onclick="document.getElementById('frm1').submit();">Etape suivante</a>
+
                 </div>
             </div>
         </article>
@@ -55,47 +76,66 @@ print_r($_SESSION["pics"]);
 </section>
 
 <!-- AC2 -->
+<?
+print_r($_POST);
+?>
+<form id="frm1" action="index.php?page=cad" method="post">
+    <input type="hidden" name="item_id" value="<?= @$_POST["item_id"] ?>"/>
 
-<section id="SC_ret_ac2" class="F1 R4 M100">
-
-    <?
-    foreach ($_SESSION["pics"] as $pic) {
-        ?>
-        <article class="CLR">
-            <div>
-                <img src="<?= $dir_dest ?>/<?= $pic ?>">
-            </div>
-
-            <div>
-                <select>
-                    <option value="-1" selected>Sélectionner une technique</option>
-                    <option value="1">Ouverture DIAPHRAGME</option>
-                    <option value="2">Correction COLORIMETRIQUE</option>
-                    <option value="3">Réglage LUMINOSITE</option>
-                    <option value="4">Modification ENVIRONNEMENTALE</option>
-                    <option value="5">Gommage IMPERFECTIONS</option>
-                    <option value="5">Modelage PHYSIQUE</option>
-                    <option value="5">Restauration PHOTO</option>
-                </select>
-            </div>
-
-            <div>
-                <select>
-                    <option value="-1" selected>Sélectionner une option</option>
-                    <option value="1">Portrait</option>
-                    <option value="2">Personnalisée</option>
-                </select>
-            </div>
-        </article>
+    <section id="SC_ret_ac2" class="F1 R4 M100">
         <?
-    }
-    ?>
+        $i = 0;
+        foreach ($_SESSION["pics"] as $pic) {
+            ?>
+            <article class="CLR">
+                <div>
+                    <img src="<?= $dir_dest ?>/<?= $pic ?>">
+                </div>            
+
+                <select id="tkt<?= $i ?>" name="tkt[<?= $i ?>]">
+                    <option value="">Sélectionner une technique</option>
+                    <?
+                    foreach (array_keys($sublist) as $key) {
+                        ?>
+                        <option value="<?= $key ?>"><?= $key ?></option>    
+                        <?
+                    }
+                    ?>        
+                </select>
+
+                <select id="opt<?= $i ?>" name="opt[<?= $i ?>]">
+                    <option value="">Sélectionner une option</option>
+                    <?
+                    foreach ($sublist as $key => $values) {
+                        foreach ($values as $opt) {
+                            ?>  
+                            <option value="<?= $opt["titre"] ?>" class="<?= $key ?>"><?= $opt["titre"] ?> (<?= $opt["prix_ht"] ?> €)</option>
+                            <?
+                        }
+                    }
+                    ?>                 
+                </select>
+
+
+            </article>
+
+            <script>
+                            $("#opt<?= $i ?>").chained("#tkt<?= $i ?>"); /* or $("#series").chainedTo("#mark"); */
+            </script>
+
+            <?
+            $i++;
+        }
+        ?>
 
 
 
 
-</section>
 
+
+
+    </section>
+</form>
 <?php
 include ("template/ft/F_blk.php");
 ?>

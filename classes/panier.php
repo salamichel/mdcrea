@@ -42,7 +42,7 @@ class Panier {
 
     // ajouter un article $refproduit
     public function addItemFiles($refproduit = "", $reffiles = "") {
-        @$this->panier[$refproduit]['files'] = $reffiles;
+        @$this->panier[$refproduit]['files'][] = $reffiles;
     }
 
     // supprimer un article $refproduit
