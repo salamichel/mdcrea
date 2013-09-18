@@ -96,6 +96,9 @@ if (isset($_GET) && !empty($_GET['page'])) {
 	case "retouch_time":
 		include("include/ret/tm.php");
 		break;
+	case "retouch_dl":
+		include("include/ret/sp/sp0.php");
+		break;            
 	case "retouch_sp1":
 		include("include/ret/sp/sp1.php");
 		break;

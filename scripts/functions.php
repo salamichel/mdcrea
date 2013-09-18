@@ -9,4 +9,22 @@ function RandomString() {
     return $randstring;
 }
 
+function getItemIdByOption($id) {
+    global $db;
+
+    $o = $db->where("option_id", $id)
+            ->get("md_produit_options");
+
+    return($o[0]["produit_id"]);
+}
+
+function getOptionPrice($id) {
+    global $db;
+
+    $o = $db->where("option_id", $id)
+            ->get("md_options");
+
+    return($o[0]["prix_ht"]);
+}
+
 ?>

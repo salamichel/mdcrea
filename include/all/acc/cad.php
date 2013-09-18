@@ -3,19 +3,47 @@ include ("template/hd/acc/H_acc.php");
 
 $cart = new Panier();
 
-if (isset($_POST) && !empty($_POST)) {
+if (isset($_POST) && !empty($_POST["opt"])) {
+    $i = 0;
+    foreach ($_POST["opt"] as $option_id) {
+        $pid = getItemIdByOption($option_id);
+
+        $cart->addItem($pid, 1, 0);
+
+        $cart->addItemOption($pid, $option_id, 1, getOptionPrice($option_id));
+
+
+        //ajout des fichiers retouches
+        if (!empty($_SESSION["pics"])) {
+            foreach ($_SESSION["pics"] as $file) {
+                
+                echo $_SESSION["pics"][$i]["filename"];
+                $fileInfo = array("produit_id" => $pid,
+                    "compte_id" => $_SESSION["user"]["compte_id"],
+                    "option_id" => $option_id,
+                    "filename" => $_SESSION["pics"][$i]["filename"],
+                    "filesize" => $_SESSION["pics"][$i]["filesize"]);
+                $cart->addItemFiles($pid, $fileInfo);
+            }
+        }
+        $i++;
+    }
+}
+
+
+
+if (isset($_POST) && !empty($_POST["item_id"])) {
     // quantité
     $nb = 1;
-    $id = $_POST["item_id"];
-    $_SESSION["pid"] = $id;
+    $pid = $_POST["item_id"];
 
-    $r = $db->where("produit_id", $id)
+    $r = $db->where("produit_id", $pid)
             ->get("md_produits");
 
     if (!empty($_POST["nb"]))
         $nb = $_POST["nb"];
 
-    $cart->addItem($id, $nb, $r[0]["prix_ht"]);
+    $cart->addItem($pid, $nb, $r[0]["prix_ht"]);
 
     //partie contact
     $contactInfo = array("type" => @$_POST["type_demande"],
@@ -37,7 +65,7 @@ if (isset($_POST) && !empty($_POST)) {
     );
 
     //$cart->addContact($contactInfo);
-    $cart->addItemContact($_SESSION["pid"], $contactInfo);
+    $cart->addItemContact($pid, $contactInfo);
 
     // ajout des options
     if (!empty($_POST["options"])) {
@@ -45,7 +73,7 @@ if (isset($_POST) && !empty($_POST)) {
             $opts = $db->where("option_id", $optId)
                     ->get("md_options");
 
-            $cart->addItemOption($_SESSION["pid"], $optId, 1, $opts[0]["prix_ht"]);
+            $cart->addItemOption($pid, $optId, 1, $opts[0]["prix_ht"]);
         }
     }
 
@@ -56,8 +84,8 @@ if (isset($_POST) && !empty($_POST)) {
             $handle->Process($dir_dest);
             // we check if everything went OK
             if ($handle->processed) {
-                $fileInfo = array("produit_id" => $_SESSION["pid"], "compte_id" => $_SESSION["user"]["compte_id"], "filename" => $handle->file_dst_name, "filesize" => round(filesize($handle->file_dst_pathname) / 256) / 4);
-                $cart->addItemFiles($_SESSION["pid"], $fileInfo);
+                $fileInfo = array("produit_id" => $pid, "compte_id" => $_SESSION["user"]["compte_id"], "filename" => $handle->file_dst_name, "filesize" => round(filesize($handle->file_dst_pathname) / 256) / 4);
+                $cart->addItemFiles($pid, $fileInfo);
             } else {
                 // one error occured
                 echo '<p class="result">';
@@ -81,18 +109,19 @@ if (isset($_POST) && !empty($_POST)) {
     //ajout des fichiers retouches
     if (!empty($_SESSION["pics"])) {
         foreach ($_SESSION["pics"] as $file) {
-            echo $file["filename"] . "<br>";
-            $fileInfo = array("produit_id" => $_SESSION["pid"], 
+            $fileInfo = array("produit_id" => $pid,
                 "compte_id" => $_SESSION["user"]["compte_id"],
-                "option_id" => $_POST["options"][0], 
-                "filename" => $file["filename"], 
+                "option_id" => $_POST["options"][0],
+                "filename" => $file["filename"],
                 "filesize" => $file["filesize"]);
-            $cart->addItemFiles($_SESSION["pid"], $fileInfo);
+            $cart->addItemFiles($pid, $fileInfo);
         }
     }
 }
 
 $items = $cart->showCart();
+
+//print_r($items);
 
 ?>
 <!-- ACC -->

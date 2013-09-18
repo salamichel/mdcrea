@@ -1,5 +1,7 @@
 <?php
 include ("template/hd/nav/H2_ret.php");
+
+
 ?>
 
 <?
@@ -16,7 +18,7 @@ foreach ($tkts as $tkt) {
 
 function getTktOption($tkt) {
     global $db;
-    $opts = $db->rawQuery("SELECT titre, c.prix_ht 
+    $opts = $db->rawQuery("SELECT a.produit_id, c.option_id, titre, c.prix_ht 
             FROM md_produits a, md_produit_options b, md_options c
             WHERE a.produit_id = b.produit_id
             and b.option_id = c.option_id 
@@ -76,12 +78,7 @@ function getTktOption($tkt) {
 </section>
 
 <!-- AC2 -->
-<?
-print_r($_POST);
-?>
-<form id="frm1" action="index.php?page=cad" method="post">
-    <input type="hidden" name="item_id" value="<?= @$_POST["item_id"] ?>"/>
-
+<form id="frm1" action="index.php?page=cad" method="post">    
     <section id="SC_ret_ac2" class="F1 R4 M100">
         <?
         $i = 0;
@@ -89,10 +86,10 @@ print_r($_POST);
             ?>
             <article class="CLR">
                 <div>
-                    <img src="<?= $dir_dest ?>/<?= $pic ?>">
+                    <img src="<?= $dir_dest ?>/<?= $pic["filename"] ?>">
                 </div>            
 
-                <select id="tkt<?= $i ?>" name="tkt[<?= $i ?>]">
+                <select id="tkt<?= $i ?>" name="cat[<?= $i ?>]">
                     <option value="">Sélectionner une technique</option>
                     <?
                     foreach (array_keys($sublist) as $key) {
@@ -109,7 +106,7 @@ print_r($_POST);
                     foreach ($sublist as $key => $values) {
                         foreach ($values as $opt) {
                             ?>  
-                            <option value="<?= $opt["titre"] ?>" class="<?= $key ?>"><?= $opt["titre"] ?> (<?= $opt["prix_ht"] ?> €)</option>
+                            <option value="<?= $opt["option_id"] ?>" class="<?= $key ?>"><?= $opt["titre"] ?> (<?= $opt["prix_ht"] ?> €)</option>
                             <?
                         }
                     }
