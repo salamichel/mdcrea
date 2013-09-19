@@ -1,102 +1,104 @@
 <?php
+
 include ("template/hd/inf/H_cot.php");
 ?>
 
 <section id="SC_inf" class="SH">
-<div class="BK0 R4 M20 CLR">
+    <div class="BK0 R4 M20 CLR">
 
-	<nav class="SH2l NAV_0">
-		<ul class="tabs CLR">
-			<li><a href="#cot_tab1">Site internet</a></li>
-			<li><a href="#cot_tab2">Par courrier</a></li>
-			<li><a href="#cot_tab3">Par e-mail</a></li>
-			<li><a href="#cot_tab4">Par téléphone</a></li>
-		</ul>
-	</nav>
+        <nav class="SH2l NAV_0">
+            <ul class="tabs CLR">
+                <li><a href="#cot_tab1">Site internet</a></li>
+                <li><a href="#cot_tab2">Par courrier</a></li>
+                <li><a href="#cot_tab3">Par e-mail</a></li>
+                <li><a href="#cot_tab4">Par téléphone</a></li>
+            </ul>
+        </nav>
 
-	<article id="cot_tab1" class="SH2r">
+        <article id="cot_tab1" class="SH2r">
 
-		<div>
-		
-			<h2>Sur le site</h2>
-			<h3>Ecrivez-nous directement à partir du site MDcreatis.com</h3>
-			<form action="#" method="post">
+            <div>
 
-				<div>
+                <h2>Sur le site</h2>
+                <h3>Ecrivez-nous directement à partir du site MDcreatis.com</h3>
+                <form action="#" method="post">
 
-					<label>
-						<strong>Type de demande :</strong>
-						<select name="cont_req" id="cont_req">
-							<option value="0">J'aimerai...</option>
-							<option value="1">Poser une question</option>
-							<option value="2">Faire une remarque</option>
-							<option value="3">Donner mon avis</option>
-						</select>
-					</label>
+                    <div>
 
-				</div>
-				<div>
+                        <label>
+                            <strong>Type de demande :</strong>
+                            <select name="cont_req" id="cont_req">
+                                <option value="0">J'aimerai...</option>
+                                <option value="1">Poser une question</option>
+                                <option value="2">Faire une remarque</option>
+                                <option value="3">Donner mon avis</option>
+                            </select>
+                        </label>
 
-					<label>
-						<textarea name="comment" placeholder="Votre commentaire…" cols=55 rows=10></textarea>
-					</label>
+                    </div>
+                    <div>
 
-				</div>
-				<div>
-					<button type="submit" class="BT2 BLUE2 R4" name="valid" title="Envoyer">Envoyer</button>
-				</div>
+                        <label>
+                            <textarea name="comment" placeholder="Votre commentaire…" cols=55 rows=10></textarea>
+                        </label>
 
-			</form>
+                    </div>
+                    <div>
+                        <button type="submit" class="BT2 BLUE2 R4" name="valid" title="Envoyer">Envoyer</button>
+                    </div>
 
-		</div>
+                </form>
 
-	</article>
+            </div>
 
-	<article id="cot_tab2" class="SH2r">
+        </article>
 
-		<div>
-		
-			<h2>Par courrier</h2>
-			<h3>Vous pouvez contacter le service client MDcreatis par courrier à l'adresse suivante :</h3>
-			<ul>
-				<li>Service Client MDcreatis</li>
-				<li>44 Chemin des Garniers</li>
-				<li>44300 - NANTES</li>
-			</ul>
+        <article id="cot_tab2" class="SH2r">
 
-		</div>
+            <div>
 
-	</article>
+                <h2>Par courrier</h2>
+                <h3>Vous pouvez contacter le service client MDcreatis par courrier à l'adresse suivante :</h3>
+                <ul>
+                    <li>Service Client MDcreatis</li>
+                    <li>44 Chemin des Garniers</li>
+                    <li>44300 - NANTES</li>
+                </ul>
 
-	<article id="cot_tab3" class="SH2r">
+            </div>
 
-		<div>
-		
-			<h2>Par e-mail</h2>
-			<h3>Contactez le service MDcreatis par e-mail 24h/24, 7jours/7. Nous prendrons le temps de répondre 			à vos questions et remarques.</h3>
-			<ul>
-				<li><a href="mailto:infos@mdcreatis.com">infos@mdcreatis.com</a></li>
-				<li><a href="mailto:mdcreatis@gmail.com">mdcreatis@gmail.com</a></li>
-			</ul>
+        </article>
 
-		</div>
+        <article id="cot_tab3" class="SH2r">
 
-	</article>
+            <div>
 
-	<article id="cot_tab4" class="SH2r">
+                <h2>Par e-mail</h2>
+                <h3>Contactez le service MDcreatis par e-mail 24h/24, 7jours/7. Nous prendrons le temps de répondre 			à vos questions et remarques.</h3>
+                <ul>
+                    <li><a href="mailto:infos@mdcreatis.com">infos@mdcreatis.com</a></li>
+                    <li><a href="mailto:mdcreatis@gmail.com">mdcreatis@gmail.com</a></li>
+                </ul>
 
-		<div>
-		
-			<h2>Par téléphone</h2>
-			<h3>Ce service est momentanément indisponible</h3>
+            </div>
 
-		</div>
+        </article>
 
-	</article>
+        <article id="cot_tab4" class="SH2r">
 
-</div>
+            <div>
+
+                <h2>Par téléphone</h2>
+                <h3>Ce service est momentanément indisponible</h3>
+
+            </div>
+
+        </article>
+
+    </div>
 </section>
 
 <?php
+
 include ("template/ft/F_wht.php");
 ?>
