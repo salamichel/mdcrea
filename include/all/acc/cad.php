@@ -56,6 +56,8 @@ if (isset($_POST) && !empty($_POST["item_id"])) {
         "nb_photos" => @$_POST["nb_photos"],
         "nb_retouches" => @$_POST["nb_retouches"],
         "date_souhaite" => @$_POST["date_souhaite"],
+        "nb_jours" => @$_POST["nb_jours"],
+        "nb_duree_cours" => @$_POST["nb_duree_cours"],
         "produit_id" => @$_POST["item_id"],
         "compte_id" => $_SESSION["user"]["compte_id"]
     );
@@ -205,7 +207,10 @@ $items = $cart->showCart();
                         <div>
                             <?
                             if (!empty($item["options"])) {
+                                $opt_tot = 0;
                                 foreach ($item["options"] as $option) {
+                                    $opt_tot += $option["o_prix"];
+
                                     $opt = $db->where("option_id", $option["o_id"])
                                             ->get("md_options");
                                     ?>
@@ -218,7 +223,7 @@ $items = $cart->showCart();
                             ?>
                         </div>
                         <div>xx MD</div>
-                        <div><?= round($item["prix"] + @$option["o_prix"], 2) ?>€</div>
+                        <div><?= round($item["prix"] + $opt_tot, 2) ?>€</div>
                         <div><form action="index.php?page=cad" method="post">
                                 <input type="hidden" name="i" value="<?= $item["id"] ?>">
                                 <input type="hidden" name="action" value="del">

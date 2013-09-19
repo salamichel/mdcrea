@@ -62,10 +62,9 @@ $pack3 = $md_page->getSubPage("pack_meeting");
                             <sup>,<?= $pack1["decimal"] ?>€</sup>
                             <sub>TTC</sub>
                         </div>
-                        <form name = "cart" action="index.php?page=movie_devis" method="post">
+                        <form id="frm1" name = "cart" action="index.php?page=movie_devis" method="post">
                             <input type="hidden" name="item_id" value ="<?= $pack1["produit_id"] ?>">
-                            <button type="submit" > Faire une Demande </button>
-                            <a class="BT2 BLUE2 R5" href="#">Faire une Demande</a>
+                            <a class="BT2 BLUE2 R5" href="#" onclick="document.getElementById('frm1').submit();">Faire une Demande</a>
                         </form>
                     </div>
 
@@ -137,10 +136,9 @@ $pack3 = $md_page->getSubPage("pack_meeting");
                             <sup>,<?= $pack2["decimal"] ?>€</sup>
                             <sub>TTC</sub>
                         </div>
-                        <form name = "cart" action="index.php?page=movie_devis" method="post">
+                        <form id="frm1" name = "cart" action="index.php?page=movie_devis" method="post">
                             <input type="hidden" name="item_id" value ="<?= $pack2["produit_id"] ?>">
-                            <button type="submit" > Faire une Demande </button>
-                            <a class="BT2 BLUE2 R5" href="#">Faire une Demande</a>
+                            <a class="BT2 BLUE2 R5" href="#" onclick="document.getElementById('frm1').submit();">Faire une Demande</a>
                         </form>
                     </div>
 
@@ -212,10 +210,9 @@ $pack3 = $md_page->getSubPage("pack_meeting");
                             <sup>,<?= $pack3["decimal"] ?>€</sup>
                             <sub>TTC</sub>
                         </div>
-                        <form name = "cart" action="index.php?page=movie_devis" method="post">
+                        <form id="frm1" name = "cart" action="index.php?page=movie_devis" method="post">
                             <input type="hidden" name="item_id" value ="<?= $pack3["produit_id"] ?>">
-                            <button type="submit" > Faire une Demande </button>
-                            <a class="BT2 BLUE2 R5" href="#">Faire une Demande</a>
+                            <a class="BT2 BLUE2 R5" href="#" onclick="document.getElementById('frm1').submit();">Faire une Demande</a>
                         </form>
                     </div>
 
