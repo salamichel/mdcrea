@@ -100,17 +100,17 @@ if (!empty($_POST["item_id"])) {
 
                     <div class="CLR">
                         <label for="namecity">Lieu de la formation :</label>
-                        <input type="text" name="namecity" id="namecity" placeholder="Nom de la ville" />
+                        <input type="text" name="namecity" id="namecity" placeholder="Nom de la ville" required="true" />
                     </div>
 
                     <div class="CLR">
                         <label for="namelocation">Nom de l'endroit :</label>
-                        <input type="text" name="namelocation" id="namelocation" placeholder="Nom du lieu" />
+                        <input type="text" name="namelocation" id="namelocation" placeholder="Nom du lieu" required="true" />
                     </div>
 
                     <div class="CLR">
                         <label for="date">Date Souhaitée :</label>
-                        <input type="date" name="date_souhaite" id="date" />
+                        <input type="date" name="date_souhaite" id="date" required="true" />
                     </div>                    
                 </div>
             </div>
