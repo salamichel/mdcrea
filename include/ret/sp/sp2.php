@@ -1,7 +1,5 @@
 <?php
 include ("template/hd/nav/H2_ret.php");
-
-
 ?>
 
 <?
@@ -26,6 +24,7 @@ function getTktOption($tkt) {
             order by c.prix_ht desc", array($tkt));
     return($opts);
 }
+
 ?>
 
 <!-- STP -->
@@ -113,11 +112,29 @@ function getTktOption($tkt) {
                     ?>                 
                 </select>
 
+                <div id="targetDIV" style="border: 1px solid Red">
+                    This text is surrounded by a DIV tag whose id is "targetDIV".
+                </div>
+
+
+                //Way 1: appendTo()
+                <script type="text/javascript">
+                        function newline(a)
+                        {
+                            var a;
+                            $("<div>hello stackoverflow users" + a + "</div>").appendTo("#targetDIV"); //appendTo: Append at inside bottom
+                        }
+
+                </script>
+
+
+
+                <a onclick="newline(10)" > ligne </a>
 
             </article>
 
             <script>
-                            $("#opt<?= $i ?>").chained("#tkt<?= $i ?>"); /* or $("#series").chainedTo("#mark"); */
+                        $("#opt<?= $i ?>").chained("#tkt<?= $i ?>"); /* or $("#series").chainedTo("#mark"); */
             </script>
 
             <?

@@ -42,9 +42,9 @@ include ("template/hd/nav/H2_ret.php");
                 <div>
                     <h1>Validation</h1>
                     <p>Appuyez sur le bouton pour passer à l'étape suivante.</p>
-                    <form action="index.php?page=cad" method="post">
+                    <form id="frm1" action="index.php?page=cad" method="post">
                         <input type="hidden" name="item_id" value="<?= @$_POST["item_id"] ?>">
-                        <a href="index.php?page=retouch_sp2" class="BT1 BLUE1 R20">Ajouter au Panier</a>
+                        <a href="#" class="BT1 BLUE1 R20" onclick="document.getElementById('frm1').submit();">Ajouter au Panier</a>
                     </form>
                 </div>
 

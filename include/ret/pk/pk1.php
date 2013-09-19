@@ -82,11 +82,10 @@ $pack1 = $md_page->getSubPage("pack_pro");
             <h2>La solution professionnelle complète réunie dans un pack.</h2>
             <p>Le Pack Professionnel regroupe un panel de retouche complet afin de mettre en valeur vos plus beaux clichés. Donnez à vos photos une touche de professionnalisme et réinventez une façon de vous voir.</p>
             <div class="price1"><p>Le pack au prix de :</p><?= $pack1["prix"] ?><span><sup>€<?= $pack1["decimal"] ?></sup><sub>TTC</sub></span></div>
-            <a class="BT4 BLUE2 R5" href="#">Ajouter au Panier<span><img class="BTcad" src="css/all/ico.gif"></span></a>
+            <a class="BT4 BLUE2 R5" href="#" onclick="document.getElementById('cart').submit();">Ajouter au Panier<span><img class="BTcad" src="css/all/ico.gif"></span></a>
 
-            <form name = "cart" action="index.php?page=pack_step" method="post">
+            <form id="cart" name = "cart" action="index.php?page=pack_step" method="post">
                 <input type="hidden" name="item_id" value ="<?= $pack1["produit_id"] ?>">
-                <button type="submit" > Faire une Demande </button>                
             </form>
 
         </aside>

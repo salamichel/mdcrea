@@ -15,16 +15,12 @@ if (isset($_POST) && !empty($_POST["opt"])) {
 
         //ajout des fichiers retouches
         if (!empty($_SESSION["pics"])) {
-            foreach ($_SESSION["pics"] as $file) {
-                
-                echo $_SESSION["pics"][$i]["filename"];
-                $fileInfo = array("produit_id" => $pid,
-                    "compte_id" => $_SESSION["user"]["compte_id"],
-                    "option_id" => $option_id,
-                    "filename" => $_SESSION["pics"][$i]["filename"],
-                    "filesize" => $_SESSION["pics"][$i]["filesize"]);
-                $cart->addItemFiles($pid, $fileInfo);
-            }
+            $fileInfo = array("produit_id" => $pid,
+                "compte_id" => $_SESSION["user"]["compte_id"],
+                "option_id" => $option_id,
+                "filename" => $_SESSION["pics"][$i]["filename"],
+                "filesize" => $_SESSION["pics"][$i]["filesize"]);
+            $cart->addItemFiles($pid, $fileInfo);
         }
         $i++;
     }
@@ -111,7 +107,7 @@ if (isset($_POST) && !empty($_POST["item_id"])) {
         foreach ($_SESSION["pics"] as $file) {
             $fileInfo = array("produit_id" => $pid,
                 "compte_id" => $_SESSION["user"]["compte_id"],
-                "option_id" => $_POST["options"][0],
+                "option_id" => @$_POST["options"][0],
                 "filename" => $file["filename"],
                 "filesize" => $file["filesize"]);
             $cart->addItemFiles($pid, $fileInfo);
@@ -122,7 +118,6 @@ if (isset($_POST) && !empty($_POST["item_id"])) {
 $items = $cart->showCart();
 
 //print_r($items);
-
 ?>
 <!-- ACC -->
 <section id="SC_acc_nv" class="FD R4 M20">

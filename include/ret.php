@@ -30,7 +30,7 @@ include ("template/hd/nav/H_ret.php");
     <div class="T_BK1 LSt">
         <h2>Retouche Photo<span>L'élégance fait votre réputation</span></h2>
         <p>La communication est la pierre angulaire de votre réussite. Nous vous proposons de développer l'image de votre entreprise à travers le travail visuel effectué.</p>
-        <a class="BT2 BLUE2 R4" href="index.php?page=retouch_dl">Retoucher Maintenant</a>
+        <a class="BT2 BLUE2 R4" href="index.php?page=retouch_sp1">Retoucher Maintenant</a>
     </div>
 
     <div class="T_LS3 CLR">
