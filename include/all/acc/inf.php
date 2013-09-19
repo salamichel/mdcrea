@@ -6,9 +6,15 @@ $adresse = @$_SESSION["adresse"][0];
 $formCorrect = true;
 $msg = "";
 
+
 if (isset($_POST) && (!empty($_POST))) {
 
-    if ($_POST["cpwd"] != $_POST["pwd"]) {
+    if (md5($_POST["cPW"]) != $user["pwd"]) {
+        $msg = "Mauvais mot de passe";
+        $formCorrect = false;
+    }
+
+    if (isset($_POST["cpwd"]) && $_POST["pwd"] && $_POST["cpwd"] != $_POST["pwd"]) {
         $msg = "Mot de passe incorrect";
         $formCorrect = false;
     }
@@ -97,7 +103,7 @@ if (isset($_POST) && (!empty($_POST))) {
                 <?
                 if (!$formCorrect) {
                     ?>
-                    <div> <?= $msg ?></div> 
+                    <div style="background-color: coral"> <?= $msg ?></div> 
                     <?
                 }
                 ?>
@@ -115,8 +121,9 @@ if (isset($_POST) && (!empty($_POST))) {
                     </div>
                     <div>
                         <input type="email"	name="email" id="regID" placeholder="Adresse Email" required="required" value="<?= $user["email"] ?>" disabled="true">
-                        <input type="password" name="pwd" id="regPW" placeholder="Mot de passe" required="required">
-                        <input type="password" name="cpwd" id="regCPW" placeholder="Confirmation du mot de passe" required="required">
+                        <input type="password" name="cPW" id="curPW" placeholder="Mot de passe actuel" required="required">
+                        <input type="password" name="pwd" id="regPW" placeholder="Nouveau mot de passe">
+                        <input type="password" name="cpwd" id="regCPW" placeholder="Confirmation du mot de passe">
                     </div>
                     <div>
 

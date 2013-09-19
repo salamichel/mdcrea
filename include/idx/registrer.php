@@ -10,7 +10,12 @@
 
         <article class="SHl">
             <h2>ME CONNECTER</h2>    
-            <form action="index.php" method="post">
+            <?
+            if (!$formCorrect) {
+                echo '<div style="background-color: coral">' . $msg . '</div> ';
+            }
+            ?>
+            <form action="index.php#ID_idx_rg" method="post">
                 <input type="hidden" name="src" value="connection">
                 <div>
                     <input type="email"	name="cnx_id" id="cnx_id" placeholder="Adresse Email" required="required">

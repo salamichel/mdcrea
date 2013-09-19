@@ -48,7 +48,7 @@ class Panier {
     // supprimer un article $refproduit
     public function removeItem($refproduit = "", $nb = 1) {
         @$this->panier[$refproduit]['quantity'] -= $nb;
-        if ($nb <= 0)
+        if ($this->panier[$refproduit]['quantity'] <= 0)
             unset($this->panier[$refproduit]);
     }
 

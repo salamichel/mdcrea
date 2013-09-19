@@ -115,6 +115,12 @@ if (isset($_POST) && !empty($_POST["item_id"])) {
     }
 }
 
+
+if (!empty($_POST["action"]) && !empty($_POST["i"])) {
+
+    $cart->removeItem($_POST["i"]);
+}
+
 $items = $cart->showCart();
 
 //print_r($items);
@@ -213,8 +219,14 @@ $items = $cart->showCart();
                         </div>
                         <div>xx MD</div>
                         <div><?= round($item["prix"] + @$option["o_prix"], 2) ?>€</div>
-                        <div>voir</div>
+                        <div><form action="index.php?page=cad" method="post">
+                                <input type="hidden" name="i" value="<?= $item["id"] ?>">
+                                <input type="hidden" name="action" value="del">
+                                <input type="submit" value="Del">
+                            </form>
+                        </div>
                     </a>
+
                     <?
                 }
                 ?>
