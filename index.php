@@ -11,6 +11,7 @@ require_once('classes/class.MDCreatis.php');
 require_once('classes/class.MDProduct.php');
 require_once('classes/class.MDPack.php');
 require_once('classes/class.upload.php');
+require_once('libs/Smarty.class.php');
 require_once("scripts/functions.php");
 
 //connexion base de données

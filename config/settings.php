@@ -16,9 +16,16 @@ $smtp_port = 25;
 $smtp_debug = 0;
 
 //mails
-$mail_confirmation = "template/mails/welcome.html";
-$mail_lpw= "template/mails/lpw.html";
-$mail_order_conf= "template/mails/mail_order_conf.html";
+
+$admin_to = "stephane.alamichel@gmail.com";
+$admin_too = "alamichel.s@free.fr";
+        
+$mail_confirmation_subject = "Bienvenue";
+        
+$mail_lpw_subject = "Nouveau mot de passe";
+
+$mail_order_conf_subject= "Merci";
+
 $mdfolder="/mdcreatis/";
 
 // set variables

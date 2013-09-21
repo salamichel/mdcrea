@@ -621,7 +621,7 @@ class Smarty extends Smarty_Internal_TemplateBase {
         }
         $this->start_time = microtime(true);
         // set default dirs
-        $this->setTemplateDir('.' . DS . 'templates' . DS)
+        $this->setTemplateDir('.' . DS . 'template' . DS)
             ->setCompileDir('.' . DS . 'templates_c' . DS)
             ->setPluginsDir(SMARTY_PLUGINS_DIR)
             ->setCacheDir('.' . DS . 'cache' . DS)

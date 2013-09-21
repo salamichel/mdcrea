@@ -1,5 +1,8 @@
 <?php
 include ("template/hd/acc/H_acc.php");
+$smarty = new Smarty;
+$smarty->setTemplateDir('template/mails');
+
 
 $cart = new Panier();
 
@@ -8,9 +11,9 @@ if (isset($_POST) && !empty($_POST["opt"])) {
     foreach ($_POST["opt"] as $option_id) {
         $pid = getItemIdByOption($option_id);
 
-        $cart->addItem($pid, 1, 0);
+        $cart->addItem($pid, 1, 0, getItemTitre($pid));
 
-        $cart->addItemOption($pid, $option_id, 1, getOptionPrice($option_id));
+        $cart->addItemOption($pid, $option_id, 1, getOptionPrice($option_id), getOptionTitre($option_id));
 
 
         //ajout des fichiers retouches
@@ -18,6 +21,7 @@ if (isset($_POST) && !empty($_POST["opt"])) {
             $fileInfo = array("produit_id" => $pid,
                 "compte_id" => $_SESSION["user"]["compte_id"],
                 "option_id" => $option_id,
+                "option_name" => getOptionTitre($option_id),
                 "filename" => $_SESSION["pics"][$i]["filename"],
                 "filesize" => $_SESSION["pics"][$i]["filesize"]);
             $cart->addItemFiles($pid, $fileInfo);
@@ -39,7 +43,7 @@ if (isset($_POST) && !empty($_POST["item_id"])) {
     if (!empty($_POST["nb"]))
         $nb = $_POST["nb"];
 
-    $cart->addItem($pid, $nb, $r[0]["prix_ht"]);
+    $cart->addItem($pid, $nb, $r[0]["prix_ht"], getItemTitre($pid));
 
     //partie contact
     $contactInfo = array("type" => @$_POST["type_demande"],
@@ -71,7 +75,7 @@ if (isset($_POST) && !empty($_POST["item_id"])) {
             $opts = $db->where("option_id", $optId)
                     ->get("md_options");
 
-            $cart->addItemOption($pid, $optId, 1, $opts[0]["prix_ht"]);
+            $cart->addItemOption($pid, $optId, 1, $opts[0]["prix_ht"], getOptionTitre($optId));
         }
     }
 
@@ -126,6 +130,17 @@ if (!empty($_POST["action"]) && !empty($_POST["i"])) {
 $items = $cart->showCart();
 
 //print_r($items);
+
+/*$smarty->assign("items", $items);
+$smarty->assign("user_information", $_SESSION["user"]);
+$smarty->assign("user_adresse", $_SESSION["adresse"][0]);
+
+//$smarty->display('user_mail_order_conf.tpl'); 
+
+$new_order =$smarty->fetch('admin_mail_order_conf.tpl'); 
+*/
+
+
 ?>
 <!-- ACC -->
 <section id="SC_acc_nv" class="FD R4 M20">

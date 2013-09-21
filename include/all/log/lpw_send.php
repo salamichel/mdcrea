@@ -1,5 +1,7 @@
 <?php
 include ("template/hd/log/H_lpw.php");
+$smarty = new Smarty;
+$smarty->setTemplateDir('template/mails');
 ?>
 
 <?
@@ -21,7 +23,7 @@ if (isset($_POST)) {
         //Set who the message is to be sent to
         $mail->AddAddress($_POST["lpw_id"], $user[0]["name"] . " " . $user[0]["fname"]);
         //Set the subject line
-        $mail->Subject = 'Sujet ICI';
+        $mail->Subject = $mail_lpw_subject;
 
         $updateData = array("is_actif" => 0,
             "pwd" => md5($new_pwd),
@@ -32,11 +34,12 @@ if (isset($_POST)) {
                 ->update('md_comptes', $updateData);
 
         if ($results) {
-            $mail_body = file_get_contents($mail_lpw);
+            
+            $smarty->assign("link", "http://" . $_SERVER["HTTP_HOST"]  . $mdfolder . "index.php?page=registrer_finished&key=" . $k);
+            $smarty->assign("new_pwd", $new_pwd);
 
-            $mail_body = str_replace("{link}", "http://" . $_SERVER["HTTP_HOST"]  . $mdfolder . "index.php?page=registrer_finished&key=" . $k, $mail_body);
-            $mail_body = str_replace("{new_pwd}", $new_pwd, $mail_body);
-
+            $mail_body = $smarty->fetch('lpw.tpl');            
+            
             //Read an HTML message body from an external file, convert referenced images to embedded, convert HTML into a basic plain-text alternative body
             $mail->MsgHTML($mail_body);
 

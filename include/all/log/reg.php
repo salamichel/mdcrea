@@ -2,6 +2,9 @@
 
 include ("template/hd/log/H_reg.php");
 
+$smarty = new Smarty;
+$smarty->setTemplateDir('template/mails');
+
 $formCorrect = true;
 $msg = "";
 
@@ -29,12 +32,12 @@ if (isset($_POST) && !empty($_POST) && !empty($_POST["src"])) {
         //Set who the message is to be sent to
         $mail->AddAddress($_POST["cnx_id"], $_POST["name"] . " " . $_POST["fname"]);
         //Set the subject line
-        $mail->Subject = 'Sujet ICI';
+        $mail->Subject = $mail_confirmation_subject;
 
+        $smarty->assign("conf_link", "http://" . $_SERVER["HTTP_HOST"] . $mdfolder . "index.php?page=registrer_finished&key=" . $k);
+        $smarty->assign("user", array("name" => $_POST["name"], "fname" => $_POST["fname"], "email" => $_POST["cnx_id"], "pwd" => $_POST["cnx_pass"]));
 
-        $mail_body = file_get_contents($mail_confirmation);
-
-        $mail_body = str_replace("{conf_link}", "http://" . $_SERVER["HTTP_HOST"] . $mdfolder ."index.php?page=registrer_finished&key=" . $k, $mail_body);
+        $mail_body = $smarty->fetch('welcome.tpl');
 
         //Read an HTML message body from an external file, convert referenced images to embedded, convert HTML into a basic plain-text alternative body
         $mail->MsgHTML($mail_body);

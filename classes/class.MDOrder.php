@@ -3,7 +3,7 @@
 class MDOrder {
 
     private $compte_id;
-    private $reference;
+    public $reference;
     private $date_ajout;
     private $date_modification;
     private $status_id;

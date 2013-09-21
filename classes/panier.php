@@ -20,17 +20,19 @@ class Panier {
     }
 
     // ajouter un article $refproduit
-    public function addItem($refproduit = "", $nb = 1, $prix = 0) {
+    public function addItem($refproduit = "", $nb = 1, $prix = 0, $nom) {
         @$this->panier[$refproduit]['quantity'] += $nb;
         @$this->panier[$refproduit]['prix'] += $prix;
+        @$this->panier[$refproduit]['nom'] = $nom;
         if ($nb <= 0)
             unset($this->panier[$refproduit]);
     }
 
     // ajouter un article $refproduit
-    public function addItemOption($refproduit = "", $refoption = "", $nb = 1, $prix = 0) {
+    public function addItemOption($refproduit = "", $refoption = "", $nb = 1, $prix = 0,$nom) {
         @$this->panier[$refproduit][$refoption]['quantity'] += $nb;
         @$this->panier[$refproduit][$refoption]['prix'] += $prix;
+        @$this->panier[$refproduit][$refoption]['nom'] = $nom;
         if ($nb <= 0)
             unset($this->panier[$refproduit][$refoption]);
     }
@@ -84,9 +86,10 @@ class Panier {
                 $list[$i]["id"] = $ref;
                 $list[$i]["qte"] = $data['quantity'];
                 $list[$i]["prix"] = $data['prix'];
+                $list[$i]["nom"] = $data['nom'];
                 foreach ($this->panier[$ref] as $oref => $option) {
                     if (!empty($option['quantity']) && $option['quantity'] > 0) {
-                        $list[$i]["options"][] = array("o_id" => $oref, "o_qte" => $option['quantity'], "o_prix" => $option['prix']);
+                        $list[$i]["options"][] = array("o_id" => $oref, "o_qte" => $option['quantity'], "o_prix" => $option['prix'], "o_nom" => $option['nom']);
                         //$list[$i]["options"][] = $option;
                     }
                 }
