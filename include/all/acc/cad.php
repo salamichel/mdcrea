@@ -1,36 +1,33 @@
 <?php
 include ("template/hd/acc/H_acc.php");
+
 $smarty = new Smarty;
 $smarty->setTemplateDir('template/mails');
-
 
 $cart = new Panier();
 
 if (isset($_POST) && !empty($_POST["opt"])) {
-    $i = 0;
-    foreach ($_POST["opt"] as $option_id) {
-        $pid = getItemIdByOption($option_id);
+    foreach ($_POST["opt"] as $k => $opts) {
+        foreach ($opts as $option_id) {
+            $pid = getItemIdByOption($option_id);
 
-        $cart->addItem($pid, 1, 0, getItemTitre($pid));
+            $cart->addItem($pid, 1, 0, getItemTitre($pid));
 
-        $cart->addItemOption($pid, $option_id, 1, getOptionPrice($option_id), getOptionTitre($option_id));
+            $cart->addItemOption($pid, $option_id, 1, getOptionPrice($option_id), getOptionTitre($option_id));
 
-
-        //ajout des fichiers retouches
-        if (!empty($_SESSION["pics"])) {
-            $fileInfo = array("produit_id" => $pid,
-                "compte_id" => $_SESSION["user"]["compte_id"],
-                "option_id" => $option_id,
-                "option_name" => getOptionTitre($option_id),
-                "filename" => $_SESSION["pics"][$i]["filename"],
-                "filesize" => $_SESSION["pics"][$i]["filesize"]);
-            $cart->addItemFiles($pid, $fileInfo);
+            //ajout des fichiers retouches
+            if (!empty($_SESSION["pics"])) {
+                $fileInfo = array("produit_id" => $pid,
+                    "compte_id" => $_SESSION["user"]["compte_id"],
+                    "option_id" => $option_id,
+                    "option_name" => getOptionTitre($option_id),
+                    "filename" => $_SESSION["pics"][$k]["filename"],
+                    "filesize" => $_SESSION["pics"][$k]["filesize"]);
+                $cart->addItemFiles($pid, $fileInfo);
+            }
         }
-        $i++;
     }
 }
-
-
 
 if (isset($_POST) && !empty($_POST["item_id"])) {
     // quantité
@@ -129,18 +126,27 @@ if (!empty($_POST["action"]) && !empty($_POST["i"])) {
 
 $items = $cart->showCart();
 
+if (empty($_SESSION["user"]["is_actif"])) {
+    //header('Location: index.php?#ID_idx_rg');    
+    //include ("include/idx/registrer.php");
+    ?>
+    <SCRIPT LANGUAGE = "JavaScript">
+        document.location.href = "index.php?#ID_idx_rg"
+    </SCRIPT>
+    <?
+}
+
+
 //print_r($items);
 
-/*$smarty->assign("items", $items);
+/* $smarty->assign("items", $items);
 $smarty->assign("user_information", $_SESSION["user"]);
 $smarty->assign("user_adresse", $_SESSION["adresse"][0]);
 
-//$smarty->display('user_mail_order_conf.tpl'); 
+//$smarty->display('user_mail_order_conf.tpl');
 
-$new_order =$smarty->fetch('admin_mail_order_conf.tpl'); 
+$new_order =$smarty->fetch('admin_mail_order_conf.tpl');
 */
-
-
 ?>
 <!-- ACC -->
 <section id="SC_acc_nv" class="FD R4 M20">
@@ -186,10 +192,9 @@ $new_order =$smarty->fetch('admin_mail_order_conf.tpl');
                     <div>
                         <h1>Validation</h1>
                         <p>Appuyez sur le bouton pour passer votre commande.</p>
-                        <form action="#" method="post">
-                            <form>
-                                <a href = "index.php?page=order_validate" class = "BT1 BLUE1 R20">Envoyer ma Commande</a>
-                            </form>
+                        <form action="#" method="post">                            
+                            <a href = "index.php?page=order_validate" class = "BT1 BLUE1 R20">Envoyer ma Commande</a>
+                        </form>
                     </div>
                 </div>
             </article>
